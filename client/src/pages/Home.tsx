@@ -112,21 +112,21 @@ export default function Home() {
       {/* ── HERO ── */}
       <section
         className="relative min-h-[90vh] flex items-center overflow-hidden"
-        style={{ backgroundColor: "#18181B" }}
+        style={{ backgroundColor: "#404040" }}
       >
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${HERO_IMG})`,
-            opacity: 0.25,
+            opacity: 0.45,
           }}
         />
         {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(105deg, rgba(24,24,27,0.97) 45%, rgba(24,24,27,0.5) 100%)",
+            background: "linear-gradient(105deg, rgba(58,58,58,0.92) 45%, rgba(58,58,58,0.55) 100%)",
           }}
         />
 
@@ -134,7 +134,7 @@ export default function Home() {
           <div className="max-w-3xl">
             {/* Label */}
             <div className="flex items-center gap-3 mb-6">
-              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F59E0B" }} />
+              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
               <span
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
@@ -142,7 +142,7 @@ export default function Home() {
                   fontSize: "0.75rem",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
-                  color: "#F59E0B",
+                  color: "#F5A623",
                 }}
               >
                 Sarasota, FL · Est. 1990
@@ -162,15 +162,15 @@ export default function Home() {
               }}
             >
               SARASOTA'S HOSE{" "}
-              <span style={{ color: "#F59E0B" }}>REPAIR</span> &amp;{" "}
+              <span style={{ color: "#F5A623" }}>REPAIR</span> &amp;{" "}
               <br className="hidden sm:block" />
               PRESSURE WASHING{" "}
-              <span style={{ color: "#F59E0B" }}>EXPERTS</span>
+              <span style={{ color: "#F5A623" }}>EXPERTS</span>
             </h1>
 
             <p
               className="mb-8 max-w-xl"
-              style={{ color: "#A1A1AA", fontSize: "1.1rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}
+              style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}
             >
               Family-owned since 1990. Hydraulic hose repair, pressure washer sales &amp; service, Honda engines, Titan hose reels, custom rig builds, and emergency mobile repair — all under one roof.
             </p>
@@ -181,8 +181,8 @@ export default function Home() {
                 href="tel:+19413774673"
                 className="flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95"
                 style={{
-                  backgroundColor: "#F59E0B",
-                  color: "#18181B",
+                  backgroundColor: "#F5A623",
+                  color: "#404040",
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 700,
                   letterSpacing: "0.05em",
@@ -196,7 +196,7 @@ export default function Home() {
                 href="/emergency-mobile-hose-repair"
                 className="flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95 emergency-pulse"
                 style={{
-                  backgroundColor: "#DC2626",
+                  backgroundColor: "#E03030",
                   color: "#FFFFFF",
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 700,
@@ -227,13 +227,13 @@ export default function Home() {
             {/* Trust badges */}
             <div className="flex flex-wrap gap-6">
               {[
-                { icon: <Star size={14} fill="#F59E0B" color="#F59E0B" />, text: "4.8★ Google Rating (48 Reviews)" },
-                { icon: <Award size={14} color="#F59E0B" />, text: "35+ Years in Business" },
-                { icon: <MapPin size={14} color="#F59E0B" />, text: "2 Locations: Sarasota & Bradenton" },
+                { icon: <Star size={14} fill="#F5A623" color="#F5A623" />, text: "4.8★ Google Rating (48 Reviews)" },
+                { icon: <Award size={14} color="#F5A623" />, text: "35+ Years in Business" },
+                { icon: <MapPin size={14} color="#F5A623" />, text: "2 Locations: Sarasota & Bradenton" },
               ].map((badge) => (
                 <div key={badge.text} className="flex items-center gap-2">
                   {badge.icon}
-                  <span style={{ color: "#A1A1AA", fontSize: "0.8rem", fontFamily: "'DM Sans', sans-serif" }}>
+                  <span style={{ color: "#C0C0C0", fontSize: "0.8rem", fontFamily: "'DM Sans', sans-serif" }}>
                     {badge.text}
                   </span>
                 </div>
@@ -247,13 +247,13 @@ export default function Home() {
           className="absolute bottom-0 left-0 right-0"
           style={{
             height: "80px",
-            background: "linear-gradient(to bottom right, transparent 49%, #18181B 50%)",
+            background: "linear-gradient(to bottom right, transparent 49%, #404040 50%)",
           }}
         />
       </section>
 
       {/* ── STATS BAR ── */}
-      <section style={{ backgroundColor: "#27272A", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+      <section style={{ backgroundColor: "#4A4A4A", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="container py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -268,14 +268,14 @@ export default function Home() {
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontWeight: 800,
                     fontSize: "3rem",
-                    color: "#F59E0B",
+                    color: "#F5A623",
                     lineHeight: 1,
                   }}
                 >
                   <AnimatedStat end={stat.end} label={stat.label} />
                   <span>{stat.suffix}</span>
                 </div>
-                <div style={{ color: "#71717A", fontSize: "0.8rem", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "0.25rem", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600 }}>
+                <div style={{ color: "#909090", fontSize: "0.8rem", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "0.25rem", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600 }}>
                   {stat.label}
                 </div>
               </div>
@@ -285,12 +285,12 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES GRID ── */}
-      <section style={{ backgroundColor: "#18181B" }} className="py-20">
+      <section style={{ backgroundColor: "#404040" }} className="py-20">
         <div className="container">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F59E0B" }} />
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F59E0B" }}>
+              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
+              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
                 What We Do
               </span>
             </div>
@@ -305,7 +305,7 @@ export default function Home() {
             >
               COMPLETE HOSE &amp; PRESSURE WASHING
               <br />
-              <span style={{ color: "#F59E0B" }}>SERVICES IN SARASOTA, FL</span>
+              <span style={{ color: "#F5A623" }}>SERVICES IN SARASOTA, FL</span>
             </h2>
           </div>
 
@@ -316,16 +316,16 @@ export default function Home() {
                 href={svc.href}
                 className="block p-6 rounded-lg transition-all group"
                 style={{
-                  backgroundColor: "#27272A",
-                  borderLeft: `4px solid ${svc.emergency ? "#DC2626" : "#F59E0B"}`,
+                  backgroundColor: "#4A4A4A",
+                  borderLeft: `4px solid ${svc.emergency ? "#E03030" : "#F5A623"}`,
                   border: svc.emergency ? "1px solid rgba(220,38,38,0.3)" : "1px solid rgba(255,255,255,0.06)",
                   borderLeftWidth: "4px",
-                  borderLeftColor: svc.emergency ? "#DC2626" : "#F59E0B",
+                  borderLeftColor: svc.emergency ? "#E03030" : "#F5A623",
                 }}
               >
                 <div
                   className="mb-4 w-12 h-12 rounded flex items-center justify-center"
-                  style={{ backgroundColor: svc.emergency ? "rgba(220,38,38,0.15)" : "rgba(245,158,11,0.12)", color: svc.emergency ? "#DC2626" : "#F59E0B" }}
+                  style={{ backgroundColor: svc.emergency ? "rgba(220,38,38,0.15)" : "rgba(245,158,11,0.12)", color: svc.emergency ? "#E03030" : "#F5A623" }}
                 >
                   {svc.icon}
                 </div>
@@ -341,12 +341,12 @@ export default function Home() {
                 >
                   {svc.title}
                 </h3>
-                <p style={{ color: "#A1A1AA", fontSize: "0.9rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>
+                <p style={{ color: "#C0C0C0", fontSize: "0.9rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>
                   {svc.desc}
                 </p>
                 <div
                   className="mt-4 flex items-center gap-1 text-sm font-semibold transition-all group-hover:gap-2"
-                  style={{ color: svc.emergency ? "#DC2626" : "#F59E0B", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}
+                  style={{ color: svc.emergency ? "#E03030" : "#F5A623", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}
                 >
                   Learn More <ArrowRight size={14} />
                 </div>
@@ -359,7 +359,7 @@ export default function Home() {
       {/* ── EMERGENCY CTA BANNER ── */}
       <section
         className="py-16 relative overflow-hidden"
-        style={{ backgroundColor: "#DC2626" }}
+        style={{ backgroundColor: "#E03030" }}
       >
         <div
           className="absolute inset-0 bg-cover bg-center opacity-10"
@@ -397,7 +397,7 @@ export default function Home() {
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded font-bold text-xl transition-all hover:scale-105 active:scale-95"
                 style={{
                   backgroundColor: "#FFFFFF",
-                  color: "#DC2626",
+                  color: "#E03030",
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 800,
                   letterSpacing: "0.05em",
@@ -421,10 +421,10 @@ export default function Home() {
       </section>
 
       {/* ── BRANDS ── */}
-      <section style={{ backgroundColor: "#27272A" }} className="py-16">
+      <section style={{ backgroundColor: "#4A4A4A" }} className="py-16">
         <div className="container">
           <div className="text-center mb-10">
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F59E0B" }}>
+            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
               Brands We Carry & Service
             </span>
             <h2
@@ -451,21 +451,21 @@ export default function Home() {
               <div
                 key={brand.name}
                 className="p-4 rounded-lg text-center"
-                style={{ backgroundColor: "#18181B", border: "1px solid rgba(255,255,255,0.06)" }}
+                style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.06)" }}
               >
                 <div
                   style={{
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontWeight: 800,
                     fontSize: "1.1rem",
-                    color: "#F59E0B",
+                    color: "#F5A623",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                   }}
                 >
                   {brand.name}
                 </div>
-                <div style={{ color: "#52525B", fontSize: "0.7rem", marginTop: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>
+                <div style={{ color: "#909090", fontSize: "0.7rem", marginTop: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>
                   {brand.sub}
                 </div>
               </div>
@@ -475,13 +475,13 @@ export default function Home() {
       </section>
 
       {/* ── RIG BUILDS FEATURE ── */}
-      <section style={{ backgroundColor: "#18181B" }} className="py-20">
+      <section style={{ backgroundColor: "#404040" }} className="py-20">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F59E0B" }} />
-                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F59E0B" }}>
+                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
+                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
                   Custom Builds
                 </span>
               </div>
@@ -497,9 +497,9 @@ export default function Home() {
               >
                 CUSTOM PRESSURE WASHING
                 <br />
-                <span style={{ color: "#F59E0B" }}>RIG BUILDS</span>
+                <span style={{ color: "#F5A623" }}>RIG BUILDS</span>
               </h2>
-              <p style={{ color: "#A1A1AA", lineHeight: 1.7, marginBottom: "1.5rem", fontFamily: "'DM Sans', sans-serif" }}>
+              <p style={{ color: "#C0C0C0", lineHeight: 1.7, marginBottom: "1.5rem", fontFamily: "'DM Sans', sans-serif" }}>
                 We design and build complete pressure washing rigs from the ground up — trailer-mounted systems, skid units, and truck-bed setups. Every build uses commercial-grade components: Honda GX engines, Titan hose reels, poly water tanks, stainless fittings, and custom high-pressure hose assemblies.
               </p>
               <ul className="space-y-3 mb-8">
@@ -512,8 +512,8 @@ export default function Home() {
                   "Custom trailer fabrication available",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#F59E0B", marginTop: "8px", flexShrink: 0 }} />
-                    <span style={{ color: "#A1A1AA", fontSize: "0.9rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
+                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#F5A623", marginTop: "8px", flexShrink: 0 }} />
+                    <span style={{ color: "#C0C0C0", fontSize: "0.9rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -521,8 +521,8 @@ export default function Home() {
                 href="/pressure-washing-rig-builds"
                 className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:scale-105 active:scale-95"
                 style={{
-                  backgroundColor: "#F59E0B",
-                  color: "#18181B",
+                  backgroundColor: "#F5A623",
+                  color: "#404040",
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 700,
                   letterSpacing: "0.05em",
@@ -542,12 +542,12 @@ export default function Home() {
               />
               <div
                 className="absolute -bottom-4 -left-4 p-4 rounded-lg"
-                style={{ backgroundColor: "#27272A", border: "1px solid rgba(245,158,11,0.3)" }}
+                style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(245,158,11,0.3)" }}
               >
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "#F59E0B" }}>
+                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "#F5A623" }}>
                   HONDA + TITAN
                 </div>
-                <div style={{ color: "#71717A", fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif" }}>
+                <div style={{ color: "#909090", fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif" }}>
                   Authorized Dealer & Service Center
                 </div>
               </div>
@@ -557,7 +557,7 @@ export default function Home() {
       </section>
 
       {/* ── SUPPLY STORE FEATURE ── */}
-      <section style={{ backgroundColor: "#27272A" }} className="py-20">
+      <section style={{ backgroundColor: "#4A4A4A" }} className="py-20">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 relative">
@@ -571,8 +571,8 @@ export default function Home() {
             </div>
             <div className="order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-4">
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F59E0B" }} />
-                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F59E0B" }}>
+                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
+                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
                   Supply Store
                 </span>
               </div>
@@ -588,9 +588,9 @@ export default function Home() {
               >
                 EVERYTHING YOU NEED
                 <br />
-                <span style={{ color: "#F59E0B" }}>IN STOCK, IN SARASOTA</span>
+                <span style={{ color: "#F5A623" }}>IN STOCK, IN SARASOTA</span>
               </h2>
-              <p style={{ color: "#A1A1AA", lineHeight: 1.7, marginBottom: "1.5rem", fontFamily: "'DM Sans', sans-serif" }}>
+              <p style={{ color: "#C0C0C0", lineHeight: 1.7, marginBottom: "1.5rem", fontFamily: "'DM Sans', sans-serif" }}>
                 Our Sarasota shop stocks the parts, hoses, and equipment that pressure washing contractors and industrial customers need — available same day, no waiting on shipping.
               </p>
               <div className="grid grid-cols-2 gap-3 mb-8">
@@ -609,8 +609,8 @@ export default function Home() {
                   "Poly Tanks",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#F59E0B", flexShrink: 0 }} />
-                    <span style={{ color: "#A1A1AA", fontSize: "0.85rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
+                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#F5A623", flexShrink: 0 }} />
+                    <span style={{ color: "#C0C0C0", fontSize: "0.85rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
                   </div>
                 ))}
               </div>
@@ -618,8 +618,8 @@ export default function Home() {
                 href="/pressure-washing-supply-store"
                 className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:scale-105 active:scale-95"
                 style={{
-                  backgroundColor: "#F59E0B",
-                  color: "#18181B",
+                  backgroundColor: "#F5A623",
+                  color: "#404040",
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 700,
                   letterSpacing: "0.05em",
@@ -634,15 +634,15 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section style={{ backgroundColor: "#18181B" }} className="py-20">
+      <section style={{ backgroundColor: "#404040" }} className="py-20">
         <div className="container">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F59E0B" }} />
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F59E0B" }}>
+              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
+              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
                 What Customers Say
               </span>
-              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F59E0B" }} />
+              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
             </div>
             <h2
               style={{
@@ -661,19 +661,19 @@ export default function Home() {
                 key={t.name}
                 className="p-6 rounded-lg"
                 style={{
-                  backgroundColor: "#27272A",
-                  borderLeft: "4px solid #F59E0B",
+                  backgroundColor: "#4A4A4A",
+                  borderLeft: "4px solid #F5A623",
                   border: "1px solid rgba(255,255,255,0.06)",
                   borderLeftWidth: "4px",
-                  borderLeftColor: "#F59E0B",
+                  borderLeftColor: "#F5A623",
                 }}
               >
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} size={14} fill="#F59E0B" color="#F59E0B" />
+                    <Star key={i} size={14} fill="#F5A623" color="#F5A623" />
                   ))}
                 </div>
-                <p style={{ color: "#A1A1AA", fontSize: "0.9rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif", fontStyle: "italic", marginBottom: "1rem" }}>
+                <p style={{ color: "#C0C0C0", fontSize: "0.9rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif", fontStyle: "italic", marginBottom: "1rem" }}>
                   "{t.text}"
                 </p>
                 <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#E4E4E7", fontSize: "0.9rem", letterSpacing: "0.05em" }}>
@@ -689,15 +689,15 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded font-bold transition-all hover:scale-105"
               style={{
-                border: "2px solid #F59E0B",
-                color: "#F59E0B",
+                border: "2px solid #F5A623",
+                color: "#F5A623",
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontWeight: 700,
                 letterSpacing: "0.05em",
                 textTransform: "uppercase",
               }}
             >
-              <Star size={16} fill="#F59E0B" />
+              <Star size={16} fill="#F5A623" />
               Read All Reviews on Google
             </a>
           </div>
@@ -705,7 +705,7 @@ export default function Home() {
       </section>
 
       {/* ── WHY MHSS ── */}
-      <section style={{ backgroundColor: "#27272A" }} className="py-20">
+      <section style={{ backgroundColor: "#4A4A4A" }} className="py-20">
         <div className="container">
           <div className="text-center mb-12">
             <h2
@@ -716,7 +716,7 @@ export default function Home() {
                 color: "#FFFFFF",
               }}
             >
-              WHY SARASOTA CHOOSES <span style={{ color: "#F59E0B" }}>MHSS</span>
+              WHY SARASOTA CHOOSES <span style={{ color: "#F5A623" }}>MHSS</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -745,11 +745,11 @@ export default function Home() {
               <div
                 key={item.title}
                 className="p-6 rounded-lg"
-                style={{ backgroundColor: "#18181B", border: "1px solid rgba(255,255,255,0.06)" }}
+                style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.06)" }}
               >
                 <div
                   className="mb-4 w-12 h-12 rounded flex items-center justify-center"
-                  style={{ backgroundColor: "rgba(245,158,11,0.12)", color: "#F59E0B" }}
+                  style={{ backgroundColor: "rgba(245,158,11,0.12)", color: "#F5A623" }}
                 >
                   {item.icon}
                 </div>
@@ -764,7 +764,7 @@ export default function Home() {
                 >
                   {item.title}
                 </h3>
-                <p style={{ color: "#71717A", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>
+                <p style={{ color: "#909090", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>
                   {item.desc}
                 </p>
               </div>
@@ -774,13 +774,13 @@ export default function Home() {
       </section>
 
       {/* ── LOCATIONS MAP CTA ── */}
-      <section style={{ backgroundColor: "#18181B" }} className="py-20">
+      <section style={{ backgroundColor: "#404040" }} className="py-20">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F59E0B" }} />
-                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F59E0B" }}>
+                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
+                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
                   Find Us
                 </span>
               </div>
@@ -796,7 +796,7 @@ export default function Home() {
               >
                 TWO LOCATIONS SERVING
                 <br />
-                <span style={{ color: "#F59E0B" }}>SARASOTA &amp; BRADENTON</span>
+                <span style={{ color: "#F5A623" }}>SARASOTA &amp; BRADENTON</span>
               </h2>
               <div className="space-y-6 mb-8">
                 {[
@@ -818,29 +818,29 @@ export default function Home() {
                   <div
                     key={loc.city}
                     className="p-5 rounded-lg"
-                    style={{ backgroundColor: "#27272A", borderLeft: "4px solid #F59E0B", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F59E0B" }}
+                    style={{ backgroundColor: "#4A4A4A", borderLeft: "4px solid #F5A623", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F5A623" }}
                   >
                     <div
                       style={{
                         fontFamily: "'Barlow Condensed', sans-serif",
                         fontWeight: 700,
                         fontSize: "1.1rem",
-                        color: "#F59E0B",
+                        color: "#F5A623",
                         marginBottom: "0.5rem",
                       }}
                     >
                       {loc.city} Location
                     </div>
-                    <p style={{ color: "#A1A1AA", fontSize: "0.875rem", marginBottom: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.address}</p>
-                    <p style={{ color: "#A1A1AA", fontSize: "0.875rem", marginBottom: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.hours}</p>
-                    <a href={`tel:+1${loc.phone.replace(/-/g, "")}`} style={{ color: "#F59E0B", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.phone}</a>
+                    <p style={{ color: "#C0C0C0", fontSize: "0.875rem", marginBottom: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.address}</p>
+                    <p style={{ color: "#C0C0C0", fontSize: "0.875rem", marginBottom: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.hours}</p>
+                    <a href={`tel:+1${loc.phone.replace(/-/g, "")}`} style={{ color: "#F5A623", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.phone}</a>
                     <div className="mt-3">
                       <a
                         href={loc.maps}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-xs font-semibold transition-colors hover:text-yellow-300"
-                        style={{ color: "#F59E0B", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.08em", textTransform: "uppercase" }}
+                        style={{ color: "#F5A623", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.08em", textTransform: "uppercase" }}
                       >
                         <MapPin size={12} /> Get Directions
                       </a>
@@ -852,8 +852,8 @@ export default function Home() {
                 href="/contact"
                 className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:scale-105 active:scale-95"
                 style={{
-                  backgroundColor: "#F59E0B",
-                  color: "#18181B",
+                  backgroundColor: "#F5A623",
+                  color: "#404040",
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 700,
                   letterSpacing: "0.05em",
@@ -884,7 +884,7 @@ export default function Home() {
       <section
         className="py-16"
         style={{
-          background: "linear-gradient(135deg, #27272A 0%, #18181B 100%)",
+          background: "linear-gradient(135deg, #4A4A4A 0%, #404040 100%)",
           borderTop: "1px solid rgba(245,158,11,0.2)",
         }}
       >
@@ -900,7 +900,7 @@ export default function Home() {
           >
             READY TO GET STARTED?
           </h2>
-          <p className="mb-8 max-w-xl mx-auto" style={{ color: "#A1A1AA", fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="mb-8 max-w-xl mx-auto" style={{ color: "#C0C0C0", fontFamily: "'DM Sans', sans-serif" }}>
             Call us, stop by our Sarasota shop, or request a free quote online. We're here Mon–Fri 7:30am–5:00pm.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -908,8 +908,8 @@ export default function Home() {
               href="tel:+19413774673"
               className="flex items-center gap-2 px-8 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95"
               style={{
-                backgroundColor: "#F59E0B",
-                color: "#18181B",
+                backgroundColor: "#F5A623",
+                color: "#404040",
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontWeight: 700,
                 letterSpacing: "0.05em",
