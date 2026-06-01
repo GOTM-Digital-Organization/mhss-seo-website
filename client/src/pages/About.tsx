@@ -12,8 +12,8 @@ export default function About() {
       canonical="https://www.mhss-inc.com/about"
     >
       <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#404040" }}>
-        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url(${HERO_IMG})` }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.88) 50%, rgba(58,58,58,0.50) 100%)" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-65" style={{ backgroundImage: `url(${HERO_IMG})` }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.75) 40%, rgba(58,58,58,0.20) 100%)" }} />
         <div className="container relative z-10">
           <div className="flex items-center gap-3 mb-4">
             <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />

@@ -13,8 +13,8 @@ export default function EmergencyService() {
     >
       {/* Hero */}
       <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#404040" }}>
-        <div className="absolute inset-0 bg-cover bg-center opacity-25" style={{ backgroundImage: `url(${EMERGENCY_IMG})` }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.92) 50%, rgba(58,58,58,0.55) 100%)" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-65" style={{ backgroundImage: `url(${EMERGENCY_IMG})` }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.75) 40%, rgba(58,58,58,0.20) 100%)" }} />
         <div className="container relative z-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-3 h-3 rounded-full emergency-pulse" style={{ backgroundColor: "#E03030" }} />

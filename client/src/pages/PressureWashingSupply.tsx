@@ -55,8 +55,8 @@ export default function PressureWashingSupply() {
       canonical="https://www.mhss-inc.com/pressure-washing-supply-store"
     >
       <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#404040" }}>
-        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: `url(${SUPPLY_IMG})` }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.88) 50%, rgba(58,58,58,0.60) 100%)" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-65" style={{ backgroundImage: `url(${SUPPLY_IMG})` }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.75) 40%, rgba(58,58,58,0.20) 100%)" }} />
         <div className="container relative z-10">
           <div className="flex items-center gap-3 mb-4">
             <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
