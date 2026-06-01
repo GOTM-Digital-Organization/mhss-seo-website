@@ -99,14 +99,12 @@ export default function Layout({ children, title, description, canonical, ogImag
           <div className="flex items-center justify-between py-3">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <div style={{ width: "40px", height: "40px", backgroundColor: C.amber, borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "0.95rem", color: "#1A1A1A", letterSpacing: "0.02em" }}>MH</span>
-              </div>
-              <div>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.05rem", color: C.text, letterSpacing: "0.04em", lineHeight: 1.1 }}>MHSS INC.</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.62rem", color: C.dim, letterSpacing: "0.08em", textTransform: "uppercase" }}>Mobile Hose &amp; Spray Systems</div>
-              </div>
+            <Link href="/" className="flex items-center">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-modern-WJoGhvntmz3jbf5JioUutP.webp"
+                alt="MHSS Inc. — Mobile Hose & Spray Systems, Inc."
+                style={{ height: "52px", width: "auto", display: "block" }}
+              />
             </Link>
 
             {/* Desktop Nav */}
@@ -243,14 +241,12 @@ export default function Layout({ children, title, description, canonical, ogImag
 
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div style={{ width: "36px", height: "36px", backgroundColor: C.amber, borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "0.85rem", color: "#1A1A1A" }}>MH</span>
-                </div>
-                <div>
-                  <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "0.95rem", color: C.text }}>MHSS INC.</div>
-                  <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.6rem", color: C.dim, textTransform: "uppercase", letterSpacing: "0.08em" }}>Mobile Hose &amp; Spray Systems</div>
-                </div>
+              <div className="mb-4">
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-dark-LCTv5KtFyiBJyuuzAyUuCC.webp"
+                  alt="MHSS Inc. — Mobile Hose & Spray Systems, Inc."
+                  style={{ height: "56px", width: "auto", display: "block" }}
+                />
               </div>
               <p style={{ color: C.muted, fontSize: "0.82rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
                 Sarasota's trusted hydraulic hose repair, pressure washer sales &amp; service, and emergency mobile repair since 1990. Family-owned.
