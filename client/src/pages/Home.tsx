@@ -119,14 +119,14 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${HERO_IMG})`,
-            opacity: 0.45,
+            opacity: 0.70,
           }}
         />
         {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(105deg, rgba(58,58,58,0.92) 45%, rgba(58,58,58,0.55) 100%)",
+            background: "linear-gradient(105deg, rgba(58,58,58,0.78) 40%, rgba(58,58,58,0.25) 100%)",
           }}
         />
 
@@ -317,10 +317,10 @@ export default function Home() {
                 className="block p-6 rounded-lg transition-all group"
                 style={{
                   backgroundColor: "#4A4A4A",
-                  borderLeft: `4px solid ${svc.emergency ? "#E03030" : "#F5A623"}`,
-                  border: svc.emergency ? "1px solid rgba(220,38,38,0.3)" : "1px solid rgba(255,255,255,0.06)",
-                  borderLeftWidth: "4px",
-                  borderLeftColor: svc.emergency ? "#E03030" : "#F5A623",
+                  borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: svc.emergency ? "rgba(220,38,38,0.3)" : "rgba(255,255,255,0.06)",
+                  borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: svc.emergency ? "rgba(220,38,38,0.3)" : "rgba(255,255,255,0.06)",
+                  borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: svc.emergency ? "rgba(220,38,38,0.3)" : "rgba(255,255,255,0.06)",
+                  borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: svc.emergency ? "#E03030" : "#F5A623",
                 }}
               >
                 <div
@@ -662,10 +662,10 @@ export default function Home() {
                 className="p-6 rounded-lg"
                 style={{
                   backgroundColor: "#4A4A4A",
-                  borderLeft: "4px solid #F5A623",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  borderLeftWidth: "4px",
-                  borderLeftColor: "#F5A623",
+                  borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)",
+                  borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)",
+                  borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)",
+                  borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623",
                 }}
               >
                 <div className="flex gap-1 mb-4">
@@ -818,7 +818,7 @@ export default function Home() {
                   <div
                     key={loc.city}
                     className="p-5 rounded-lg"
-                    style={{ backgroundColor: "#4A4A4A", borderLeft: "4px solid #F5A623", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F5A623" }}
+                    style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}
                   >
                     <div
                       style={{

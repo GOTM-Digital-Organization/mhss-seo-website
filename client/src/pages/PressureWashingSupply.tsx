@@ -95,7 +95,7 @@ export default function PressureWashingSupply() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CATEGORIES.map((cat) => (
-              <div key={cat.title} className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderLeft: "4px solid #F5A623", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F5A623" }}>
+              <div key={cat.title} className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
                 <div className="flex items-center gap-2 mb-4">
                   <Package size={18} style={{ color: "#F5A623" }} />
                   <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#FFFFFF" }}>

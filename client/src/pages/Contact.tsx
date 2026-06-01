@@ -42,7 +42,7 @@ export default function Contact() {
             {/* Contact Info */}
             <div className="space-y-6">
               {/* Phone */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderLeft: "4px solid #F5A623", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F5A623" }}>
+              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
                 <div className="flex items-center gap-3 mb-3">
                   <Phone size={20} style={{ color: "#F5A623" }} />
                   <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFFFFF", fontSize: "1.1rem" }}>Call Us</span>

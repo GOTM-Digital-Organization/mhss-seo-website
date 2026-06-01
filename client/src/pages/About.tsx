@@ -64,7 +64,7 @@ export default function About() {
                     { title: "Two Locations, One Mobile Unit", desc: "Our Sarasota and Bradenton shop locations, combined with the emergency mobile unit, give us geographic coverage that most competitors can't match. Whether you're in Sarasota County or Manatee County, we're close." },
                     { title: "Family-Owned, Community-Focused", desc: "We're not a franchise or a national chain. We're a Sarasota family business, and we treat our customers the way we'd want to be treated. That's why so much of our business comes from referrals and repeat customers who've been with us for years." },
                   ].map((item) => (
-                    <div key={item.title} className="p-5 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderLeft: "4px solid #F5A623", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F5A623" }}>
+                    <div key={item.title} className="p-5 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
                       <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFFFFF", fontSize: "1.05rem", marginBottom: "0.5rem" }}>
                         {item.title}
                       </div>
@@ -125,7 +125,7 @@ export default function About() {
               </div>
 
               {/* Contact CTA */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderLeft: "4px solid #F5A623", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F5A623" }}>
+              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#FFFFFF", marginBottom: "0.75rem" }}>
                   VISIT US IN SARASOTA
                 </h3>

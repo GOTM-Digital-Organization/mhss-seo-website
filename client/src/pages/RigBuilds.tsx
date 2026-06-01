@@ -61,7 +61,7 @@ export default function RigBuilds() {
                     { title: "Pumps & Plumbing", items: ["AR, General Pump, Comet", "Unloader valves", "Stainless fittings throughout", "Bypass / recirculation lines", "Chemical injection systems"] },
                     { title: "Tanks & Frame", items: ["100 to 500+ gallon poly tanks", "Steel trailer or skid frame", "Diamond plate tool boxes", "Custom paint / powder coat", "DOT-compliant trailer builds"] },
                   ].map((section) => (
-                    <div key={section.title} className="p-5 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderLeft: "4px solid #F5A623", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F5A623" }}>
+                    <div key={section.title} className="p-5 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
                       <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#F5A623", fontSize: "1rem", marginBottom: "0.75rem" }}>
                         {section.title}
                       </div>
@@ -102,7 +102,7 @@ export default function RigBuilds() {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderLeft: "4px solid #F5A623", border: "1px solid rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftColor: "#F5A623" }}>
+              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#FFFFFF", marginBottom: "0.75rem" }}>
                   DISCUSS YOUR BUILD
                 </h3>
