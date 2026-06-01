@@ -30,7 +30,7 @@ const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-const OG_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-og-image-BuWuBJAJABkMNEJhJFUYdB.webp";
+const OG_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-og-breadtruck-97hgXTcgDLPnRRQHdFuAze.png";
 
 // ── colour constants ──────────────────────────────────────────────────────────
 const C = {
