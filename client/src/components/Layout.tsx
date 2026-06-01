@@ -101,9 +101,9 @@ export default function Layout({ children, title, description, canonical, ogImag
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-modern-WJoGhvntmz3jbf5JioUutP.webp"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-transparent-7WwXPhsKfWWddLDQdcJ49x.png"
                 alt="MHSS Inc. — Mobile Hose & Spray Systems, Inc."
-                style={{ height: "52px", width: "auto", display: "block" }}
+                style={{ height: "68px", width: "auto", display: "block" }}
               />
             </Link>
 
@@ -243,9 +243,9 @@ export default function Layout({ children, title, description, canonical, ogImag
             <div>
               <div className="mb-4">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-dark-LCTv5KtFyiBJyuuzAyUuCC.webp"
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-transparent-7WwXPhsKfWWddLDQdcJ49x.png"
                   alt="MHSS Inc. — Mobile Hose & Spray Systems, Inc."
-                  style={{ height: "56px", width: "auto", display: "block" }}
+                  style={{ height: "72px", width: "auto", display: "block" }}
                 />
               </div>
               <p style={{ color: C.muted, fontSize: "0.82rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
