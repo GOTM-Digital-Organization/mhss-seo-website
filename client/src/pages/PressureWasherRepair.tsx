@@ -16,18 +16,18 @@ export default function PressureWasherRepair() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.75) 40%, rgba(58,58,58,0.20) 100%)" }} />
         <div className="container relative z-10">
           <div className="flex items-center gap-3 mb-4">
-            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
+            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#FFD100" }} />
+            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#FFD100" }}>
               Pressure Washer Repair & Sales — Sarasota, FL
             </span>
           </div>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: "#FFFFFF", lineHeight: 1.0, marginBottom: "1.25rem" }}>
-            PRESSURE WASHER REPAIR<br /><span style={{ color: "#F5A623" }}>&amp; SALES — SARASOTA</span>
+            PRESSURE WASHER REPAIR<br /><span style={{ color: "#FFD100" }}>&amp; SALES — SARASOTA</span>
           </h1>
           <p style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "600px", marginBottom: "2rem", fontFamily: "'DM Sans', sans-serif" }}>
             Factory-trained service on Honda, AR, General Pump, and other commercial pressure washers. Pumps, unloaders, burners, carburetors, and complete machine rebuilds — all in our Sarasota shop.
           </p>
-          <a href="tel:+19413774673" className="inline-flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95" style={{ backgroundColor: "#F5A623", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+          <a href="tel:+19413774673" className="inline-flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95" style={{ backgroundColor: "#FFD100", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
             <Phone size={18} /> Call 941-377-4673
           </a>
         </div>
@@ -38,7 +38,7 @@ export default function PressureWasherRepair() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-10">
               <div>
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623", marginBottom: "1rem" }} />
+                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#FFD100", marginBottom: "1rem" }} />
                 <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "2rem", color: "#FFFFFF", marginBottom: "1rem" }}>
                   COMMERCIAL PRESSURE WASHER REPAIR IN SARASOTA
                 </h2>
@@ -70,7 +70,7 @@ export default function PressureWasherRepair() {
                     "Complete machine inspection & tune-up",
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 p-3 rounded" style={{ backgroundColor: "#4A4A4A" }}>
-                      <CheckCircle size={16} style={{ color: "#F5A623", marginTop: "2px", flexShrink: 0 }} />
+                      <CheckCircle size={16} style={{ color: "#FFD100", marginTop: "2px", flexShrink: 0 }} />
                       <span style={{ color: "#C0C0C0", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
                     </div>
                   ))}
@@ -96,7 +96,7 @@ export default function PressureWasherRepair() {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {["Honda", "AR Pumps", "General Pump", "Comet", "Cat Pumps", "Simpson", "Landa", "Hotsy", "Karcher (Commercial)", "Mi-T-M", "NorthStar", "PowerBoss"].map((brand) => (
                     <div key={brand} className="p-3 rounded text-center" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                      <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#F5A623", fontSize: "0.9rem", letterSpacing: "0.05em" }}>{brand}</span>
+                      <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFD100", fontSize: "0.9rem", letterSpacing: "0.05em" }}>{brand}</span>
                     </div>
                   ))}
                 </div>
@@ -105,14 +105,14 @@ export default function PressureWasherRepair() {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
+              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#FFD100" }}>
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#FFFFFF", marginBottom: "0.75rem" }}>
                   SCHEDULE SERVICE
                 </h3>
                 <p style={{ color: "#C0C0C0", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif", marginBottom: "1.25rem" }}>
                   Bring your pressure washer to our Sarasota shop or call for a quote. We service most brands and models.
                 </p>
-                <a href="tel:+19413774673" className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold transition-all hover:scale-105" style={{ backgroundColor: "#F5A623", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                <a href="tel:+19413774673" className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold transition-all hover:scale-105" style={{ backgroundColor: "#FFD100", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
                   <Phone size={16} /> 941-377-4673
                 </a>
                 <Link href="/contact" className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold mt-3 transition-all hover:bg-zinc-700" style={{ border: "1px solid rgba(255,255,255,0.15)", color: "#E4E4E7", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
@@ -121,7 +121,7 @@ export default function PressureWasherRepair() {
               </div>
 
               <div className="p-5 rounded-lg" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#F5A623", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFD100", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
                   Also See
                 </div>
                 <div className="space-y-2">
@@ -131,7 +131,7 @@ export default function PressureWasherRepair() {
                     { label: "Hydraulic Hose Repair", href: "/hydraulic-hose-repair-sarasota" },
                   ].map((link) => (
                     <Link key={link.href} href={link.href} className="flex items-center gap-2 text-sm transition-colors hover:text-yellow-400" style={{ color: "#C0C0C0", fontFamily: "'DM Sans', sans-serif" }}>
-                      <ArrowRight size={12} style={{ color: "#F5A623" }} /> {link.label}
+                      <ArrowRight size={12} style={{ color: "#FFD100" }} /> {link.label}
                     </Link>
                   ))}
                 </div>

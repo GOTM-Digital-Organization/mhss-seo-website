@@ -17,19 +17,19 @@ export default function HydraulicHoseRepair() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.75) 40%, rgba(58,58,58,0.20) 100%)" }} />
         <div className="container relative z-10">
           <div className="flex items-center gap-3 mb-4">
-            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
+            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#FFD100" }} />
+            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#FFD100" }}>
               Sarasota, FL · Bradenton, FL
             </span>
           </div>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: "#FFFFFF", lineHeight: 1.0, marginBottom: "1.25rem" }}>
-            HYDRAULIC HOSE REPAIR<br /><span style={{ color: "#F5A623" }}>SARASOTA &amp; BRADENTON</span>
+            HYDRAULIC HOSE REPAIR<br /><span style={{ color: "#FFD100" }}>SARASOTA &amp; BRADENTON</span>
           </h1>
           <p style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "600px", marginBottom: "2rem", fontFamily: "'DM Sans', sans-serif" }}>
             Same-day custom hydraulic hose assemblies, on-site crimping, and all fittings. Serving construction, agriculture, marine, and industrial customers across Sarasota and Manatee counties since 1990.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="tel:+19413774673" className="flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95" style={{ backgroundColor: "#F5A623", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+            <a href="tel:+19413774673" className="flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95" style={{ backgroundColor: "#FFD100", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
               <Phone size={18} /> Call 941-377-4673
             </a>
             <Link href="/emergency-mobile-hose-repair" className="flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:bg-zinc-700" style={{ border: "2px solid rgba(220,38,38,0.5)", color: "#E03030", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
@@ -46,7 +46,7 @@ export default function HydraulicHoseRepair() {
             <div className="lg:col-span-2 space-y-10">
               {/* What We Offer */}
               <div>
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623", marginBottom: "1rem" }} />
+                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#FFD100", marginBottom: "1rem" }} />
                 <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "2rem", color: "#FFFFFF", marginBottom: "1rem" }}>
                   HYDRAULIC HOSE REPAIR &amp; CUSTOM ASSEMBLIES
                 </h2>
@@ -79,7 +79,7 @@ export default function HydraulicHoseRepair() {
                     "Custom length hose assemblies",
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 p-3 rounded" style={{ backgroundColor: "#4A4A4A" }}>
-                      <CheckCircle size={16} style={{ color: "#F5A623", marginTop: "2px", flexShrink: 0 }} />
+                      <CheckCircle size={16} style={{ color: "#FFD100", marginTop: "2px", flexShrink: 0 }} />
                       <span style={{ color: "#C0C0C0", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
                     </div>
                   ))}
@@ -106,7 +106,7 @@ export default function HydraulicHoseRepair() {
                     "Industrial manufacturing machinery",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#F5A623", marginTop: "8px", flexShrink: 0 }} />
+                      <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#FFD100", marginTop: "8px", flexShrink: 0 }} />
                       <span style={{ color: "#C0C0C0", fontSize: "0.9rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
                     </li>
                   ))}
@@ -130,14 +130,14 @@ export default function HydraulicHoseRepair() {
             {/* Sidebar */}
             <div className="space-y-6">
               {/* CTA Card */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
+              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#FFD100" }}>
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#FFFFFF", marginBottom: "0.75rem" }}>
                   GET A FAST QUOTE
                 </h3>
                 <p style={{ color: "#C0C0C0", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif", marginBottom: "1.25rem" }}>
                   Call us or stop by our Sarasota shop. Bring your old hose or just the measurements — we'll have a new assembly ready fast.
                 </p>
-                <a href="tel:+19413774673" className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold transition-all hover:scale-105" style={{ backgroundColor: "#F5A623", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                <a href="tel:+19413774673" className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold transition-all hover:scale-105" style={{ backgroundColor: "#FFD100", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
                   <Phone size={16} /> 941-377-4673
                 </a>
                 <Link href="/contact" className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold mt-3 transition-all hover:bg-zinc-700" style={{ border: "1px solid rgba(255,255,255,0.15)", color: "#E4E4E7", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
@@ -152,7 +152,7 @@ export default function HydraulicHoseRepair() {
                 { icon: <Shield size={20} />, title: "Commercial Grade", desc: "Only high-quality commercial and industrial hose." },
               ].map((f) => (
                 <div key={f.title} className="p-5 rounded-lg flex gap-4" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <div className="w-10 h-10 rounded flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(245,158,11,0.12)", color: "#F5A623" }}>
+                  <div className="w-10 h-10 rounded flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(245,158,11,0.12)", color: "#FFD100" }}>
                     {f.icon}
                   </div>
                   <div>
@@ -164,7 +164,7 @@ export default function HydraulicHoseRepair() {
 
               {/* Location */}
               <div className="p-5 rounded-lg" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#F5A623", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFD100", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
                   Sarasota Shop
                 </div>
                 <p style={{ color: "#C0C0C0", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif", lineHeight: 1.6 }}>

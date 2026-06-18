@@ -59,19 +59,19 @@ export default function PressureWashingSupply() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.75) 40%, rgba(58,58,58,0.20) 100%)" }} />
         <div className="container relative z-10">
           <div className="flex items-center gap-3 mb-4">
-            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
+            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#FFD100" }} />
+            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#FFD100" }}>
               Sarasota, FL Supply Store
             </span>
           </div>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: "#FFFFFF", lineHeight: 1.0, marginBottom: "1.25rem" }}>
-            PRESSURE WASHING<br /><span style={{ color: "#F5A623" }}>SUPPLY STORE</span>
+            PRESSURE WASHING<br /><span style={{ color: "#FFD100" }}>SUPPLY STORE</span>
           </h1>
           <p style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "600px", marginBottom: "2rem", fontFamily: "'DM Sans', sans-serif" }}>
             Honda pressure washers, Titan hose reels, high-pressure hose, spray nozzles, quick couplers, pump parts, and everything else you need — in stock at our Sarasota shop.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="tel:+19413774673" className="inline-flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95" style={{ backgroundColor: "#F5A623", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+            <a href="tel:+19413774673" className="inline-flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95" style={{ backgroundColor: "#FFD100", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
               <Phone size={18} /> Call 941-377-4673
             </a>
             <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:bg-zinc-700" style={{ border: "2px solid rgba(255,255,255,0.15)", color: "#E4E4E7", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
@@ -84,7 +84,7 @@ export default function PressureWashingSupply() {
       <section style={{ backgroundColor: "#404040" }} className="py-20">
         <div className="container">
           <div className="mb-12">
-            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623", marginBottom: "1rem" }} />
+            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#FFD100", marginBottom: "1rem" }} />
             <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4vw, 2.8rem)", color: "#FFFFFF", marginBottom: "1rem" }}>
               WHAT WE STOCK IN SARASOTA
             </h2>
@@ -95,9 +95,9 @@ export default function PressureWashingSupply() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CATEGORIES.map((cat) => (
-              <div key={cat.title} className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
+              <div key={cat.title} className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#FFD100" }}>
                 <div className="flex items-center gap-2 mb-4">
-                  <Package size={18} style={{ color: "#F5A623" }} />
+                  <Package size={18} style={{ color: "#FFD100" }} />
                   <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#FFFFFF" }}>
                     {cat.title}
                   </h3>
@@ -105,7 +105,7 @@ export default function PressureWashingSupply() {
                 <ul className="space-y-2">
                   {cat.items.map((item) => (
                     <li key={item} className="flex items-start gap-2">
-                      <div style={{ width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "#F5A623", marginTop: "8px", flexShrink: 0 }} />
+                      <div style={{ width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "#FFD100", marginTop: "8px", flexShrink: 0 }} />
                       <span style={{ color: "#C0C0C0", fontSize: "0.85rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
                     </li>
                   ))}
@@ -122,7 +122,7 @@ export default function PressureWashingSupply() {
               Call us or stop by. If we don't have it in stock, we can usually source it quickly. We also build custom hose assemblies on-site.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="tel:+19413774673" className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:scale-105" style={{ backgroundColor: "#F5A623", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+              <a href="tel:+19413774673" className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:scale-105" style={{ backgroundColor: "#FFD100", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
                 <Phone size={16} /> 941-377-4673
               </a>
               <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:bg-zinc-700" style={{ border: "2px solid rgba(255,255,255,0.15)", color: "#E4E4E7", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>

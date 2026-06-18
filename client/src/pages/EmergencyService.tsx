@@ -24,7 +24,7 @@ export default function EmergencyService() {
           </div>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: "#FFFFFF", lineHeight: 1.0, marginBottom: "1.25rem" }}>
             EMERGENCY HYDRAULIC<br /><span style={{ color: "#E03030" }}>HOSE REPAIR</span><br />
-            <span style={{ color: "#F5A623" }}>WE COME TO YOU</span>
+            <span style={{ color: "#FFD100" }}>WE COME TO YOU</span>
           </h1>
           <p style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "600px", marginBottom: "2rem", fontFamily: "'DM Sans', sans-serif" }}>
             "The Hose Doctor" emergency mobile unit carries a full inventory of hydraulic hose and fittings to your job site. On-site crimping and assembly — get your equipment back to work fast.
@@ -179,7 +179,7 @@ export default function EmergencyService() {
               ))}
 
               <div className="p-5 rounded-lg" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#F5A623", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFD100", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
                   Shop Locations
                 </div>
                 <p style={{ color: "#C0C0C0", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif", lineHeight: 1.6 }}>

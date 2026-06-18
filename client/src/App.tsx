@@ -4,13 +4,15 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+
 import Home from "./pages/Home";
 import PressureWashers from "./pages/PressureWashers";
-import PumpsAndParts from "./pages/PumpsAndParts";
+import Pumps from "./pages/Pumps";
+import PressureWasherParts from "./pages/PressureWasherParts";
 import SurfaceCleaners from "./pages/SurfaceCleaners";
-import HydraulicHose from "./pages/HydraulicHose";
-import HoseReels from "./pages/HoseReels";
 import AirlessSprayers from "./pages/AirlessSprayers";
+import HoseReels from "./pages/HoseReels";
+import HydraulicHose from "./pages/HydraulicHose";
 import PestControlSprayers from "./pages/PestControlSprayers";
 import DecoProducts from "./pages/DecoProducts";
 import About from "./pages/About";
@@ -21,11 +23,12 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/pressure-washers" component={PressureWashers} />
-      <Route path="/pumps-parts" component={PumpsAndParts} />
+      <Route path="/pumps" component={Pumps} />
+      <Route path="/pressure-washer-parts" component={PressureWasherParts} />
       <Route path="/surface-cleaners" component={SurfaceCleaners} />
-      <Route path="/hydraulic-hose" component={HydraulicHose} />
-      <Route path="/hose-reels" component={HoseReels} />
       <Route path="/airless-sprayers" component={AirlessSprayers} />
+      <Route path="/hose-reels" component={HoseReels} />
+      <Route path="/hydraulic-hose" component={HydraulicHose} />
       <Route path="/pest-control-sprayers" component={PestControlSprayers} />
       <Route path="/deco-products" component={DecoProducts} />
       <Route path="/about" component={About} />
@@ -39,7 +42,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />

@@ -1,18 +1,18 @@
+/*
+ * MHSS Inc. — Florida Industrial Pro Design System
+ * ─────────────────────────────────────────────────
+ * Base:      #F2EFE9 (warm concrete)  / #FFFFFF (card white)
+ * Dark:      #1C1C1C (near-black)     / #2A2A2A (dark card)
+ * Yellow:    #FFD100 (safety yellow)  — primary CTA, highlights
+ * Red:       #CC2020 (signal red)     — service badges, urgent CTAs
+ * Text:      #1C1C1C (primary) / #4B5563 (body) / #6B7280 (muted)
+ * Fonts:     Barlow Condensed 700/800 (headlines) + Inter (body)
+ */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
-/* ============================================================
-   MHSS Inc. Design System — Steel & Precision
-   Background: Deep Navy #0F1923 → #162030
-   Cards: #1C2B3A
-   Primary CTA: Amber #F59E0B
-   Accent: Steel Blue #3B82F6
-   Alert: Red #EF4444
-   Text: #F1F5F9 / #94A3B8
-   Fonts: Oswald (headlines) + Inter (body)
-   ============================================================ */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -38,87 +38,44 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 :root {
-  --radius: 0.5rem;
-  /* Navy-dark base */
-  --background: oklch(0.13 0.025 230);
-  --foreground: oklch(0.95 0.005 220);
-  /* Card surface */
-  --card: oklch(0.18 0.03 225);
-  --card-foreground: oklch(0.95 0.005 220);
-  /* Popover */
-  --popover: oklch(0.18 0.03 225);
-  --popover-foreground: oklch(0.95 0.005 220);
-  /* Primary = Amber */
-  --primary: oklch(0.75 0.18 75);
-  --primary-foreground: oklch(0.1 0.01 75);
-  /* Secondary = Steel Blue */
-  --secondary: oklch(0.22 0.04 225);
-  --secondary-foreground: oklch(0.85 0.01 220);
-  /* Muted */
-  --muted: oklch(0.20 0.03 225);
-  --muted-foreground: oklch(0.62 0.02 220);
-  /* Accent = Steel Blue */
-  --accent: oklch(0.55 0.18 250);
-  --accent-foreground: oklch(0.98 0 0);
-  /* Destructive = Red */
-  --destructive: oklch(0.60 0.22 25);
+  --radius: 0.25rem;
+  --background: oklch(0.97 0.005 80);
+  --foreground: oklch(0.13 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.13 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.13 0 0);
+  --primary: oklch(0.84 0.18 95);
+  --primary-foreground: oklch(0.13 0 0);
+  --secondary: oklch(0.95 0.004 80);
+  --secondary-foreground: oklch(0.3 0 0);
+  --muted: oklch(0.95 0.004 80);
+  --muted-foreground: oklch(0.5 0.01 80);
+  --accent: oklch(0.84 0.18 95);
+  --accent-foreground: oklch(0.13 0 0);
+  --destructive: oklch(0.52 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
-  /* Borders */
-  --border: oklch(0.25 0.04 225);
-  --input: oklch(0.22 0.04 225);
-  --ring: oklch(0.75 0.18 75);
-  /* Charts */
-  --chart-1: oklch(0.75 0.18 75);
-  --chart-2: oklch(0.55 0.18 250);
-  --chart-3: oklch(0.60 0.22 25);
-  --chart-4: oklch(0.70 0.15 150);
-  --chart-5: oklch(0.65 0.20 300);
-  /* Sidebar */
-  --sidebar: oklch(0.15 0.03 225);
-  --sidebar-foreground: oklch(0.95 0.005 220);
-  --sidebar-primary: oklch(0.75 0.18 75);
-  --sidebar-primary-foreground: oklch(0.1 0.01 75);
-  --sidebar-accent: oklch(0.20 0.04 225);
-  --sidebar-accent-foreground: oklch(0.95 0.005 220);
-  --sidebar-border: oklch(0.25 0.04 225);
-  --sidebar-ring: oklch(0.75 0.18 75);
+  --border: oklch(0.9 0.005 80);
+  --input: oklch(0.9 0.005 80);
+  --ring: oklch(0.84 0.18 95);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    box-sizing: border-box;
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.01em;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  a[href],
-  select:not(:disabled) {
+  a[href] {
     @apply cursor-pointer;
   }
 }
@@ -131,187 +88,217 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
   @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
+    .container { padding-left: 1.5rem; padding-right: 1.5rem; }
   }
   @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1280px;
-    }
+    .container { padding-left: 2rem; padding-right: 2rem; max-width: 1280px; }
   }
 
-  /* MHSS Custom Components */
-  .mhss-section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+  .flex { min-height: 0; min-width: 0; }
+
+  /* ── Typography ── */
+  .section-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: #1C1C1C;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
   }
-  .mhss-section-alt {
-    background-color: oklch(0.16 0.028 225);
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-  .mhss-card {
-    background-color: oklch(0.18 0.03 225);
-    border: 1px solid oklch(0.25 0.04 225);
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-  .mhss-card:hover {
-    border-color: oklch(0.75 0.18 75);
-    transform: translateY(-2px);
-  }
-  .mhss-card-accent {
-    border-left-width: 4px;
-    border-left-style: solid;
-    border-left-color: oklch(0.75 0.18 75);
-  }
-  .mhss-btn-primary {
-    background-color: oklch(0.75 0.18 75);
-    color: oklch(0.1 0.01 75);
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 0.75rem 1.75rem;
-    border-radius: 0.375rem;
-    transition: background-color 0.15s ease, transform 0.1s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-  }
-  .mhss-btn-primary:hover {
-    background-color: oklch(0.68 0.18 75);
-  }
-  .mhss-btn-primary:active {
-    transform: scale(0.97);
-  }
-  .mhss-btn-outline {
-    border: 2px solid oklch(0.75 0.18 75);
-    color: oklch(0.75 0.18 75);
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 0.75rem 1.75rem;
-    border-radius: 0.375rem;
-    transition: all 0.15s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    background: transparent;
-  }
-  .mhss-btn-outline:hover {
-    background-color: oklch(0.75 0.18 75);
-    color: oklch(0.1 0.01 75);
-  }
-  .mhss-section-label {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: oklch(0.75 0.18 75);
+    color: #CC2020;
     margin-bottom: 0.5rem;
     display: block;
   }
-  .mhss-section-title {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: oklch(0.95 0.005 220);
-    line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-  .mhss-section-title span {
-    color: oklch(0.75 0.18 75);
-  }
-  .mhss-divider {
-    width: 3rem;
-    height: 3px;
-    background-color: oklch(0.75 0.18 75);
-    margin-bottom: 1.5rem;
-  }
-  .mhss-badge {
+
+  /* ── Buttons ── */
+  .btn-yellow {
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
-    background-color: oklch(0.20 0.04 225);
-    border: 1px solid oklch(0.30 0.05 225);
-    color: oklch(0.75 0.18 75);
-    font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    gap: 0.5rem;
+    background-color: #FFD100;
+    color: #1C1C1C;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.2rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 160ms ease, transform 100ms ease;
   }
-  .mhss-product-card {
-    background-color: oklch(0.18 0.03 225);
-    border: 1px solid oklch(0.25 0.04 225);
-    border-radius: 0.5rem;
-    overflow: hidden;
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .mhss-product-card:hover {
-    border-color: oklch(0.75 0.18 75);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px oklch(0 0 0 / 0.4);
-  }
-  .mhss-product-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    background-color: oklch(0.15 0.03 225);
-    display: flex;
+  .btn-yellow:hover { background-color: #E6C200; }
+  .btn-yellow:active { transform: scale(0.97); }
+
+  .btn-red {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-  }
-  .mhss-spec-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.875rem;
-  }
-  .mhss-spec-table tr {
-    border-bottom: 1px solid oklch(0.25 0.04 225);
-  }
-  .mhss-spec-table td:first-child {
-    color: oklch(0.62 0.02 220);
-    padding: 0.5rem 0;
-    width: 45%;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
+    gap: 0.5rem;
+    background-color: #CC2020;
+    color: #FFFFFF;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.2rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 160ms ease, transform 100ms ease;
   }
-  .mhss-spec-table td:last-child {
-    color: oklch(0.95 0.005 220);
-    padding: 0.5rem 0;
-    font-weight: 500;
+  .btn-red:hover { background-color: #AA1A1A; }
+  .btn-red:active { transform: scale(0.97); }
+
+  .btn-outline-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: #1C1C1C;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.2rem;
+    border: 2px solid #1C1C1C;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 160ms ease;
+  }
+  .btn-outline-dark:hover { background-color: #1C1C1C; color: #FFFFFF; }
+
+  /* ── Product Cards ── */
+  .product-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E0D8;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    transition: box-shadow 200ms ease, border-color 200ms ease, transform 200ms ease;
+    cursor: pointer;
+  }
+  .product-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-color: #FFD100;
+    transform: translateY(-2px);
   }
 
-  /* Scroll animations */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* ── Category Tiles ── */
+  .category-tile {
+    background: #FFFFFF;
+    border: 1px solid #E5E0D8;
+    border-radius: 0.375rem;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: all 180ms ease;
+    cursor: pointer;
+    height: 100%;
   }
-  .animate-fade-up {
-    animation: fadeUp 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  .category-tile:hover {
+    background: #FFD100;
+    border-color: #FFD100;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255,209,0,0.3);
   }
-  @keyframes countUp {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  .category-tile:hover > div:first-child { transform: scale(1.1); }
+
+  /* ── Spec Pills ── */
+  .spec-pill {
+    background: #F2EFE9;
+    border: 1px solid #E5E0D8;
+    color: #4B5563;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    white-space: nowrap;
+  }
+
+  /* ── Price Tag ── */
+  .price-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #CC2020;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Service Badge ── */
+  .service-badge {
+    background: #CC2020;
+    color: #FFFFFF;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.15rem;
+  }
+
+  /* ── Page Hero ── */
+  .page-hero {
+    background: #1C1C1C;
+    padding: 3rem 0 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #FFD100;
+  }
+
+  /* ── Section Divider ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid #E5E0D8;
+    margin: 0;
+  }
+
+  /* ── Brand Pill ── */
+  .brand-pill {
+    background: #F2EFE9;
+    border: 1px solid #E5E0D8;
+    color: #4B5563;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.2rem;
+    transition: all 150ms ease;
+    white-space: nowrap;
+  }
+  .brand-pill:hover {
+    background: #FFD100;
+    border-color: #FFD100;
+    color: #1C1C1C;
+  }
+
+  /* ── Responsive grid helpers ── */
+  @media (max-width: 768px) {
+    .hide-mobile { display: none !important; }
+    .section-heading { font-size: 1.75rem; }
+  }
+  @media (max-width: 640px) {
+    .grid-2-col { grid-template-columns: 1fr !important; }
   }
 }

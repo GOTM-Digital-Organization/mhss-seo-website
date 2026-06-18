@@ -52,23 +52,23 @@ export default function PumpsAndParts() {
       canonical="https://www.mhss-inc.com/pumps-parts"
     >
       {/* Hero */}
-      <section style={{ backgroundColor: "#0a1520", borderBottom: "1px solid #1E3A5F", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section style={{ backgroundColor: "#F2EFE9", borderBottom: "1px solid #E5E0D8", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="container">
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#64748B" }}>
-            <Link href="/" style={{ color: "#64748B", textDecoration: "none" }}>Home</Link>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#6B7280" }}>
+            <Link href="/" style={{ color: "#6B7280", textDecoration: "none" }}>Home</Link>
             <span>/</span>
-            <span style={{ color: "#F59E0B" }}>Pumps & Parts</span>
+            <span style={{ color: "#FFD100" }}>Pumps & Parts</span>
           </nav>
-          <span style={{ display: "inline-block", backgroundColor: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
+          <span style={{ display: "inline-block", backgroundColor: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
             General · Cat · AR · Comet · UDOR
           </span>
-          <h1 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#F1F5F9", lineHeight: 1.1, marginBottom: "1rem" }}>
-            Pressure Washer Pumps &<br /><span style={{ color: "#F59E0B" }}>Components — Sarasota, FL</span>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#1C1C1C", lineHeight: 1.1, marginBottom: "1rem" }}>
+            Pressure Washer Pumps &<br /><span style={{ color: "#FFD100" }}>Components — Sarasota, FL</span>
           </h1>
-          <p style={{ color: "#94A3B8", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
+          <p style={{ color: "#4B5563", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
             MHSS stocks a comprehensive inventory of pressure washer pumps from the industry's leading manufacturers, along with all the components you need to keep your equipment running — guns, wands, tips, injectors, unloaders, and more.
           </p>
-          <a href="tel:9413774673" style={{ backgroundColor: "#F59E0B", color: "#0a0f14", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+          <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
             <Phone size={15} /> Call for Pricing: (941) 377-4673
           </a>
         </div>
@@ -78,23 +78,23 @@ export default function PumpsAndParts() {
       <section style={{ paddingTop: "5rem", paddingBottom: "3rem" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#F59E0B", display: "block", marginBottom: "0.5rem" }}>Pump Brands</span>
-            <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#F1F5F9" }}>Pumps & Pump Kits</h2>
+            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#FFD100", display: "block", marginBottom: "0.5rem" }}>Pump Brands</span>
+            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#1C1C1C" }}>Pumps & Pump Kits</h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
             {PUMPS.map(brand => (
-              <div key={brand.brand} style={{ backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", borderRadius: "0.625rem", overflow: "hidden" }}>
-                <div style={{ padding: "1.5rem 1.75rem 1rem", borderBottom: "1px solid #1E3A5F" }}>
-                  <h3 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#F59E0B", marginBottom: "0.4rem" }}>{brand.brand}</h3>
-                  <p style={{ color: "#64748B", fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>{brand.desc}</p>
+              <div key={brand.brand} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.625rem", overflow: "hidden" }}>
+                <div style={{ padding: "1.5rem 1.75rem 1rem", borderBottom: "1px solid #E5E0D8" }}>
+                  <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#FFD100", marginBottom: "0.4rem" }}>{brand.brand}</h3>
+                  <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>{brand.desc}</p>
                 </div>
                 <div style={{ padding: "1.25rem 1.75rem" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "0.875rem" }}>
                     {brand.models.map(m => (
-                      <div key={m.model} style={{ backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1rem" }}>
-                        <div style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#F1F5F9", marginBottom: "0.35rem" }}>{m.model}</div>
-                        <p style={{ color: "#64748B", fontSize: "0.78rem", margin: "0 0 0.6rem" }}>{m.specs}</p>
-                        <a href="tel:9413774673" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>
+                      <div key={m.model} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.5rem", padding: "1rem" }}>
+                        <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1C1C1C", marginBottom: "0.35rem" }}>{m.model}</div>
+                        <p style={{ color: "#6B7280", fontSize: "0.78rem", margin: "0 0 0.6rem" }}>{m.specs}</p>
+                        <a href="tel:9413774673" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>
                           <Phone size={11} /> Call for Pricing
                         </a>
                       </div>
@@ -108,20 +108,20 @@ export default function PumpsAndParts() {
       </section>
 
       {/* Components */}
-      <section style={{ backgroundColor: "#0a1520", borderTop: "1px solid #1E3A5F", paddingTop: "5rem", paddingBottom: "5rem" }}>
+      <section style={{ backgroundColor: "#F2EFE9", borderTop: "1px solid #E5E0D8", paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#F59E0B", display: "block", marginBottom: "0.5rem" }}>Parts & Accessories</span>
-            <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#F1F5F9" }}>Pressure Washer Components</h2>
+            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#FFD100", display: "block", marginBottom: "0.5rem" }}>Parts & Accessories</span>
+            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#1C1C1C" }}>Pressure Washer Components</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
             {COMPONENTS.map(c => (
-              <div key={c.cat} style={{ backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1.5rem", borderTopWidth: "3px", borderTopStyle: "solid", borderTopColor: "#F59E0B" }}>
-                <h3 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1rem", color: "#F1F5F9", marginBottom: "0.875rem" }}>{c.cat}</h3>
+              <div key={c.cat} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.5rem", padding: "1.5rem", borderTopWidth: "3px", borderTopStyle: "solid", borderTopColor: "#FFD100" }}>
+                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", color: "#1C1C1C", marginBottom: "0.875rem" }}>{c.cat}</h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {c.items.map(item => (
-                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", color: "#64748B", fontSize: "0.825rem", marginBottom: "0.45rem" }}>
-                      <CheckCircle2 size={12} style={{ color: "#F59E0B", flexShrink: 0, marginTop: "0.15rem" }} /> {item}
+                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", color: "#6B7280", fontSize: "0.825rem", marginBottom: "0.45rem" }}>
+                      <CheckCircle2 size={12} style={{ color: "#FFD100", flexShrink: 0, marginTop: "0.15rem" }} /> {item}
                     </li>
                   ))}
                 </ul>
@@ -129,8 +129,8 @@ export default function PumpsAndParts() {
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: "3rem" }}>
-            <p style={{ color: "#64748B", fontSize: "0.9rem", marginBottom: "1.5rem" }}>Don't see the part you need? We can source most pressure washer components. Call us.</p>
-            <a href="tel:9413774673" style={{ backgroundColor: "#F59E0B", color: "#0a0f14", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.75rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+            <p style={{ color: "#6B7280", fontSize: "0.9rem", marginBottom: "1.5rem" }}>Don't see the part you need? We can source most pressure washer components. Call us.</p>
+            <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.75rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
               <Phone size={15} /> (941) 377-4673
             </a>
           </div>
