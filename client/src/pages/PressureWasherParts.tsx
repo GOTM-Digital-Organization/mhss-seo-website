@@ -1,171 +1,140 @@
+/**
+ * PressureWasherParts page — MHSS Inc.
+ * Design: dark industrial hero, white catalog grid, yellow accents
+ */
+import { useState } from "react";
 import Layout from "@/components/Layout";
+import ProductCard from "@/components/ProductCard";
+import QuoteModal from "@/components/QuoteModal";
 import { Link } from "wouter";
-import { Phone, CheckCircle } from "lucide-react";
+import { Phone } from "lucide-react";
 
-const categories = [
-  {
-    name: "Guns & Wands",
-    icon: "🔫",
-    items: [
-      { name: "Professional Spray Gun — 4000 PSI", desc: "Stainless steel lance, ergonomic grip, 1/4\" QC inlet. Rated for hot or cold water." },
-      { name: "Dual Lance Wand — 48\"", desc: "Adjustable dual-lance with quick-connect tips. 4000 PSI rated, stainless steel." },
-      { name: "Trigger Gun — Commercial Grade", desc: "Heavy-duty commercial trigger gun with safety lock. 5000 PSI rated." },
-      { name: "Extension Wand — 24\" / 48\" / 72\"", desc: "Stainless steel extension wands in multiple lengths. 1/4\" male QC both ends." },
-    ]
-  },
-  {
-    name: "Quick Connects",
-    icon: "🔗",
-    items: [
-      { name: "1/4\" QC Plug — Stainless Steel", desc: "Male quick-connect plug, 1/4\" NPT. 5000 PSI rated. Stainless steel body." },
-      { name: "3/8\" QC Socket — Brass", desc: "Female quick-connect socket, 3/8\" NPT. 4000 PSI rated. Brass body." },
-      { name: "QC Coupler Set — 4-Pack", desc: "Assorted 1/4\" and 3/8\" quick-connect couplers. Stainless and brass." },
-      { name: "High-Flow QC — 3/8\" Stainless", desc: "High-flow quick-connect for 5+ GPM systems. 5000 PSI rated." },
-    ]
-  },
-  {
-    name: "Spray Tips & Nozzles",
-    icon: "💧",
-    items: [
-      { name: "5-Piece Tip Set — 0/15/25/40/65°", desc: "Complete color-coded tip set. Stainless steel orifice. 4000 PSI rated." },
-      { name: "Turbo Nozzle — Rotating", desc: "Rotating turbo nozzle for 30% more cleaning power. 4000 PSI, 3-5 GPM." },
-      { name: "Soap / Low-Pressure Tip — 65°", desc: "Black 65° low-pressure downstream soap tip. 1/4\" QC male." },
-      { name: "Stainless Orifice Tips — Custom Sizes", desc: "Stainless steel orifice tips in custom sizes for specific PSI/GPM combinations." },
-    ]
-  },
-  {
-    name: "Chemical Injectors",
-    icon: "⚗️",
-    items: [
-      { name: "Downstream Chemical Injector — Fixed", desc: "Fixed-rate downstream injector. 3/8\" NPT. 4000 PSI rated. 10:1 dilution." },
-      { name: "Adjustable Chemical Injector", desc: "Adjustable downstream injector with dial control. 3/8\" NPT. 0–10:1 ratio." },
-      { name: "High-Draw Injector — 5+ GPM", desc: "High-draw injector for 5+ GPM machines. Stainless steel body." },
-      { name: "Injector Rebuild Kit", desc: "Rebuild kit for most downstream injectors. Includes ball, spring, and o-rings." },
-    ]
-  },
-  {
-    name: "Pressure Regulators & Unloaders",
-    icon: "⚙️",
-    items: [
-      { name: "Unloader Valve — Adjustable", desc: "Adjustable unloader valve for belt-drive machines. 3/8\" NPT. 4000 PSI max." },
-      { name: "Pressure Regulator — 3/8\" NPT", desc: "Inline pressure regulator with gauge port. 0–4000 PSI adjustable." },
-      { name: "Bypass Unloader — 5.5 GPM", desc: "High-flow bypass unloader for 5+ GPM commercial machines." },
-      { name: "Unloader Rebuild Kit", desc: "Rebuild kit for most popular unloader valves. Includes piston, spring, and seals." },
-    ]
-  },
-  {
-    name: "Thermal Relief Valves",
-    icon: "🌡️",
-    items: [
-      { name: "Thermal Relief Valve — 1/4\" NPT", desc: "Thermal relief valve opens at 145°F to protect pump from heat buildup. 1/4\" NPT." },
-      { name: "Thermal Relief Valve — 3/8\" NPT", desc: "High-flow thermal relief valve. Opens at 145°F. 3/8\" NPT." },
-      { name: "Thermal Valve Repair Kit", desc: "Replacement seat and spring kit for most thermal relief valves." },
-    ]
-  },
-];
+const HERO_IMG = "/manus-storage/mhss3-hero_275e7d18.jpg";
 
-const hoses = [
-  { name: "3/8\" x 50ft Pressure Hose — 4000 PSI", desc: "Non-marking grey hose, 3/8\" ID, 1/4\" QC fittings both ends. 4000 PSI WP." },
-  { name: "3/8\" x 100ft Pressure Hose — 4000 PSI", desc: "Non-marking grey hose, 3/8\" ID, 1/4\" QC fittings both ends. 4000 PSI WP." },
-  { name: "1/2\" x 50ft Pressure Hose — 3000 PSI", desc: "High-flow 1/2\" ID hose for 5+ GPM machines. 3/8\" QC fittings." },
-  { name: "Hot Water Hose — 3/8\" x 50ft", desc: "Rated for hot water to 250°F. 4000 PSI WP. Wire braid reinforcement." },
-  { name: "Hose Repair Fittings", desc: "Stainless steel hose repair fittings in 1/4\" and 3/8\" sizes. Swaged or reusable." },
+const PRODUCTS = [
+  // Spray Guns
+  { brand: "MTM Hydro", model: "SG28", name: "SG28 Professional Spray Gun", specs: ["4000 PSI rated", "Trigger lock safety", "1/4\" QC inlet", "Ergonomic grip", "Stainless internals"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Suttner", model: "ST-2600", name: "ST-2600 Professional Gun", specs: ["4350 PSI rated", "Trigger lock", "1/4\" QC inlet", "Chemical resistant", "German engineered"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  // Wands
+  { brand: "Various", model: "WAND-24-SS", name: "24\" Stainless Steel Wand", specs: ["4000 PSI rated", "1/4\" QC connections", "Stainless steel", "Swivel coupler"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Various", model: "WAND-48-SS", name: "48\" Stainless Steel Wand", specs: ["4000 PSI rated", "1/4\" QC connections", "Stainless steel", "Extended reach"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Various", model: "WAND-TELE", name: "Telescoping Wand 12–24 ft", specs: ["Up to 3000 PSI", "Adjustable length", "1/4\" QC connections", "Lightweight aluminum"], price: "Call for Pricing" },
+  // Spray Tips
+  { brand: "MTM Hydro", model: "DS-TIP-SET", name: "Spray Tip Set — 5 Pack", specs: ["0°, 15°, 25°, 40°, soap tips", "4000 PSI rated", "Color-coded", "1/4\" QC"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Suttner", model: "ST-49 TURBO", name: "Turbo / Rotary Nozzle", specs: ["Up to 4000 PSI", "0° rotating pattern", "3× faster cleaning", "1/4\" QC"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  // Hose
+  { brand: "Various", model: "HOSE-50-3000", name: "50 ft Pressure Washer Hose", specs: ["3000 PSI rated", "3/8\" ID", "M22 fittings", "Non-marking jacket"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Various", model: "HOSE-100-3000", name: "100 ft Pressure Washer Hose", specs: ["3000 PSI rated", "3/8\" ID", "M22 fittings", "Non-marking jacket"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Various", model: "HOSE-HOT-50", name: "50 ft Hot Water Hose", specs: ["4000 PSI rated", "Rated to 250°F", "3/8\" ID", "Wire braid reinforced"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  // Chemical Injectors
+  { brand: "Various", model: "INJECTOR-DS", name: "Downstream Chemical Injector", specs: ["Up to 4000 PSI", "Adjustable draw rate", "1/4\" QC fittings", "Stainless ball"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Various", model: "INJECTOR-US", name: "Upstream Chemical Injector", specs: ["Up to 2000 PSI", "Fixed draw rate", "1/4\" NPT fittings", "Brass body"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  // Unloaders & Valves
+  { brand: "Various", model: "UNLOADER-VRT", name: "VRT Unloader Valve", specs: ["Up to 5000 PSI", "Variable relief", "Fits most pump brands", "Rebuild kit available"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Various", model: "THERMAL-VALVE", name: "Thermal Relief Valve", specs: ["Opens at 145°F", "1/4\" NPT", "Protects pump from heat", "Brass body"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  // Fittings
+  { brand: "Various", model: "QC-FITTING-KIT", name: "Quick Connect Fitting Kit", specs: ["M22 male & female", "1/4\" QC male & female", "Stainless steel", "12-piece assortment"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  // Detergents
+  { brand: "Simple Cherry", model: "SC-1G", name: "Simple Cherry Car Wash Soap", specs: ["1 gallon concentrate", "Cherry scent", "Safe on all surfaces", "Downstream injection"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Krud Kutter", model: "KK-1G", name: "Krud Kutter Pressure Wash Cleaner", specs: ["1 gallon", "Heavy-duty degreaser", "Biodegradable", "Downstream injection"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
 ];
 
 export default function PressureWasherParts() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [quoteProduct, setQuoteProduct] = useState<{ name: string; model: string } | null>(null);
+
+  function openQuote(name: string, model: string) {
+    setQuoteProduct({ name, model });
+    setModalOpen(true);
+  }
+
   return (
     <Layout
-      title="Pressure Washer Parts & Accessories — Guns, Tips, Hoses, Injectors | MHSS Sarasota FL"
-      description="Pressure washer parts and accessories in Sarasota FL. Guns, wands, spray tips, quick connects, chemical injectors, unloaders, thermal valves, hoses, and more. Call (941) 377-4673."
+      title="Pressure Washer Parts & Accessories Sarasota FL | Guns, Wands, Tips, Hose — MHSS Inc."
+      description="Pressure washer parts and accessories in Sarasota, FL. Spray guns, wands, tips, hose, chemical injectors, unloaders, thermal valves, fittings, and detergents in stock. Call (941) 377-4673."
+      canonical="https://www.mhss-inc.com/pressure-washer-parts"
     >
+      <QuoteModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        productName={quoteProduct?.name}
+        productModel={quoteProduct?.model}
+      />
+
       {/* Hero */}
-      <section style={{ background: "#1C1C1C", padding: "3rem 0 2.5rem" }}>
-        <div className="container">
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
-            <Link href="/" style={{ color: "#CCCCCC", fontSize: "0.85rem", textDecoration: "none" }}>Home</Link>
+      <section style={{ position: "relative", minHeight: "45vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0 }}>
+          <img src={HERO_IMG} alt="Pressure washer parts and accessories Sarasota FL" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
+        </div>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem" }}>
+            <Link href="/" style={{ color: "#CCCCCC", textDecoration: "none" }}>Home</Link>
             <span style={{ color: "#CCCCCC" }}>/</span>
-            <span style={{ color: "#FFD100", fontSize: "0.85rem" }}>Parts & Accessories</span>
-          </div>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#FFFFFF", lineHeight: 1.05, marginBottom: "1rem" }}>
-            PRESSURE WASHER<br />
-            <span style={{ color: "#FFD100" }}>PARTS &amp; ACCESSORIES</span>
+            <span style={{ color: "#FFD100" }}>Pressure Washer Parts</span>
+          </nav>
+          <span style={{ display: "inline-block", backgroundColor: "rgba(255,209,0,0.15)", border: "1px solid rgba(255,209,0,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
+            Guns · Wands · Tips · Hose · Injectors · Valves · Detergents
+          </span>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
+            Pressure Washer<br /><span style={{ color: "#FFD100" }}>Parts &amp; Accessories</span>
           </h1>
-          <p style={{ color: "#E0E0E0", fontSize: "1.05rem", maxWidth: "600px", marginBottom: "1.5rem", fontFamily: "'Inter', sans-serif" }}>
-            Guns, wands, tips, quick connects, chemical injectors, unloaders, thermal valves, hoses, and more — in stock at our Sarasota facility.
+          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
+            MHSS stocks a comprehensive inventory of pressure washer parts and accessories — spray guns, wands, tips, hose, chemical injectors, unloaders, thermal valves, fittings, and cleaning chemicals.
           </p>
-          <a href="tel:9413774673" className="btn-yellow">
-            <Phone size={16} /> Call for Availability: (941) 377-4673
-          </a>
-        </div>
-      </section>
-
-      {/* Parts Categories */}
-      <section style={{ background: "#F2EFE9", padding: "3rem 0" }}>
-        <div className="container">
-          <h2 className="section-heading" style={{ marginBottom: "2rem" }}>Parts In Stock</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
-            {categories.map((cat, ci) => (
-              <div key={ci}>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-                  <span style={{ fontSize: "1.5rem" }}>{cat.icon}</span>
-                  <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#1C1C1C" }}>{cat.name}</h3>
-                </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1rem" }}>
-                  {cat.items.map((item, ii) => (
-                    <div key={ii} className="product-card" style={{ padding: "1.25rem" }}>
-                      <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1C1C1C", marginBottom: "0.4rem" }}>{item.name}</div>
-                      <p style={{ color: "#2D2D2D", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", marginBottom: "0.75rem" }}>{item.desc}</p>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span className="price-tag">Call for Pricing</span>
-                        <a href="tel:9413774673" style={{ color: "#1C1C1C", fontSize: "0.8rem", fontWeight: 600, textDecoration: "none", fontFamily: "'Barlow', sans-serif" }}>
-                          <Phone size={12} style={{ display: "inline", marginRight: "0.25rem" }} />
-                          (941) 377-4673
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <Phone size={15} /> Call: (941) 377-4673
+            </a>
+            <button onClick={() => { setQuoteProduct(null); setModalOpen(true); }} style={{ backgroundColor: "transparent", color: "#FFFFFF", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", border: "1px solid rgba(255,255,255,0.4)", cursor: "pointer" }}>
+              Request a Quote
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Hoses */}
-      <section style={{ background: "#FFFFFF", padding: "3rem 0" }}>
+      {/* Catalog */}
+      <section style={{ paddingTop: "5rem", paddingBottom: "5rem", backgroundColor: "#F9F7F4" }}>
         <div className="container">
-          <h2 className="section-heading" style={{ marginBottom: "1.5rem" }}>Pressure Hoses</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1rem" }}>
-            {hoses.map((hose, i) => (
-              <div key={i} className="product-card" style={{ padding: "1.25rem" }}>
-                <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1C1C1C", marginBottom: "0.4rem" }}>{hose.name}</div>
-                <p style={{ color: "#2D2D2D", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", marginBottom: "0.75rem" }}>{hose.desc}</p>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span className="price-tag">Call for Pricing</span>
-                  <a href="tel:9413774673" style={{ color: "#1C1C1C", fontSize: "0.8rem", fontWeight: 600, textDecoration: "none" }}>
-                    (941) 377-4673
-                  </a>
-                </div>
-              </div>
+          <div style={{ marginBottom: "2.5rem" }}>
+            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#1C1C1C" }}>
+              Parts &amp; Accessories <span style={{ color: "#FFD100" }}>Catalog</span>
+            </h2>
+            <p style={{ color: "#4B5563", fontSize: "0.875rem", marginTop: "0.5rem" }}>Extensive in-stock inventory. Click "Request Quote" or call for current pricing and availability.</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1.5rem" }}>
+            {PRODUCTS.map(p => (
+              <ProductCard
+                key={p.model}
+                brand={p.brand}
+                model={p.model}
+                name={p.name}
+                specs={p.specs}
+                price={p.price}
+                badge={p.badge}
+                badgeColor={p.badgeColor}
+                onQuote={() => openQuote(`${p.brand} ${p.name}`, p.model)}
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section style={{ background: "#FFD100", padding: "2.5rem 0" }}>
-        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+      <section style={{ backgroundColor: "#1C1C1C", paddingTop: "3.5rem", paddingBottom: "3.5rem" }}>
+        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1.5rem" }}>
           <div>
-            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.6rem", color: "#1C1C1C" }}>
-              DON'T SEE WHAT YOU NEED?
-            </div>
-            <div style={{ color: "#1C1C1C", fontFamily: "'Inter', sans-serif" }}>
-              We can source almost any pressure washer part — call us and we'll find it.
-            </div>
+            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "#FFFFFF" }}>DON'T SEE WHAT YOU NEED?</div>
+            <div style={{ color: "#9CA3AF", fontSize: "0.85rem" }}>We stock hundreds of parts. Call us — if we don't have it, we can get it.</div>
           </div>
-          <a href="tel:9413774673" className="btn-outline-dark" style={{ fontSize: "1.1rem", padding: "0.875rem 2rem" }}>
-            <Phone size={18} /> (941) 377-4673
-          </a>
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <Phone size={15} /> (941) 377-4673
+            </a>
+            <button onClick={() => { setQuoteProduct(null); setModalOpen(true); }} style={{ backgroundColor: "transparent", color: "#FFFFFF", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", border: "1px solid #555", cursor: "pointer" }}>
+              Request a Quote
+            </button>
+          </div>
         </div>
       </section>
     </Layout>

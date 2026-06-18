@@ -1,184 +1,162 @@
+/**
+ * PressureWashers page — MHSS Inc.
+ * Design: dark industrial hero, white catalog grid, yellow accents
+ */
+import { useState } from "react";
 import Layout from "@/components/Layout";
+import ProductCard from "@/components/ProductCard";
+import QuoteModal from "@/components/QuoteModal";
 import { Link } from "wouter";
-import { Phone, CheckCircle2, ArrowRight, Wrench, Shield } from "lucide-react";
+import { Phone, CheckCircle2 } from "lucide-react";
 
-const HERO_IMG = "/manus-storage/mhss3-pumps_b88feb86.jpg";
+const HERO_IMG = "/manus-storage/mhss3-hero_275e7d18.jpg";
 
-const BRANDS = [
-  {
-    name: "BE Power Equipment",
-    desc: "BE Power is one of North America's leading pressure washer manufacturers, offering a full range of cold and hot water units built for professional contractors. MHSS is an authorized BE dealer and warranty service center.",
-    models: [
-      { model: "BE275HA", specs: "2700 PSI / 2.3 GPM, Honda GX200 engine, aluminum frame", type: "Cold Water" },
-      { model: "BE340HA", specs: "3400 PSI / 2.5 GPM, Honda GX270 engine, AR pump", type: "Cold Water" },
-      { model: "BE4013HA", specs: "4000 PSI / 3.5 GPM, Honda GX390 engine, General Pump", type: "Cold Water" },
-      { model: "BE65H-3500", specs: "3500 PSI / 4.0 GPM, Honda GX390, hot water diesel burner", type: "Hot Water" },
-    ],
-  },
-  {
-    name: "Mi-T-M Corporation",
-    desc: "Mi-T-M produces professional-grade hot and cold water pressure washers used by contractors across the country. Their units are known for durability and ease of service. MHSS stocks Mi-T-M units and provides authorized warranty repairs.",
-    models: [
-      { model: "CW-3504-4MHB", specs: "3500 PSI / 4.0 GPM, Honda GX390, CAT pump", type: "Cold Water" },
-      { model: "HS-3504-1MAH", specs: "3500 PSI / 4.0 GPM, Honda GX390, hot water diesel", type: "Hot Water" },
-      { model: "CW-2703-1MHB", specs: "2700 PSI / 3.0 GPM, Honda GX200, direct drive", type: "Cold Water" },
-      { model: "AM1-3600-1MAH", specs: "3600 PSI / 4.0 GPM, Honda GX390, hot water, belt drive", type: "Hot Water" },
-    ],
-  },
-  {
-    name: "Pressure Pro",
-    desc: "Pressure Pro builds heavy-duty commercial pressure washers designed for demanding job sites. Their belt-drive units are particularly popular with professional pressure washing contractors who need all-day reliability.",
-    models: [
-      { model: "E4040HC", specs: "4000 PSI / 4.0 GPM, Honda GX390, belt drive, General Pump", type: "Cold Water" },
-      { model: "E4035HC", specs: "4000 PSI / 3.5 GPM, Honda GX390, belt drive", type: "Cold Water" },
-      { model: "HH3530HC", specs: "3500 PSI / 3.0 GPM, Honda GX270, hot water", type: "Hot Water" },
-      { model: "E3027HC", specs: "3000 PSI / 2.7 GPM, Honda GX270, belt drive", type: "Cold Water" },
-    ],
-  },
-  {
-    name: "Pressure Systems Innovations (PSI)",
-    desc: "PSI specializes in high-performance pressure washers and custom-configured units for professional applications. Their skid-mount and trailer-mount configurations are popular for commercial pressure washing businesses.",
-    models: [
-      { model: "PSI-4040", specs: "4000 PSI / 4.0 GPM, Honda GX390, skid mount", type: "Cold Water" },
-      { model: "PSI-HW3530", specs: "3500 PSI / 3.0 GPM, hot water diesel, trailer mount", type: "Hot Water" },
-      { model: "PSI-5540", specs: "5500 PSI / 4.0 GPM, Honda GX630, belt drive", type: "Cold Water" },
-    ],
-  },
+interface Product {
+  brand: string;
+  model: string;
+  name: string;
+  specs: string[];
+  price: string;
+  badge?: string;
+  badgeColor?: "yellow" | "green" | "red" | "blue";
+  imageUrl?: string;
+}
+
+const PRODUCTS: Product[] = [
+  // Honda / BE Power Equipment — Cold Water
+  { brand: "BE Power Equipment", model: "BE275HA", name: "275HA Cold Water Pressure Washer", specs: ["2700 PSI / 2.5 GPM", "Honda GX200 engine", "AR pump", "25 ft hose included", "Fold-down handle"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" },
+  { brand: "BE Power Equipment", model: "BE3565HA", name: "3565HA Cold Water Pressure Washer", specs: ["3500 PSI / 6.5 GPM", "Honda GX630 V-twin engine", "General Pump belt drive", "50 ft hose", "Heavy-duty frame"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" },
+  { brand: "BE Power Equipment", model: "BE4013HA", name: "4013HA Cold Water Pressure Washer", specs: ["4000 PSI / 4.0 GPM", "Honda GX390 engine", "General Pump belt drive", "50 ft hose", "CAT pump option available"], price: "Call for Pricing" },
+  // Mi-T-M — Cold Water
+  { brand: "Mi-T-M", model: "CW-3004-1MHB", name: "CW Series Cold Water Pressure Washer", specs: ["3000 PSI / 2.8 GPM", "Honda GX200 engine", "Comet pump", "25 ft hose", "Compact design"], price: "Call for Pricing", badge: "Special Order", badgeColor: "blue" },
+  { brand: "Mi-T-M", model: "CW-3504-1MHB", name: "CW-3504 Cold Water Pressure Washer", specs: ["3500 PSI / 3.5 GPM", "Honda GX270 engine", "AR pump", "50 ft hose", "Pneumatic tires"], price: "Call for Pricing", badge: "Special Order", badgeColor: "blue" },
+  // Pressure Pro — Cold Water
+  { brand: "Pressure Pro", model: "E4040HC", name: "E4040HC Cold Water Pressure Washer", specs: ["4000 PSI / 4.0 GPM", "Honda GX390 engine", "General Pump belt drive", "50 ft hose", "Stainless steel frame"], price: "Call for Pricing" },
+  // Mi-T-M — Hot Water
+  { brand: "Mi-T-M", model: "HH-3504-1MGH", name: "HH Series Hot Water Pressure Washer", specs: ["3500 PSI / 3.5 GPM", "Honda GX270 engine", "Diesel-fired burner", "200°F max water temp", "50 ft hose"], price: "Call for Pricing", badge: "Hot Water", badgeColor: "red" },
+  { brand: "Mi-T-M", model: "HH-4004-1MGH", name: "HH-4004 Hot Water Pressure Washer", specs: ["4000 PSI / 4.0 GPM", "Honda GX390 engine", "Diesel-fired burner", "200°F max water temp", "Heavy-duty frame"], price: "Call for Pricing", badge: "Hot Water", badgeColor: "red" },
+  // BE Power Equipment — Hot Water
+  { brand: "BE Power Equipment", model: "BE3565HWA", name: "3565HWA Hot Water Pressure Washer", specs: ["3500 PSI / 5.0 GPM", "Honda GX630 engine", "Diesel burner", "200°F max temp", "Stainless steel coil"], price: "Call for Pricing", badge: "Hot Water", badgeColor: "red" },
 ];
 
 export default function PressureWashers() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [quoteProduct, setQuoteProduct] = useState<{ name: string; model: string } | null>(null);
+
+  function openQuote(name: string, model: string) {
+    setQuoteProduct({ name, model });
+    setModalOpen(true);
+  }
+
   return (
     <Layout
-      title="Pressure Washer Sales & Service Sarasota FL | MHSS Inc. — BE, Mi-T-M, Pressure Pro"
-      description="Authorized pressure washer dealer and service center in Sarasota, FL. BE Power, Mi-T-M, Pressure Pro, and PSI. Cold and hot water units, warranty repairs, and parts. Call (941) 377-4673."
+      title="Pressure Washers Sarasota FL | Honda, BE, Mi-T-M, Pressure Pro — MHSS Inc."
+      description="Cold and hot water pressure washers in Sarasota, FL. Honda, BE Power Equipment, Mi-T-M, Pressure Pro. Authorized warranty service center. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/pressure-washers"
     >
+      <QuoteModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        productName={quoteProduct?.name}
+        productModel={quoteProduct?.model}
+      />
+
       {/* Hero */}
-      <section style={{ position: "relative", minHeight: "50vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+      <section style={{ position: "relative", minHeight: "45vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0 }}>
           <img src={HERO_IMG} alt="Pressure washers Sarasota FL" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
         </div>
         <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#CCCCCC" }}>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem" }}>
             <Link href="/" style={{ color: "#CCCCCC", textDecoration: "none" }}>Home</Link>
-            <span>/</span>
+            <span style={{ color: "#CCCCCC" }}>/</span>
             <span style={{ color: "#FFD100" }}>Pressure Washers</span>
           </nav>
-          <span style={{ display: "inline-block", backgroundColor: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
-            Authorized Dealer & Service Center
+          <span style={{ display: "inline-block", backgroundColor: "rgba(255,209,0,0.15)", border: "1px solid rgba(255,209,0,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
+            Honda · BE Power Equipment · Mi-T-M · Pressure Pro
           </span>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
-            Pressure Washer Sales &<br /><span style={{ color: "#FFD100" }}>Service — Sarasota, FL</span>
+            Pressure Washers —<br /><span style={{ color: "#FFD100" }}>Sales, Service & Repair</span>
           </h1>
-          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "540px", marginBottom: "1.75rem" }}>
-            MHSS is an authorized dealer and warranty service center for BE Power, Mi-T-M, Pressure Pro, and Pressure Systems Innovations. Cold water, hot water, gas, electric — we stock and service them all.
+          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
+            Cold and hot water pressure washers from the industry's most trusted brands. Authorized warranty service center for Honda, BE Power Equipment, Mi-T-M, and Pressure Pro. In stock at our Sarasota facility.
           </p>
-          <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            <Phone size={15} /> Call for Pricing: (941) 377-4673
-          </a>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section style={{ backgroundColor: "#F2EFE9", borderBottom: "1px solid #E5E0D8", padding: "2rem 0" }}>
-        <div className="container">
-          <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap", justifyContent: "center" }}>
-            {[
-              { icon: <Shield size={18} />, text: "Authorized Warranty Service" },
-              { icon: <Wrench size={18} />, text: "Factory-Trained Technicians" },
-              { icon: <CheckCircle2 size={18} />, text: "Parts In Stock" },
-              { icon: <CheckCircle2 size={18} />, text: "Cold & Hot Water Units" },
-              { icon: <CheckCircle2 size={18} />, text: "Gas & Electric Models" },
-            ].map(f => (
-              <span key={f.text} style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#1A1A1A", fontSize: "0.875rem" }}>
-                <span style={{ color: "#FFD100" }}>{f.icon}</span> {f.text}
-              </span>
-            ))}
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <Phone size={15} /> Call: (941) 377-4673
+            </a>
+            <button onClick={() => { setQuoteProduct(null); setModalOpen(true); }} style={{ backgroundColor: "transparent", color: "#FFFFFF", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", border: "1px solid rgba(255,255,255,0.4)", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              Request a Quote
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Brand Sections */}
-      <section style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
+      {/* Catalog */}
+      <section style={{ paddingTop: "5rem", paddingBottom: "5rem", backgroundColor: "#F9F7F4" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#FFD100", display: "block", marginBottom: "0.5rem" }}>Brands We Carry</span>
+            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#FFD100", display: "block", marginBottom: "0.5rem" }}>In Stock & Special Order</span>
             <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#1C1C1C" }}>
-              Popular Models & <span style={{ color: "#FFD100" }}>Specifications</span>
+              Pressure Washer <span style={{ color: "#FFD100" }}>Catalog</span>
             </h2>
-            <p style={{ color: "#2D2D2D", fontSize: "0.9rem", marginTop: "0.75rem", maxWidth: "520px", margin: "0.75rem auto 0" }}>
-              Pricing varies by configuration and availability. Please call or visit our Sarasota facility for current pricing and availability.
+            <p style={{ color: "#4B5563", fontSize: "0.9rem", marginTop: "0.75rem", maxWidth: "520px", margin: "0.75rem auto 0" }}>
+              Pricing varies by configuration. Call or click "Request Quote" on any item — we'll respond same business day.
             </p>
           </div>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
-            {BRANDS.map(brand => (
-              <div key={brand.name} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.625rem", overflow: "hidden" }}>
-                <div style={{ padding: "1.75rem 1.75rem 1rem", borderBottom: "1px solid #E5E0D8" }}>
-                  <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.35rem", color: "#FFD100", marginBottom: "0.5rem" }}>{brand.name}</h3>
-                  <p style={{ color: "#2D2D2D", fontSize: "0.875rem", lineHeight: 1.7, margin: 0 }}>{brand.desc}</p>
-                </div>
-                <div style={{ padding: "1.25rem 1.75rem" }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem" }}>
-                    {brand.models.map(m => (
-                      <div key={m.model} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.5rem", overflow: "hidden" }}>
-                        {/* Photo placeholder — product image will populate here */}
-                        <div style={{ backgroundColor: "#E8E8E8", height: "150px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.5rem", borderBottom: "1px solid #E5E0D8" }}>
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                          <span style={{ color: "#9CA3AF", fontSize: "0.7rem", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.08em", textTransform: "uppercase" }}>Product Photo</span>
-                        </div>
-                        <div style={{ padding: "1.25rem" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.5rem" }}>
-                          <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", color: "#1C1C1C" }}>{m.model}</span>
-                          <span style={{ backgroundColor: m.type === "Hot Water" ? "rgba(239,68,68,0.15)" : "rgba(59,130,246,0.15)", color: m.type === "Hot Water" ? "#EF4444" : "#60A5FA", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.65rem", letterSpacing: "0.08em", textTransform: "uppercase", padding: "0.2rem 0.6rem", borderRadius: "9999px" }}>
-                            {m.type}
-                          </span>
-                        </div>
-                        <p style={{ color: "#2D2D2D", fontSize: "0.8rem", margin: "0 0 0.75rem" }}>{m.specs}</p>
-                        <a href="tel:9413774673" style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>
-                          <Phone size={12} /> Call for Pricing
-                        </a>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1.5rem" }}>
+            {PRODUCTS.map(p => (
+              <ProductCard
+                key={p.model}
+                brand={p.brand}
+                model={p.model}
+                name={p.name}
+                specs={p.specs}
+                price={p.price}
+                badge={p.badge}
+                badgeColor={p.badgeColor}
+                imageUrl={p.imageUrl}
+                onQuote={() => openQuote(`${p.brand} ${p.name}`, p.model)}
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* Service CTA */}
-      <section style={{ backgroundColor: "#F2EFE9", borderTop: "1px solid #E5E0D8", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section style={{ backgroundColor: "#1C1C1C", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center" }}>
           <div>
             <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#FFD100", display: "block", marginBottom: "0.5rem" }}>Warranty Service Center</span>
-            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#1C1C1C", marginBottom: "1rem" }}>
+            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#FFFFFF", marginBottom: "1rem" }}>
               Pressure Washer Repair & Service in Sarasota
             </h2>
-            <p style={{ color: "#2D2D2D", fontSize: "0.9rem", lineHeight: 1.75, marginBottom: "1.5rem" }}>
-              Whether your pressure washer is under warranty or out of warranty, MHSS has the parts, tools, and expertise to get it running again. We service all makes and models — not just the brands we sell.
+            <p style={{ color: "#D0D0D0", fontSize: "0.9rem", lineHeight: 1.75, marginBottom: "1.5rem" }}>
+              Whether your pressure washer is under warranty or out of warranty, MHSS has the parts, tools, and expertise to get it running again. We service all makes and models.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
               {["Pump rebuilds and replacements", "Unloader and regulator service", "Engine repairs and tune-ups", "Hose, gun, and wand replacement", "Hot water burner service", "Annual maintenance packages"].map(i => (
-                <li key={i} style={{ display: "flex", alignItems: "center", gap: "0.6rem", color: "#1A1A1A", fontSize: "0.875rem" }}>
+                <li key={i} style={{ display: "flex", alignItems: "center", gap: "0.6rem", color: "#D0D0D0", fontSize: "0.875rem" }}>
                   <CheckCircle2 size={14} style={{ color: "#FFD100", flexShrink: 0 }} /> {i}
                 </li>
               ))}
             </ul>
           </div>
-          <div style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.625rem", padding: "2rem" }}>
-            <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1C1C1C", marginBottom: "0.5rem" }}>Get Service or a Quote</h3>
-            <p style={{ color: "#2D2D2D", fontSize: "0.875rem", marginBottom: "1.5rem" }}>Visit us at 552 Catarzi Way, Sarasota or call to discuss your equipment needs.</p>
+          <div style={{ backgroundColor: "#2A2A2A", border: "1px solid #444", borderRadius: "0.75rem", padding: "2rem", textAlign: "center" }}>
+            <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.6rem", color: "#FFFFFF", marginBottom: "0.5rem" }}>
+              NEED SERVICE OR A QUOTE?
+            </div>
+            <div style={{ color: "#9CA3AF", fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", marginBottom: "1.5rem" }}>
+              552 Catarzi Way, Sarasota FL · Mon–Fri 8am–5pm
+            </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-              <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
-                <Phone size={15} /> (941) 377-4673
+              <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+                <Phone size={16} /> (941) 377-4673
               </a>
-              <Link href="/contact" style={{ border: "2px solid #E5E0D8", color: "#1A1A1A", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.875rem", letterSpacing: "0.05em", textTransform: "uppercase", padding: "0.875rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", background: "transparent" }}>
-                Request a Quote <ArrowRight size={14} />
-              </Link>
+              <button onClick={() => { setQuoteProduct(null); setModalOpen(true); }} style={{ backgroundColor: "transparent", color: "#FFFFFF", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.5rem", borderRadius: "0.375rem", border: "1px solid #555", cursor: "pointer" }}>
+                Request a Quote
+              </button>
             </div>
           </div>
         </div>

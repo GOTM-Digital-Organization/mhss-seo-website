@@ -1,104 +1,25 @@
+/**
+ * Pumps page — MHSS Inc. (redirects/supplements PumpsAndParts)
+ * Design: dark industrial hero, white catalog grid, yellow accents
+ */
+import { useState } from "react";
 import Layout from "@/components/Layout";
+import ProductCard from "@/components/ProductCard";
+import QuoteModal from "@/components/QuoteModal";
 import { Link } from "wouter";
-import { Phone, Wrench, CheckCircle, ArrowRight } from "lucide-react";
+import { Phone, CheckCircle, ArrowRight } from "lucide-react";
 
-const pumps = [
-  {
-    brand: "General Pump",
-    model: "TSS1021",
-    series: "T-47 Series",
-    psi: "3500 PSI",
-    gpm: "4.5 GPM",
-    type: "Triplex Plunger",
-    drive: "Belt Drive",
-    shaft: "Solid Shaft",
-    desc: "The workhorse of the industry. General Pump's T-47 triplex delivers exceptional durability for high-demand commercial applications. Solid brass manifold, ceramic plungers.",
-    badge: null,
-  },
-  {
-    brand: "General Pump",
-    model: "TS2021",
-    series: "T-47 Series",
-    psi: "3500 PSI",
-    gpm: "5.6 GPM",
-    type: "Triplex Plunger",
-    drive: "Belt Drive",
-    shaft: "Right Shaft",
-    desc: "High-flow T-47 triplex for maximum production. Ideal for hot water systems and high-volume commercial pressure washing rigs.",
-    badge: null,
-  },
-  {
-    brand: "CAT Pumps",
-    model: "5CP3120",
-    series: "5CP Series",
-    psi: "3500 PSI",
-    gpm: "4.5 GPM",
-    type: "Triplex Plunger",
-    drive: "Belt Drive",
-    shaft: "Solid Shaft",
-    desc: "CAT Pumps' legendary 5CP series — built for continuous-duty industrial use. Chrome-plated plungers, stainless steel valves, and a brass manifold rated for hot water.",
-    badge: "AUTHORIZED SERVICE",
-  },
-  {
-    brand: "CAT Pumps",
-    model: "5CP2120W",
-    series: "5CP Series",
-    psi: "2000 PSI",
-    gpm: "5.0 GPM",
-    type: "Triplex Plunger",
-    drive: "Belt Drive",
-    shaft: "W770 Brass Manifold",
-    desc: "High-flow 5CP with special W770 brass manifold for maximum corrosion resistance. Ideal for chemical injection applications and soft-wash systems.",
-    badge: "AUTHORIZED SERVICE",
-  },
-  {
-    brand: "AR Pumps",
-    model: "RRV3G30D",
-    series: "RRV Series",
-    psi: "3000 PSI",
-    gpm: "3.0 GPM",
-    type: "Axial Cam",
-    drive: "Direct Drive",
-    shaft: "Hollow Shaft",
-    desc: "Annovi Reverberi's RRV axial cam pump — lightweight, compact, and reliable for direct-drive machines. 5-year warranty on cam shaft plunger pumps.",
-    badge: null,
-  },
-  {
-    brand: "Comet Pumps",
-    model: "AXD3025G",
-    series: "AXD Series",
-    psi: "3000 PSI",
-    gpm: "2.5 GPM",
-    type: "Axial",
-    drive: "Direct Drive",
-    shaft: "Hollow Shaft",
-    desc: "Italian-engineered Comet axial pump for residential and light commercial use. Aluminum crankcase, brass manifold, easy maintenance.",
-    badge: null,
-  },
-  {
-    brand: "UDOR Pumps",
-    model: "Kappa 30/18",
-    series: "Kappa Series",
-    psi: "2600 PSI",
-    gpm: "4.8 GPM",
-    type: "Triplex Plunger",
-    drive: "Belt Drive",
-    shaft: "Solid Shaft",
-    desc: "UDOR Kappa series triplex — Italian-made commercial grade pump with ceramic plungers and stainless steel valves. Excellent for hot water and chemical applications.",
-    badge: null,
-  },
-  {
-    brand: "General Pump",
-    model: "TP2530J34",
-    series: "TP Series 51",
-    psi: "2500 PSI",
-    gpm: "2.88 GPM",
-    type: "Triplex Plunger",
-    drive: "Belt Drive",
-    shaft: "Solid Shaft",
-    desc: "Compact TP51 triplex for mid-range commercial applications. Solid brass manifold, ceramic plungers, and easy-access service points.",
-    badge: null,
-  },
+const HERO_IMG = "/manus-storage/mhss3-pumps_b88feb86.jpg";
+
+const PUMPS = [
+  { brand: "General Pump", model: "TSS1021", name: "T-47 Triplex Plunger Pump", specs: ["3500 PSI / 4.5 GPM", "Belt drive", "Solid shaft", "Brass manifold", "Ceramic plungers"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "General Pump", model: "TS2021", name: "T-47 High-Flow Triplex Pump", specs: ["3500 PSI / 5.6 GPM", "Belt drive", "Right shaft", "Brass manifold", "High-volume commercial"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "CAT Pumps", model: "5CP3120", name: "5CP Triplex Plunger Pump", specs: ["3500 PSI / 4.5 GPM", "Belt drive", "Solid shaft", "Chrome plungers", "Stainless valves"], price: "Call for Pricing", badge: "Authorized Service", badgeColor: "yellow" as const },
+  { brand: "CAT Pumps", model: "5CP2120W", name: "5CP High-Flow Triplex Pump", specs: ["2000 PSI / 5.0 GPM", "Belt drive", "W770 brass manifold", "Chemical injection ready", "Soft-wash compatible"], price: "Call for Pricing", badge: "Authorized Service", badgeColor: "yellow" as const },
+  { brand: "AR Pumps", model: "RRV3G30D", name: "RRV Axial Cam Pump", specs: ["3000 PSI / 3.0 GPM", "Direct drive", "Hollow shaft", "5-year warranty", "Lightweight design"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "Comet Pumps", model: "AXD3025G", name: "AXD Axial Pump", specs: ["3000 PSI / 2.5 GPM", "Direct drive", "Hollow shaft", "Aluminum crankcase", "Brass manifold"], price: "Call for Pricing", badge: "In Stock", badgeColor: "green" as const },
+  { brand: "UDOR Pumps", model: "Kappa 30/18", name: "Kappa Triplex Plunger Pump", specs: ["2600 PSI / 4.8 GPM", "Belt drive", "Solid shaft", "Ceramic plungers", "Stainless valves"], price: "Call for Pricing" },
+  { brand: "General Pump", model: "TP2530J34", name: "TP51 Compact Triplex Pump", specs: ["2500 PSI / 2.88 GPM", "Belt drive", "Solid shaft", "Brass manifold", "Easy service access"], price: "Call for Pricing" },
 ];
 
 const repairServices = [
@@ -111,111 +32,115 @@ const repairServices = [
 ];
 
 export default function Pumps() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [quoteProduct, setQuoteProduct] = useState<{ name: string; model: string } | null>(null);
+
+  function openQuote(name: string, model: string) {
+    setQuoteProduct({ name, model });
+    setModalOpen(true);
+  }
+
   return (
     <Layout
       title="Pressure Washer Pumps — General, CAT, AR, Comet, UDOR | MHSS Sarasota FL"
       description="Pressure washer pump sales, service, and repair in Sarasota FL. General Pump, CAT Pumps, AR, Comet, and UDOR triplex and axial pumps in stock. Pump kits and rebuild parts available. Call (941) 377-4673."
+      canonical="https://www.mhss-inc.com/pumps"
     >
-      {/* Page Hero */}
-      <section style={{ background: "#1C1C1C", padding: "3rem 0 2.5rem" }}>
-        <div className="container">
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
-            <Link href="/" style={{ color: "#CCCCCC", fontSize: "0.85rem", textDecoration: "none" }}>Home</Link>
+      <QuoteModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        productName={quoteProduct?.name}
+        productModel={quoteProduct?.model}
+      />
+
+      {/* Hero */}
+      <section style={{ position: "relative", minHeight: "45vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0 }}>
+          <img src={HERO_IMG} alt="Pressure washer pumps Sarasota FL" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
+        </div>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem" }}>
+            <Link href="/" style={{ color: "#CCCCCC", textDecoration: "none" }}>Home</Link>
             <span style={{ color: "#CCCCCC" }}>/</span>
-            <span style={{ color: "#FFD100", fontSize: "0.85rem" }}>Pumps</span>
-          </div>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#FFFFFF", lineHeight: 1.05, marginBottom: "1rem" }}>
-            PRESSURE WASHER<br />
-            <span style={{ color: "#FFD100" }}>PUMPS &amp; PUMP KITS</span>
+            <span style={{ color: "#FFD100" }}>Pumps</span>
+          </nav>
+          <span style={{ display: "inline-block", backgroundColor: "rgba(255,209,0,0.15)", border: "1px solid rgba(255,209,0,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
+            General · CAT · AR · Comet · UDOR
+          </span>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
+            PRESSURE WASHER<br /><span style={{ color: "#FFD100" }}>PUMPS &amp; PUMP KITS</span>
           </h1>
-          <p style={{ color: "#E0E0E0", fontSize: "1.05rem", maxWidth: "600px", marginBottom: "1.5rem", fontFamily: "'Inter', sans-serif" }}>
+          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
             General Pump, CAT Pumps, AR, Comet, and UDOR — sales, service, and authorized repair at our Sarasota facility. Pump kits and rebuild parts in stock.
           </p>
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <a href="tel:9413774673" className="btn-yellow">
-              <Phone size={16} /> Call for Pricing: (941) 377-4673
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <Phone size={15} /> Call: (941) 377-4673
             </a>
-            <Link href="/contact" className="btn-outline-dark" style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}>
-              Schedule Service
-            </Link>
+            <button onClick={() => { setQuoteProduct(null); setModalOpen(true); }} style={{ backgroundColor: "transparent", color: "#FFFFFF", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", border: "1px solid rgba(255,255,255,0.4)", cursor: "pointer" }}>
+              Request a Quote
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Pump Grid */}
-      <section style={{ background: "#F2EFE9", padding: "3rem 0" }}>
+      {/* Pump Catalog */}
+      <section style={{ paddingTop: "5rem", paddingBottom: "3rem", backgroundColor: "#F9F7F4" }}>
         <div className="container">
-          <div style={{ marginBottom: "2rem" }}>
-            <h2 className="section-heading">Pumps In Stock &amp; Available to Order</h2>
-            <p style={{ color: "#2D2D2D", marginTop: "1rem", fontFamily: "'Inter', sans-serif" }}>
-              We stock and service the industry's most trusted pump brands. All pumps available with rebuild kits and replacement parts. Call for current pricing and availability.
-            </p>
+          <div style={{ marginBottom: "2.5rem" }}>
+            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#1C1C1C" }}>
+              Pumps In Stock &amp; <span style={{ color: "#FFD100" }}>Available to Order</span>
+            </h2>
+            <p style={{ color: "#4B5563", fontSize: "0.875rem", marginTop: "0.5rem" }}>All pumps available with rebuild kits and replacement parts. Click "Request Quote" or call for current pricing.</p>
           </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1.25rem" }}>
-            {pumps.map((pump, i) => (
-              <div key={i} className="product-card" style={{ display: "flex", flexDirection: "column" }}>
-                <div style={{ background: "#1C1C1C", padding: "1rem 1.25rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <div>
-                    <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.75rem", color: "#FFD100", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                      {pump.brand}
-                    </div>
-                    <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#FFFFFF", lineHeight: 1.1 }}>
-                      {pump.model}
-                    </div>
-                    <div style={{ color: "#9CA3AF", fontSize: "0.8rem", fontFamily: "'Inter', sans-serif" }}>{pump.series}</div>
-                  </div>
-                  {pump.badge && <span className="service-badge">{pump.badge}</span>}
-                </div>
-                <div style={{ padding: "1.25rem", flex: 1, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-                    <span className="spec-pill">{pump.psi}</span>
-                    <span className="spec-pill">{pump.gpm}</span>
-                    <span className="spec-pill">{pump.type}</span>
-                    <span className="spec-pill">{pump.drive}</span>
-                  </div>
-                  <p style={{ color: "#1A1A1A", fontSize: "0.875rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", flex: 1 }}>
-                    {pump.desc}
-                  </p>
-                  <div style={{ borderTop: "1px solid #E5E0D8", paddingTop: "0.75rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span className="price-tag">Call for Pricing</span>
-                    <a href="tel:9413774673" style={{ display: "flex", alignItems: "center", gap: "0.3rem", color: "#1C1C1C", fontSize: "0.85rem", fontWeight: 600, textDecoration: "none", fontFamily: "'Barlow', sans-serif" }}>
-                      <Phone size={14} /> (941) 377-4673
-                    </a>
-                  </div>
-                </div>
-              </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1.5rem" }}>
+            {PUMPS.map(p => (
+              <ProductCard
+                key={p.model}
+                brand={p.brand}
+                model={p.model}
+                name={p.name}
+                specs={p.specs}
+                price={p.price}
+                badge={p.badge}
+                badgeColor={p.badgeColor}
+                onQuote={() => openQuote(`${p.brand} ${p.name}`, p.model)}
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* Pump Repair Service */}
-      <section style={{ background: "#FFFFFF", padding: "3rem 0" }}>
+      <section style={{ backgroundColor: "#FFFFFF", paddingTop: "3rem", paddingBottom: "5rem" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center" }}>
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
-                <span className="service-badge">AUTHORIZED SERVICE CENTER</span>
-              </div>
-              <h2 className="section-heading">Pump Repair &amp; Rebuild Service</h2>
-              <p style={{ color: "#1A1A1A", marginTop: "1.25rem", lineHeight: 1.7, fontFamily: "'Inter', sans-serif" }}>
+              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#FFD100", display: "block", marginBottom: "0.5rem" }}>Authorized Service Center</span>
+              <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#1C1C1C", marginBottom: "1rem" }}>
+                Pump Repair &amp; Rebuild Service
+              </h2>
+              <p style={{ color: "#1A1A1A", lineHeight: 1.7, fontSize: "0.9rem", marginBottom: "1.25rem" }}>
                 Our technicians have been servicing commercial pressure washer pumps for over 35 years. We carry rebuild kits, seal kits, valve kits, and replacement parts for all major brands — most repairs completed same-day or next-day.
               </p>
-              <ul style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                 {repairServices.map((s, i) => (
-                  <li key={i} style={{ display: "flex", alignItems: "center", gap: "0.6rem", color: "#1C1C1C", fontFamily: "'Inter', sans-serif", fontSize: "0.95rem" }}>
-                    <CheckCircle size={16} color="#FFD100" />
-                    {s}
+                  <li key={i} style={{ display: "flex", alignItems: "center", gap: "0.6rem", color: "#1C1C1C", fontSize: "0.875rem" }}>
+                    <CheckCircle size={14} color="#FFD100" /> {s}
                   </li>
                 ))}
               </ul>
-              <div style={{ marginTop: "1.75rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <a href="tel:9413774673" className="btn-yellow"><Phone size={16} /> Call Now</a>
-                <Link href="/contact" className="btn-outline-dark">Get a Quote</Link>
+              <div style={{ marginTop: "1.75rem", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+                <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                  <Phone size={15} /> Call Now
+                </a>
+                <button onClick={() => { setQuoteProduct(null); setModalOpen(true); }} style={{ backgroundColor: "transparent", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", border: "1px solid #333", cursor: "pointer" }}>
+                  Get a Quote
+                </button>
               </div>
             </div>
-            <div style={{ background: "#F2EFE9", borderRadius: "0.5rem", padding: "2rem" }}>
+            <div style={{ backgroundColor: "#F2EFE9", borderRadius: "0.5rem", padding: "2rem" }}>
               <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#1C1C1C", marginBottom: "1rem" }}>
                 BRANDS WE SERVICE
               </div>
@@ -225,7 +150,7 @@ export default function Pumps() {
                   <ArrowRight size={14} color="#FFD100" />
                 </div>
               ))}
-              <div style={{ marginTop: "1.5rem", background: "#FFD100", borderRadius: "0.25rem", padding: "1rem", textAlign: "center" }}>
+              <div style={{ marginTop: "1.5rem", backgroundColor: "#FFD100", borderRadius: "0.25rem", padding: "1rem", textAlign: "center" }}>
                 <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.1rem", color: "#1C1C1C" }}>
                   MOST REPAIRS SAME-DAY
                 </div>
@@ -239,19 +164,24 @@ export default function Pumps() {
       </section>
 
       {/* Bottom CTA */}
-      <section style={{ background: "#1C1C1C", padding: "2.5rem 0" }}>
+      <section style={{ backgroundColor: "#1C1C1C", paddingTop: "2.5rem", paddingBottom: "2.5rem" }}>
         <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
           <div>
             <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.6rem", color: "#FFFFFF" }}>
               NEED A PUMP? HAVE A PUMP PROBLEM?
             </div>
-            <div style={{ color: "#AAAAAA", fontFamily: "'Inter', sans-serif" }}>
+            <div style={{ color: "#AAAAAA", fontFamily: "'Inter', sans-serif", fontSize: "0.875rem" }}>
               552 Catarzi Way, Sarasota FL — Mon–Fri 8am–5pm
             </div>
           </div>
-          <a href="tel:9413774673" className="btn-yellow" style={{ fontSize: "1.1rem", padding: "0.875rem 2rem" }}>
-            <Phone size={18} /> (941) 377-4673
-          </a>
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 2rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <Phone size={16} /> (941) 377-4673
+            </a>
+            <button onClick={() => { setQuoteProduct(null); setModalOpen(true); }} style={{ backgroundColor: "transparent", color: "#FFFFFF", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 2rem", borderRadius: "0.375rem", border: "1px solid #555", cursor: "pointer" }}>
+              Request a Quote
+            </button>
+          </div>
         </div>
       </section>
     </Layout>
