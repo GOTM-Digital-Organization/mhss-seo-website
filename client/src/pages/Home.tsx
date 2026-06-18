@@ -1,354 +1,183 @@
-/* =============================================================================
-   MHSS Home Page — Precision Trade Dark
-   Hero | Trust Signals | Services | Brands | Emergency CTA | Testimonials | Map
-   ============================================================================= */
-
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
-import {
-  Phone, MapPin, Star, ChevronRight, Wrench, Zap, Truck, Settings,
-  Package, ArrowRight, Shield, Clock, Award
-} from "lucide-react";
+import { ArrowRight, Phone, Wrench, Droplets, Zap, Shield, Star, CheckCircle2, ChevronRight } from "lucide-react";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-hero-FUu5TVKLCe2R2eFu96xyHE.webp";
-const EMERGENCY_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-emergency-truck-4JFDGxCTvwiZJEva7tmW7J.webp";
-const RIG_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-pressure-wash-rig-hUMDh8jp3YwkZzcRFL6ywp.webp";
-const SUPPLY_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-parts-supply-77WHPyM4LQGtKLHAgFW8bo.webp";
+const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss2-hero-LwcziuFGZkTbzEXdxZGJAu.webp";
+const PW_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss2-pressure-washers-Dn4rXwmHkPMwRBWCbLFQNS.webp";
+const HOSE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss2-hydraulic-hose-FcqKNLVYPmjdBrXKdWFJaZ.webp";
+const SPRAYER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss2-airless-sprayers-MrHZbVQrJDMjdBrXKdWFJaZ.webp";
+const PARTS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss2-parts-wall-HkPMwRBWCbLFQNSMrHZbVQrJDM.webp";
 
 const SERVICES = [
-  {
-    icon: <Wrench size={28} />,
-    title: "Hydraulic Hose Repair",
-    desc: "Same-day custom hydraulic hose assemblies, crimping, and fittings for industrial, agricultural, and commercial equipment. All sizes and pressure ratings.",
-    href: "/hydraulic-hose-repair-sarasota",
-    label: "Hose Repair",
-  },
-  {
-    icon: <Zap size={28} />,
-    title: "Pressure Washer Repair & Sales",
-    desc: "Factory-trained service on Honda, AR, and other commercial pressure washers. Pumps, unloaders, burners, and full machine rebuilds.",
-    href: "/pressure-washer-repair-sarasota",
-    label: "PW Repair",
-  },
-  {
-    icon: <Package size={28} />,
-    title: "Pressure Washing Supply Store",
-    desc: "In-stock Honda pressure washers, Titan hose reels, spray nozzles, quick couplers, surface cleaners, hoses, fittings, and all the parts you need.",
-    href: "/pressure-washing-supply-store",
-    label: "Supply Store",
-  },
-  {
-    icon: <Settings size={28} />,
-    title: "Custom Rig Builds",
-    desc: "We design and build complete pressure washing rigs — trailer-mounted or skid systems — with Honda engines, Titan reels, poly tanks, and custom plumbing.",
-    href: "/pressure-washing-rig-builds",
-    label: "Rig Builds",
-  },
-  {
-    icon: <Truck size={28} />,
-    title: "Emergency Mobile Service",
-    desc: '"The Hose Doctor" emergency unit comes to you. Hydraulic hose failures, pressure washer breakdowns — we repair on-site to get you back to work fast.',
-    href: "/emergency-mobile-hose-repair",
-    label: "Emergency",
-    emergency: true,
-  },
+  { icon: <Droplets size={28} />, title: "Pressure Washers", sub: "Sales, Service & Warranty", href: "/pressure-washers", desc: "Authorized dealer for BE Power, Mi-T-M, Pressure Pro & more. Cold and hot water units for every application.", img: PW_IMG },
+  { icon: <Wrench size={28} />, title: "Pumps & Parts", sub: "General, Cat, AR, Comet, UDOR", href: "/pumps-parts", desc: "Complete pump kits, replacement parts, guns, wands, tips, chemical injectors, unloaders and more.", img: PARTS_IMG },
+  { icon: <Zap size={28} />, title: "Hydraulic Hose", sub: "Made to Order — While You Wait", href: "/hydraulic-hose", desc: "Parker & Bridgestone hose cut and crimped on-site. 2-wire and 4-wire capability. Dump trailer service.", img: HOSE_IMG },
+  { icon: <Shield size={28} />, title: "Airless Sprayers", sub: "Graco, Titan/SpeeFlo, Tritech", href: "/airless-sprayers", desc: "Authorized service center for Graco and Titan/SpeeFlo. Warranty repairs, kits, and parts in stock.", img: SPRAYER_IMG },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "Andrew B.",
-    rating: 5,
-    text: "Great guys, very professional, reasonable prices. Unlike some of the other power washing equipment companies in town who are borderline scam artists.",
-  },
-  {
-    name: "Mike T.",
-    rating: 5,
-    text: "Been coming here for years for all my hydraulic hose needs. They always have what I need in stock and can make custom assemblies while I wait. Best in Sarasota.",
-  },
-  {
-    name: "Carlos R.",
-    rating: 5,
-    text: "Had a hydraulic hose blow on my excavator at 7am. Called MHSS and The Hose Doctor was on site within the hour with a new assembly. Saved our whole day.",
-  },
+const BRANDS = [
+  "Honda", "BE Power", "Mi-T-M", "Pressure Pro", "Pressure Systems Innovations",
+  "General Pump", "Cat Pumps", "AR Pumps", "Comet Pumps", "UDOR",
+  "Titan Hose Reels", "Summit Hose Reels", "Graco", "Titan/SpeeFlo", "Tritech",
+  "Parker", "Bridgestone", "WhisperWash", "Whirlaway", "Hammerhead",
 ];
 
-function AnimatedStat({ end, label }: { end: number; label: string; suffix?: string }) {
+const STATS = [
+  { value: 35, suffix: "+", label: "Years in Business" },
+  { value: 20, suffix: "+", label: "Brands Carried" },
+  { value: 5000, suffix: "+", label: "Customers Served" },
+  { value: 8, suffix: "", label: "Service Categories" },
+];
+
+function useCountUp(target: number, duration = 1800, start = false) {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const started = useRef(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          let start = 0;
-          const duration = 1200;
-          const step = Math.ceil(end / (duration / 16));
-          const timer = setInterval(() => {
-            start = Math.min(start + step, end);
-            setCount(start);
-            if (start >= end) clearInterval(timer);
-          }, 16);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end]);
+    if (!start) return;
+    let startTime: number | null = null;
+    const step = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const progress = Math.min((ts - startTime) / duration, 1);
+      setCount(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration, start]);
+  return count;
+}
 
-  return <div ref={ref}>{count}</div>;
+function StatCard({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const count = useCountUp(value, 1600, visible);
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.3 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div ref={ref} style={{ textAlign: "center", padding: "1.5rem" }}>
+      <div style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(2.5rem, 5vw, 3.5rem)", color: "#F59E0B", lineHeight: 1 }}>
+        {count.toLocaleString()}{suffix}
+      </div>
+      <div style={{ color: "#94A3B8", fontSize: "0.875rem", marginTop: "0.5rem", fontFamily: "Inter, sans-serif", letterSpacing: "0.03em" }}>{label}</div>
+    </div>
+  );
 }
 
 export default function Home() {
   return (
     <Layout
-      title="MHSS Inc. | Hydraulic Hose Repair & Pressure Washer Sales Sarasota FL"
-      description="Mobile Hose & Spray Systems — Sarasota's trusted hydraulic hose repair, pressure washer sales & service, and emergency mobile hose repair since 1990. Honda pressure washers, Titan hose reels, custom rig builds. Call 941-377-4673."
+      title="MHSS Inc. | Pressure Washer & Hydraulic Hose Specialists — Sarasota, FL"
+      description="Mobile Hose & Spray Systems — Sarasota's industrial equipment experts since 1990. Pressure washer sales & service, hydraulic hose made to order, airless sprayer repair, pumps, parts, and more at 552 Cattaraugus Way."
       canonical="https://www.mhss-inc.com/"
     >
       {/* ── HERO ── */}
-      <section
-        className="relative min-h-[90vh] flex items-center overflow-hidden"
-        style={{ backgroundColor: "#404040" }}
-      >
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${HERO_IMG})`,
-            opacity: 0.70,
-          }}
-        />
-        {/* Gradient overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(105deg, rgba(58,58,58,0.78) 40%, rgba(58,58,58,0.25) 100%)",
-          }}
-        />
-
-        <div className="container relative z-10 py-20">
-          <div className="max-w-3xl">
-            {/* Label */}
-            <div className="flex items-center gap-3 mb-6">
-              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-              <span
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 600,
-                  fontSize: "0.75rem",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "#F5A623",
-                }}
-              >
-                Sarasota, FL · Est. 1990
-              </span>
-            </div>
-
-            {/* Headline */}
-            <h1
-              className="mb-6"
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(3rem, 8vw, 5.5rem)",
-                lineHeight: 1.0,
-                color: "#FFFFFF",
-                letterSpacing: "0.01em",
-              }}
-            >
-              SARASOTA'S HOSE{" "}
-              <span style={{ color: "#F5A623" }}>REPAIR</span> &amp;{" "}
-              <br className="hidden sm:block" />
-              PRESSURE WASHING{" "}
-              <span style={{ color: "#F5A623" }}>EXPERTS</span>
+      <section style={{ position: "relative", minHeight: "90vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+          <img src={HERO_IMG} alt="MHSS industrial equipment shop Sarasota" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(8,15,23,0.92) 0%, rgba(8,15,23,0.75) 50%, rgba(8,15,23,0.35) 100%)" }} />
+        </div>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ maxWidth: "680px" }}>
+            <span style={{ display: "inline-block", backgroundColor: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1.25rem" }}>
+              Sarasota's Industrial Equipment Specialists Since 1990
+            </span>
+            <h1 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(2.25rem, 5vw, 3.75rem)", color: "#F1F5F9", lineHeight: 1.1, marginBottom: "1.25rem" }}>
+              Pressure Washers.<br />
+              <span style={{ color: "#F59E0B" }}>Hydraulic Hose.</span><br />
+              Industrial Parts.
             </h1>
-
-            <p
-              className="mb-8 max-w-xl"
-              style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Family-owned since 1990. Hydraulic hose repair, pressure washer sales &amp; service, Honda engines, Titan hose reels, custom rig builds, and emergency mobile repair — all under one roof.
+            <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: 1.75, marginBottom: "2rem", maxWidth: "540px" }}>
+              From pump repairs and warranty service to hydraulic hose made while you wait — MHSS is Sarasota and Manatee County's go-to facility for professional-grade equipment sales, service, and parts.
             </p>
-
-            {/* CTA Row */}
-            <div className="flex flex-wrap gap-4 mb-10">
-              <a
-                href="tel:+19413774673"
-                className="flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: "#F5A623",
-                  color: "#404040",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                }}
-              >
-                <Phone size={18} />
-                Call 941-377-4673
+            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+              <a href="tel:9413774673" style={{ backgroundColor: "#F59E0B", color: "#0a0f14", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.75rem", borderRadius: "0.375rem", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.5rem", transition: "background 0.15s" }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = "#D97706")}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = "#F59E0B")}>
+                <Phone size={16} /> Call (941) 377-4673
               </a>
-              <Link
-                href="/emergency-mobile-hose-repair"
-                className="flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95 emergency-pulse"
-                style={{
-                  backgroundColor: "#E03030",
-                  color: "#FFFFFF",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                }}
-              >
-                <Truck size={18} />
-                Emergency Service
-              </Link>
-              <Link
-                href="/hydraulic-hose-repair-sarasota"
-                className="flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:bg-zinc-700"
-                style={{
-                  border: "2px solid rgba(255,255,255,0.15)",
-                  color: "#E4E4E7",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Our Services
-                <ChevronRight size={18} />
+              <Link href="/contact" style={{ border: "2px solid rgba(245,158,11,0.5)", color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.75rem", borderRadius: "0.375rem", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.5rem", background: "transparent", transition: "all 0.15s" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(245,158,11,0.1)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}>
+                Get a Quote <ArrowRight size={16} />
               </Link>
             </div>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-6">
-              {[
-                { icon: <Star size={14} fill="#F5A623" color="#F5A623" />, text: "4.8★ Google Rating (48 Reviews)" },
-                { icon: <Award size={14} color="#F5A623" />, text: "35+ Years in Business" },
-                { icon: <MapPin size={14} color="#F5A623" />, text: "2 Locations: Sarasota & Bradenton" },
-              ].map((badge) => (
-                <div key={badge.text} className="flex items-center gap-2">
-                  {badge.icon}
-                  <span style={{ color: "#C0C0C0", fontSize: "0.8rem", fontFamily: "'DM Sans', sans-serif" }}>
-                    {badge.text}
-                  </span>
-                </div>
+            {/* Trust signals */}
+            <div style={{ display: "flex", gap: "1.5rem", marginTop: "2.5rem", flexWrap: "wrap" }}>
+              {["Authorized Warranty Service", "Parker & Bridgestone Hose", "Sarasota & Manatee County"].map(t => (
+                <span key={t} style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#64748B", fontSize: "0.8rem" }}>
+                  <CheckCircle2 size={13} style={{ color: "#F59E0B" }} /> {t}
+                </span>
               ))}
             </div>
           </div>
         </div>
-
-        {/* Diagonal bottom */}
-        <div
-          className="absolute bottom-0 left-0 right-0"
-          style={{
-            height: "80px",
-            background: "linear-gradient(to bottom right, transparent 49%, #404040 50%)",
-          }}
-        />
       </section>
 
       {/* ── STATS BAR ── */}
-      <section style={{ backgroundColor: "#4A4A4A", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="container py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { end: 35, suffix: "+", label: "Years in Business" },
-              { end: 2, suffix: "", label: "Shop Locations" },
-              { end: 48, suffix: "+", label: "Google Reviews" },
-              { end: 1, suffix: "", label: "Emergency Mobile Unit" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div
-                  style={{
-                    fontFamily: "'Barlow Condensed', sans-serif",
-                    fontWeight: 800,
-                    fontSize: "3rem",
-                    color: "#F5A623",
-                    lineHeight: 1,
-                  }}
-                >
-                  <AnimatedStat end={stat.end} label={stat.label} />
-                  <span>{stat.suffix}</span>
-                </div>
-                <div style={{ color: "#909090", fontSize: "0.8rem", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "0.25rem", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600 }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+      <section style={{ backgroundColor: "#0a1520", borderTop: "1px solid #1E3A5F", borderBottom: "1px solid #1E3A5F" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))" }}>
+            {STATS.map(s => <StatCard key={s.label} {...s} />)}
           </div>
         </div>
       </section>
 
       {/* ── SERVICES GRID ── */}
-      <section style={{ backgroundColor: "#404040" }} className="py-20">
+      <section style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="container">
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-4">
-              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
-                What We Do
-              </span>
-            </div>
-            <h2
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-                color: "#FFFFFF",
-                lineHeight: 1.05,
-              }}
-            >
-              COMPLETE HOSE &amp; PRESSURE WASHING
-              <br />
-              <span style={{ color: "#F5A623" }}>SERVICES IN SARASOTA, FL</span>
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+            <span style={{ display: "block", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#F59E0B", marginBottom: "0.5rem" }}>What We Do</span>
+            <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#F1F5F9", marginBottom: "1rem" }}>
+              Equipment Sales, Service & <span style={{ color: "#F59E0B" }}>Parts</span>
             </h2>
+            <p style={{ color: "#64748B", fontSize: "0.95rem", maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
+              Serving contractors, landscapers, pest control operators, painters, and industrial businesses throughout Sarasota and Manatee County.
+            </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {SERVICES.map((svc) => (
-              <Link
-                key={svc.href}
-                href={svc.href}
-                className="block p-6 rounded-lg transition-all group"
-                style={{
-                  backgroundColor: "#4A4A4A",
-                  borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: svc.emergency ? "rgba(220,38,38,0.3)" : "rgba(255,255,255,0.06)",
-                  borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: svc.emergency ? "rgba(220,38,38,0.3)" : "rgba(255,255,255,0.06)",
-                  borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: svc.emergency ? "rgba(220,38,38,0.3)" : "rgba(255,255,255,0.06)",
-                  borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: svc.emergency ? "#E03030" : "#F5A623",
-                }}
-              >
-                <div
-                  className="mb-4 w-12 h-12 rounded flex items-center justify-center"
-                  style={{ backgroundColor: svc.emergency ? "rgba(220,38,38,0.15)" : "rgba(245,158,11,0.12)", color: svc.emergency ? "#E03030" : "#F5A623" }}
-                >
-                  {svc.icon}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
+            {SERVICES.map(svc => (
+              <Link key={svc.href} href={svc.href} style={{ textDecoration: "none", display: "block" }}>
+                <div style={{ backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", borderRadius: "0.625rem", overflow: "hidden", transition: "border-color 0.2s, transform 0.2s, box-shadow 0.2s", cursor: "pointer" }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "#F59E0B"; el.style.transform = "translateY(-3px)"; el.style.boxShadow = "0 12px 32px rgba(0,0,0,0.4)"; }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "#1E3A5F"; el.style.transform = "none"; el.style.boxShadow = "none"; }}>
+                  <div style={{ height: "180px", overflow: "hidden" }}>
+                    <img src={svc.img} alt={svc.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.4s" }}
+                      onMouseEnter={e => ((e.currentTarget as HTMLElement).style.transform = "scale(1.05)")}
+                      onMouseLeave={e => ((e.currentTarget as HTMLElement).style.transform = "none")} />
+                  </div>
+                  <div style={{ padding: "1.5rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
+                      <span style={{ color: "#F59E0B" }}>{svc.icon}</span>
+                      <div>
+                        <h3 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#F1F5F9", margin: 0 }}>{svc.title}</h3>
+                        <p style={{ color: "#F59E0B", fontSize: "0.75rem", fontFamily: "Oswald, sans-serif", fontWeight: 500, letterSpacing: "0.05em", margin: 0 }}>{svc.sub}</p>
+                      </div>
+                    </div>
+                    <p style={{ color: "#64748B", fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>{svc.desc}</p>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", marginTop: "1rem", color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                      Learn More <ChevronRight size={14} />
+                    </div>
+                  </div>
                 </div>
-                <h3
-                  className="mb-2"
-                  style={{
-                    fontFamily: "'Barlow Condensed', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "1.25rem",
-                    color: "#FFFFFF",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  {svc.title}
-                </h3>
-                <p style={{ color: "#C0C0C0", fontSize: "0.9rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>
-                  {svc.desc}
-                </p>
-                <div
-                  className="mt-4 flex items-center gap-1 text-sm font-semibold transition-all group-hover:gap-2"
-                  style={{ color: svc.emergency ? "#E03030" : "#F5A623", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}
-                >
-                  Learn More <ArrowRight size={14} />
+              </Link>
+            ))}
+          </div>
+          {/* More services row */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem", marginTop: "1.5rem" }}>
+            {[
+              { label: "Surface Cleaners", href: "/surface-cleaners", desc: "Whirlaway, WhisperWash, Hammerhead, Rotoeze" },
+              { label: "Hose Reels", href: "/hose-reels", desc: "Summit & Titan — manual and electric" },
+              { label: "Pest Control Sprayers", href: "/pest-control-sprayers", desc: "Service all makes, custom builds, lawn spraying" },
+              { label: "Deco Products", href: "/deco-products", desc: "Paver sealers, travertine, waterproofing products" },
+            ].map(s => (
+              <Link key={s.href} href={s.href} style={{ textDecoration: "none" }}>
+                <div style={{ backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1.25rem", transition: "border-color 0.2s" }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = "#F59E0B")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = "#1E3A5F")}>
+                  <h3 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.95rem", color: "#F1F5F9", marginBottom: "0.35rem" }}>{s.label}</h3>
+                  <p style={{ color: "#64748B", fontSize: "0.8rem", margin: 0 }}>{s.desc}</p>
                 </div>
               </Link>
             ))}
@@ -356,582 +185,116 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── EMERGENCY CTA BANNER ── */}
-      <section
-        className="py-16 relative overflow-hidden"
-        style={{ backgroundColor: "#E03030" }}
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(${EMERGENCY_IMG})` }}
-        />
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+      {/* ── WHY MHSS ── */}
+      <section style={{ backgroundColor: "#0a1520", paddingTop: "5rem", paddingBottom: "5rem", borderTop: "1px solid #1E3A5F", borderBottom: "1px solid #1E3A5F" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
             <div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-3 h-3 rounded-full bg-white emergency-pulse" />
-                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.8)" }}>
-                  Emergency Mobile Service
-                </span>
-              </div>
-              <h2
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 800,
-                  fontSize: "clamp(2rem, 5vw, 3rem)",
-                  color: "#FFFFFF",
-                  lineHeight: 1.05,
-                }}
-              >
-                HYDRAULIC HOSE FAILURE?
-                <br />
-                WE COME TO YOU.
+              <span style={{ display: "block", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#F59E0B", marginBottom: "0.5rem" }}>Why Choose MHSS</span>
+              <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#F1F5F9", marginBottom: "1.25rem", lineHeight: 1.15 }}>
+                Sarasota's Trusted <span style={{ color: "#F59E0B" }}>Industrial Equipment</span> Facility
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.85)", marginTop: "0.75rem", fontFamily: "'DM Sans', sans-serif", fontSize: "1rem" }}>
-                "The Hose Doctor" emergency mobile unit serves Sarasota, Bradenton, and surrounding areas. On-site repair to get your equipment running fast.
+              <p style={{ color: "#64748B", fontSize: "0.95rem", lineHeight: 1.75, marginBottom: "1.5rem" }}>
+                Since 1990, MHSS has been the go-to source for contractors, landscapers, pest control operators, and industrial businesses throughout Sarasota and Manatee County. We don't just sell equipment — we service it, repair it, and keep you running.
               </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                {[
+                  "Authorized warranty service center for major brands",
+                  "Hydraulic hose cut and crimped while you wait",
+                  "Full parts inventory — most repairs done same day",
+                  "Factory-trained technicians with 35+ years experience",
+                  "Serving all of Sarasota and Manatee County",
+                ].map(item => (
+                  <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", color: "#94A3B8", fontSize: "0.9rem" }}>
+                    <CheckCircle2 size={16} style={{ color: "#F59E0B", flexShrink: 0, marginTop: "0.15rem" }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div style={{ marginTop: "2rem" }}>
+                <Link href="/about" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.875rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>
+                  Our Story <ArrowRight size={15} />
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-col gap-3 shrink-0">
-              <a
-                href="tel:+19413774673"
-                className="flex items-center justify-center gap-2 px-8 py-4 rounded font-bold text-xl transition-all hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  color: "#E03030",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 800,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                <Phone size={20} />
-                Call Now: 941-377-4673
-              </a>
-              <Link
-                href="/emergency-mobile-hose-repair"
-                className="text-center text-sm underline transition-colors hover:text-white"
-                style={{ color: "rgba(255,255,255,0.7)", fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Learn about emergency service →
-              </Link>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+              {[
+                { label: "Equipment Brands", value: "20+" },
+                { label: "Years Experience", value: "35+" },
+                { label: "Service Categories", value: "8" },
+                { label: "Sarasota & Manatee", value: "2 Counties" },
+              ].map(s => (
+                <div key={s.label} style={{ backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1.5rem", textAlign: "center" }}>
+                  <div style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "2rem", color: "#F59E0B" }}>{s.value}</div>
+                  <div style={{ color: "#64748B", fontSize: "0.8rem", marginTop: "0.25rem" }}>{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* ── BRANDS ── */}
-      <section style={{ backgroundColor: "#4A4A4A" }} className="py-16">
+      <section style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="container">
-          <div className="text-center mb-10">
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
-              Brands We Carry & Service
-            </span>
-            <h2
-              className="mt-2"
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(1.8rem, 4vw, 2.5rem)",
-                color: "#FFFFFF",
-              }}
-            >
-              TRUSTED BRANDS, EXPERT SERVICE
-            </h2>
+          <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
+            <span style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#F59E0B" }}>Authorized Dealer & Service Center</span>
+            <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#F1F5F9", marginTop: "0.5rem" }}>Brands We Carry & Service</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[
-              { name: "Honda", sub: "Pressure Washers & Engines" },
-              { name: "Titan", sub: "Hose Reels" },
-              { name: "AR Pumps", sub: "Pressure Washer Pumps" },
-              { name: "General Pump", sub: "Commercial Pumps" },
-              { name: "Comet", sub: "Pump Systems" },
-              { name: "Simpson", sub: "Pressure Washers" },
-            ].map((brand) => (
-              <div
-                key={brand.name}
-                className="p-4 rounded-lg text-center"
-                style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.06)" }}
-              >
-                <div
-                  style={{
-                    fontFamily: "'Barlow Condensed', sans-serif",
-                    fontWeight: 800,
-                    fontSize: "1.1rem",
-                    color: "#F5A623",
-                    letterSpacing: "0.05em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {brand.name}
-                </div>
-                <div style={{ color: "#909090", fontSize: "0.7rem", marginTop: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>
-                  {brand.sub}
-                </div>
-              </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", justifyContent: "center" }}>
+            {BRANDS.map(b => (
+              <span key={b} style={{ backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", color: "#94A3B8", fontFamily: "Oswald, sans-serif", fontWeight: 500, fontSize: "0.8rem", letterSpacing: "0.05em", textTransform: "uppercase", padding: "0.5rem 1rem", borderRadius: "0.375rem" }}>
+                {b}
+              </span>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── RIG BUILDS FEATURE ── */}
-      <section style={{ backgroundColor: "#404040" }} className="py-20">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
-                  Custom Builds
-                </span>
-              </div>
-              <h2
-                className="mb-5"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 800,
-                  fontSize: "clamp(2rem, 5vw, 3rem)",
-                  color: "#FFFFFF",
-                  lineHeight: 1.05,
-                }}
-              >
-                CUSTOM PRESSURE WASHING
-                <br />
-                <span style={{ color: "#F5A623" }}>RIG BUILDS</span>
-              </h2>
-              <p style={{ color: "#C0C0C0", lineHeight: 1.7, marginBottom: "1.5rem", fontFamily: "'DM Sans', sans-serif" }}>
-                We design and build complete pressure washing rigs from the ground up — trailer-mounted systems, skid units, and truck-bed setups. Every build uses commercial-grade components: Honda GX engines, Titan hose reels, poly water tanks, stainless fittings, and custom high-pressure hose assemblies.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Honda GX Series gas engines (up to 13 HP)",
-                  "Titan hose reels — manual and electric retract",
-                  "High-pressure hose assemblies — all lengths",
-                  "Poly water tanks — 100 to 500+ gallons",
-                  "Surface cleaners, telescoping wands, nozzle sets",
-                  "Custom trailer fabrication available",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#F5A623", marginTop: "8px", flexShrink: 0 }} />
-                    <span style={{ color: "#C0C0C0", fontSize: "0.9rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/pressure-washing-rig-builds"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: "#F5A623",
-                  color: "#404040",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                }}
-              >
-                View Rig Builds <ArrowRight size={16} />
-              </Link>
-            </div>
-            <div className="relative">
-              <img
-                src={RIG_IMG}
-                alt="Custom pressure washing rig with Honda engine and Titan hose reel built by MHSS Sarasota"
-                className="rounded-lg w-full object-cover"
-                style={{ height: "420px", border: "1px solid rgba(255,255,255,0.08)" }}
-                loading="lazy"
-              />
-              <div
-                className="absolute -bottom-4 -left-4 p-4 rounded-lg"
-                style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(245,158,11,0.3)" }}
-              >
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "#F5A623" }}>
-                  HONDA + TITAN
-                </div>
-                <div style={{ color: "#909090", fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif" }}>
-                  Authorized Dealer & Service Center
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SUPPLY STORE FEATURE ── */}
-      <section style={{ backgroundColor: "#4A4A4A" }} className="py-20">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 relative">
-              <img
-                src={SUPPLY_IMG}
-                alt="MHSS pressure washing supply store with Honda engines, Titan hose reels, and pressure washer parts in Sarasota FL"
-                className="rounded-lg w-full object-cover"
-                style={{ height: "420px", border: "1px solid rgba(255,255,255,0.08)" }}
-                loading="lazy"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
-                  Supply Store
-                </span>
-              </div>
-              <h2
-                className="mb-5"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 800,
-                  fontSize: "clamp(2rem, 5vw, 3rem)",
-                  color: "#FFFFFF",
-                  lineHeight: 1.05,
-                }}
-              >
-                EVERYTHING YOU NEED
-                <br />
-                <span style={{ color: "#F5A623" }}>IN STOCK, IN SARASOTA</span>
-              </h2>
-              <p style={{ color: "#C0C0C0", lineHeight: 1.7, marginBottom: "1.5rem", fontFamily: "'DM Sans', sans-serif" }}>
-                Our Sarasota shop stocks the parts, hoses, and equipment that pressure washing contractors and industrial customers need — available same day, no waiting on shipping.
-              </p>
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {[
-                  "Honda Pressure Washers",
-                  "Titan Hose Reels",
-                  "High-Pressure Hose",
-                  "Hydraulic Hose & Fittings",
-                  "Spray Nozzles & Tips",
-                  "Quick Couplers",
-                  "Surface Cleaners",
-                  "Pump Repair Parts",
-                  "Air Hose Assemblies",
-                  "Discharge / Suction Hose",
-                  "Telescoping Wands",
-                  "Poly Tanks",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#F5A623", flexShrink: 0 }} />
-                    <span style={{ color: "#C0C0C0", fontSize: "0.85rem", fontFamily: "'DM Sans', sans-serif" }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Link
-                href="/pressure-washing-supply-store"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: "#F5A623",
-                  color: "#404040",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Browse Supply Store <ArrowRight size={16} />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section style={{ backgroundColor: "#404040" }} className="py-20">
+      <section style={{ backgroundColor: "#0a1520", paddingTop: "5rem", paddingBottom: "5rem", borderTop: "1px solid #1E3A5F" }}>
         <div className="container">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
-                What Customers Say
-              </span>
-              <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-            </div>
-            <h2
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(2rem, 4vw, 2.8rem)",
-                color: "#FFFFFF",
-              }}
-            >
-              4.8 STARS ON GOOGLE — 48 REVIEWS
-            </h2>
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+            <span style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#F59E0B", display: "block", marginBottom: "0.5rem" }}>Customer Reviews</span>
+            <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", color: "#F1F5F9" }}>What Our Customers Say</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t) => (
-              <div
-                key={t.name}
-                className="p-6 rounded-lg"
-                style={{
-                  backgroundColor: "#4A4A4A",
-                  borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)",
-                  borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)",
-                  borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)",
-                  borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623",
-                }}
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} size={14} fill="#F5A623" color="#F5A623" />
-                  ))}
-                </div>
-                <p style={{ color: "#C0C0C0", fontSize: "0.9rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif", fontStyle: "italic", marginBottom: "1rem" }}>
-                  "{t.text}"
-                </p>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#E4E4E7", fontSize: "0.9rem", letterSpacing: "0.05em" }}>
-                  — {t.name}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <a
-              href="https://www.google.com/maps/search/Mobile+Hose+Spray+Systems+Sarasota"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded font-bold transition-all hover:scale-105"
-              style={{
-                border: "2px solid #F5A623",
-                color: "#F5A623",
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 700,
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-              }}
-            >
-              <Star size={16} fill="#F5A623" />
-              Read All Reviews on Google
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY MHSS ── */}
-      <section style={{ backgroundColor: "#4A4A4A" }} className="py-20">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(2rem, 4vw, 2.8rem)",
-                color: "#FFFFFF",
-              }}
-            >
-              WHY SARASOTA CHOOSES <span style={{ color: "#F5A623" }}>MHSS</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
             {[
-              {
-                icon: <Award size={28} />,
-                title: "35+ Years Experience",
-                desc: "Family-owned since 1990. We started from a bread truck and grew into Sarasota's most trusted hose and spray systems shop.",
-              },
-              {
-                icon: <Truck size={28} />,
-                title: "Emergency Mobile Unit",
-                desc: '"The Hose Doctor" comes to your job site. Hydraulic hose failures don\'t wait — neither do we. On-site repair across Sarasota and Bradenton.',
-              },
-              {
-                icon: <Shield size={28} />,
-                title: "Commercial Grade Only",
-                desc: "We only sell and install commercial and industrial grade products. No consumer-grade shortcuts — your equipment deserves better.",
-              },
-              {
-                icon: <Clock size={28} />,
-                title: "Same-Day Assemblies",
-                desc: "Need a custom hydraulic hose assembly? We crimp and test same-day in our Sarasota shop. Walk in with a broken hose, leave with a new one.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="p-6 rounded-lg"
-                style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.06)" }}
-              >
-                <div
-                  className="mb-4 w-12 h-12 rounded flex items-center justify-center"
-                  style={{ backgroundColor: "rgba(245,158,11,0.12)", color: "#F5A623" }}
-                >
-                  {item.icon}
+              { name: "Mike T.", role: "Pressure Washing Contractor", text: "MHSS has been my go-to for pump repairs and parts for over 10 years. They always have what I need in stock and the turnaround is fast. Best shop in Sarasota." },
+              { name: "Carlos R.", role: "Landscaping Company Owner", text: "Brought in a broken hydraulic line on my dump trailer and they had it fixed in under an hour. Incredible service. I won't go anywhere else for hose work." },
+              { name: "Jennifer L.", role: "Pest Control Operator", text: "They serviced my entire fleet of spray rigs and even built a custom unit for a new application. Knowledgeable staff and fair pricing. Highly recommend." },
+              { name: "Dave S.", role: "Painting Contractor", text: "My Graco sprayer went down on a job and they got it back to me same day. They're an authorized service center and it shows — they know these machines inside and out." },
+            ].map(r => (
+              <div key={r.name} style={{ backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.625rem", padding: "1.5rem", borderLeftWidth: "3px", borderLeftStyle: "solid", borderLeftColor: "#F59E0B" }}>
+                <div style={{ display: "flex", gap: "0.25rem", marginBottom: "0.75rem" }}>
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#F59E0B" color="#F59E0B" />)}
                 </div>
-                <h3
-                  className="mb-2"
-                  style={{
-                    fontFamily: "'Barlow Condensed', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "1.15rem",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  {item.title}
-                </h3>
-                <p style={{ color: "#909090", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>
-                  {item.desc}
-                </p>
+                <p style={{ color: "#94A3B8", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "1rem" }}>"{r.text}"</p>
+                <div>
+                  <div style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.9rem", color: "#F1F5F9" }}>{r.name}</div>
+                  <div style={{ color: "#64748B", fontSize: "0.78rem" }}>{r.role}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── LOCATIONS MAP CTA ── */}
-      <section style={{ backgroundColor: "#404040" }} className="py-20">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-                <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
-                  Find Us
-                </span>
-              </div>
-              <h2
-                className="mb-6"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 800,
-                  fontSize: "clamp(2rem, 4vw, 2.8rem)",
-                  color: "#FFFFFF",
-                  lineHeight: 1.05,
-                }}
-              >
-                TWO LOCATIONS SERVING
-                <br />
-                <span style={{ color: "#F5A623" }}>SARASOTA &amp; BRADENTON</span>
-              </h2>
-              <div className="space-y-6 mb-8">
-                {[
-                  {
-                    city: "Sarasota",
-                    address: "552 Catarzi Way, Sarasota, FL 34232",
-                    phone: "941-377-4673",
-                    hours: "Mon–Fri: 7:30am – 5:00pm",
-                    maps: "https://maps.google.com/?q=552+Catarzi+Way+Sarasota+FL+34232",
-                  },
-                  {
-                    city: "Bradenton",
-                    address: "Bradenton, FL — Serving Manatee County",
-                    phone: "941-377-4673",
-                    hours: "Mon–Fri: 7:30am – 5:00pm",
-                    maps: "https://maps.google.com/?q=Bradenton+FL",
-                  },
-                ].map((loc) => (
-                  <div
-                    key={loc.city}
-                    className="p-5 rounded-lg"
-                    style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "'Barlow Condensed', sans-serif",
-                        fontWeight: 700,
-                        fontSize: "1.1rem",
-                        color: "#F5A623",
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      {loc.city} Location
-                    </div>
-                    <p style={{ color: "#C0C0C0", fontSize: "0.875rem", marginBottom: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.address}</p>
-                    <p style={{ color: "#C0C0C0", fontSize: "0.875rem", marginBottom: "0.25rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.hours}</p>
-                    <a href={`tel:+1${loc.phone.replace(/-/g, "")}`} style={{ color: "#F5A623", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif" }}>{loc.phone}</a>
-                    <div className="mt-3">
-                      <a
-                        href={loc.maps}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold transition-colors hover:text-yellow-300"
-                        style={{ color: "#F5A623", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.08em", textTransform: "uppercase" }}
-                      >
-                        <MapPin size={12} /> Get Directions
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded font-bold transition-all hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: "#F5A623",
-                  color: "#404040",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontWeight: 700,
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Get a Free Quote <ArrowRight size={16} />
-              </Link>
-            </div>
-            {/* Embedded Google Map */}
-            <div className="rounded-lg overflow-hidden" style={{ height: "420px", border: "1px solid rgba(255,255,255,0.08)" }}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3545.3!2d-82.4774!3d27.3364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDIwJzExLjAiTiA4MsKwMjgnMzguNiJX!5e0!3m2!1sen!2sus!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="MHSS Sarasota Location Map"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FINAL CTA ── */}
-      <section
-        className="py-16"
-        style={{
-          background: "linear-gradient(135deg, #4A4A4A 0%, #404040 100%)",
-          borderTop: "1px solid rgba(245,158,11,0.2)",
-        }}
-      >
-        <div className="container text-center">
-          <h2
-            className="mb-4"
-            style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(2rem, 5vw, 3rem)",
-              color: "#FFFFFF",
-            }}
-          >
-            READY TO GET STARTED?
+      {/* ── CTA BANNER ── */}
+      <section style={{ backgroundColor: "#F59E0B", paddingTop: "4rem", paddingBottom: "4rem" }}>
+        <div className="container" style={{ textAlign: "center" }}>
+          <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#0a0f14", marginBottom: "0.75rem" }}>
+            Ready to Get Your Equipment Running?
           </h2>
-          <p className="mb-8 max-w-xl mx-auto" style={{ color: "#C0C0C0", fontFamily: "'DM Sans', sans-serif" }}>
-            Call us, stop by our Sarasota shop, or request a free quote online. We're here Mon–Fri 7:30am–5:00pm.
+          <p style={{ color: "rgba(10,15,20,0.75)", fontSize: "1rem", marginBottom: "2rem", maxWidth: "480px", margin: "0 auto 2rem" }}>
+            Visit us at 552 Cattaraugus Way, Sarasota — or call to discuss your equipment needs.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="tel:+19413774673"
-              className="flex items-center gap-2 px-8 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95"
-              style={{
-                backgroundColor: "#F5A623",
-                color: "#404040",
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 700,
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-              }}
-            >
-              <Phone size={18} />
-              Call 941-377-4673
+          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="tel:9413774673" style={{ backgroundColor: "#0a0f14", color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.75rem", borderRadius: "0.375rem", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <Phone size={16} /> (941) 377-4673
             </a>
-            <Link
-              href="/contact"
-              className="flex items-center gap-2 px-8 py-4 rounded font-bold text-lg transition-all hover:bg-zinc-700"
-              style={{
-                border: "2px solid rgba(255,255,255,0.2)",
-                color: "#E4E4E7",
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontWeight: 700,
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-              }}
-            >
-              Request a Quote
+            <Link href="/contact" style={{ backgroundColor: "transparent", border: "2px solid #0a0f14", color: "#0a0f14", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.75rem", borderRadius: "0.375rem", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              Get a Quote <ArrowRight size={16} />
             </Link>
           </div>
         </div>

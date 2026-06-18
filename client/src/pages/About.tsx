@@ -1,145 +1,83 @@
 import Layout from "@/components/Layout";
 import { Link } from "wouter";
-import { Phone, ArrowRight, Star, Award, Users, MapPin } from "lucide-react";
-
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-hero-FUu5TVKLCe2R2eFu96xyHE.webp";
+import { Phone, CheckCircle2, MapPin, Clock } from "lucide-react";
 
 export default function About() {
   return (
     <Layout
-      title="About MHSS Inc. | Family-Owned Hose Repair Since 1990 | Sarasota, FL"
-      description="Mobile Hose & Spray Systems has served Sarasota since 1990. Family-owned, started from a bread truck, now two shop locations and an emergency mobile unit. Learn our story."
+      title="About MHSS Inc. | Mobile Hose & Spray Systems — Sarasota, FL Since 1988"
+      description="MHSS Inc. has been serving Sarasota and Manatee County since 1988. Family-owned industrial equipment dealer and service center at 552 Cattaraugus Way, Sarasota, FL. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/about"
     >
-      <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#404040" }}>
-        <div className="absolute inset-0 bg-cover bg-center opacity-65" style={{ backgroundImage: `url(${HERO_IMG})` }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(58,58,58,0.75) 40%, rgba(58,58,58,0.20) 100%)" }} />
-        <div className="container relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
-              Our Story — Sarasota, FL
-            </span>
-          </div>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: "#FFFFFF", lineHeight: 1.0, marginBottom: "1.25rem" }}>
-            ABOUT <span style={{ color: "#F5A623" }}>MHSS INC.</span>
+      <section style={{ backgroundColor: "#0a1520", borderBottom: "1px solid #1E3A5F", paddingTop: "4rem", paddingBottom: "4rem" }}>
+        <div className="container">
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#64748B" }}>
+            <Link href="/" style={{ color: "#64748B", textDecoration: "none" }}>Home</Link><span>/</span>
+            <span style={{ color: "#F59E0B" }}>About</span>
+          </nav>
+          <h1 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#F1F5F9", lineHeight: 1.1, marginBottom: "1rem" }}>
+            About MHSS Inc. —<br /><span style={{ color: "#F59E0B" }}>Sarasota's Equipment Experts</span>
           </h1>
-          <p style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "600px", fontFamily: "'DM Sans', sans-serif" }}>
-            Family-owned and operated since 1990. From a bread truck to two shop locations and an emergency mobile unit — this is the MHSS story.
+          <p style={{ color: "#94A3B8", fontSize: "1rem", lineHeight: 1.7, maxWidth: "600px" }}>
+            For over 35 years, MHSS Inc. has been the go-to source for industrial hose fabrication, pressure washing equipment, airless sprayer service, and specialty spray systems in Sarasota and Manatee County.
           </p>
         </div>
       </section>
-
-      <section style={{ backgroundColor: "#404040" }} className="py-20">
+      <section style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-10">
-              {/* Origin Story */}
-              <div>
-                <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623", marginBottom: "1rem" }} />
-                <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "2rem", color: "#FFFFFF", marginBottom: "1rem" }}>
-                  FROM A BREAD TRUCK TO SARASOTA'S MOST TRUSTED HOSE SHOP
-                </h2>
-                <p style={{ color: "#C0C0C0", lineHeight: 1.8, fontFamily: "'DM Sans', sans-serif", marginBottom: "1rem" }}>
-                  In 1990, Mobile Hose &amp; Spray Systems started its first full-service operation out of an old bread truck. What began as a one-person mobile hose repair operation serving Sarasota's growing industrial and agricultural community has grown — through word of mouth, loyal customers, and a relentless commitment to quality — into a business with two shop locations and a dedicated emergency mobile unit.
-                </p>
-                <p style={{ color: "#C0C0C0", lineHeight: 1.8, fontFamily: "'DM Sans', sans-serif", marginBottom: "1rem" }}>
-                  More than 35 years later, MHSS remains family-owned and operated. We take pride in our work and, more importantly, we have a team of hosers who aren't just good at what they do — they genuinely enjoy doing it. That passion shows in every hose assembly we crimp, every pressure washer we repair, and every rig we build.
-                </p>
-                <p style={{ color: "#C0C0C0", lineHeight: 1.8, fontFamily: "'DM Sans', sans-serif" }}>
-                  Our core business has always been hose repair — hydraulic hose assemblies, custom fittings, and on-site emergency service. Over the years, we've expanded into pressure washer sales and service, a full supply store stocking Honda pressure washers, Titan hose reels, and all the parts and accessories that contractors and industrial customers need. We also build complete custom pressure washing rigs for businesses throughout Southwest Florida.
-                </p>
-              </div>
-
-              {/* What Sets Us Apart */}
-              <div>
-                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#FFFFFF", marginBottom: "1rem" }}>
-                  WHAT SETS MHSS APART
-                </h3>
-                <div className="space-y-4">
-                  {[
-                    { title: "35+ Years of Specialized Experience", desc: "We've been doing this since 1990. That's over three decades of experience with hydraulic hose systems, pressure washing equipment, and the specific needs of Sarasota-area businesses. We've seen it all and fixed most of it." },
-                    { title: "Commercial Grade, Always", desc: "We repair, sell, and maintain equipment using only high-quality commercial and industrial grade products. We don't cut corners with consumer-grade parts, and we won't recommend a shortcut that will cost you more in the long run." },
-                    { title: "The Hose Doctor — Emergency Mobile Unit", desc: "Our emergency mobile unit is a genuine market differentiator. Very few competitors offer on-site hydraulic hose repair with emergency availability. When your equipment goes down, we come to you." },
-                    { title: "Two Locations, One Mobile Unit", desc: "Our Sarasota and Bradenton shop locations, combined with the emergency mobile unit, give us geographic coverage that most competitors can't match. Whether you're in Sarasota County or Manatee County, we're close." },
-                    { title: "Family-Owned, Community-Focused", desc: "We're not a franchise or a national chain. We're a Sarasota family business, and we treat our customers the way we'd want to be treated. That's why so much of our business comes from referrals and repeat customers who've been with us for years." },
-                  ].map((item) => (
-                    <div key={item.title} className="p-5 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
-                      <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFFFFF", fontSize: "1.05rem", marginBottom: "0.5rem" }}>
-                        {item.title}
-                      </div>
-                      <p style={{ color: "#909090", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Services Summary */}
-              <div>
-                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#FFFFFF", marginBottom: "1rem" }}>
-                  OUR SERVICES
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {[
-                    { label: "Hydraulic Hose Repair", href: "/hydraulic-hose-repair-sarasota" },
-                    { label: "Pressure Washer Repair & Sales", href: "/pressure-washer-repair-sarasota" },
-                    { label: "Pressure Washing Supply Store", href: "/pressure-washing-supply-store" },
-                    { label: "Custom Rig Builds", href: "/pressure-washing-rig-builds" },
-                    { label: "Emergency Mobile Service", href: "/emergency-mobile-hose-repair" },
-                    { label: "Custom Hose Manufacturing", href: "/hydraulic-hose-repair-sarasota" },
-                  ].map((svc) => (
-                    <Link key={svc.href} href={svc.href} className="flex items-center gap-3 p-3 rounded transition-colors hover:bg-zinc-700" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                      <ArrowRight size={14} style={{ color: "#F5A623", flexShrink: 0 }} />
-                      <span style={{ color: "#C0C0C0", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif" }}>{svc.label}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start", marginBottom: "4rem" }}>
+            <div>
+              <span style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#F59E0B", display: "block", marginBottom: "0.5rem" }}>Our Story</span>
+              <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#F1F5F9", marginBottom: "1.25rem" }}>Started From a Bread Truck</h2>
+              <p style={{ color: "#94A3B8", fontSize: "0.9rem", lineHeight: 1.8, marginBottom: "1rem" }}>
+                MHSS Inc. — Mobile Hose & Spray Systems — started the way many great businesses do: with a single vehicle, a clear need in the market, and the determination to fill it. The company launched with a converted bread truck outfitted as a mobile hose fabrication unit, bringing hydraulic hose repair directly to job sites across Sarasota County.
+              </p>
+              <p style={{ color: "#94A3B8", fontSize: "0.9rem", lineHeight: 1.8, marginBottom: "1rem" }}>
+                Over more than three decades, MHSS has grown from that single bread truck into a full-service industrial equipment facility at 552 Cattaraugus Way in Sarasota. Today the company serves contractors, municipalities, agricultural operations, pest control companies, painting contractors, and equipment dealers throughout Sarasota and Manatee County.
+              </p>
+              <p style={{ color: "#94A3B8", fontSize: "0.9rem", lineHeight: 1.8 }}>
+                The core business has always been hose — hydraulic hose fabrication, repair, and fittings. But over the years MHSS expanded into pressure washing equipment sales and service, airless sprayer repair, pest control spray systems, and decorative concrete products. Today MHSS is an authorized dealer and warranty service center for multiple major brands.
+              </p>
             </div>
-
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Stats */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#F5A623", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
-                  By the Numbers
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+              {[
+                { num: "35+", label: "Years in Business" },
+                { num: "1988", label: "Founded in Sarasota, FL" },
+                { num: "6+", label: "Major Brand Authorizations" },
+                { num: "1", label: "Location — 552 Cattaraugus Way" },
+              ].map(s => (
+                <div key={s.label} style={{ backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1.5rem", display: "flex", alignItems: "center", gap: "1.5rem" }}>
+                  <span style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "2rem", color: "#F59E0B", lineHeight: 1 }}>{s.num}</span>
+                  <span style={{ color: "#94A3B8", fontSize: "0.9rem" }}>{s.label}</span>
                 </div>
-                <div className="space-y-4">
-                  {[
-                    { icon: <Award size={18} />, value: "35+", label: "Years in Business" },
-                    { icon: <MapPin size={18} />, value: "2", label: "Shop Locations" },
-                    { icon: <Star size={18} />, value: "4.8★", label: "Google Rating" },
-                    { icon: <Users size={18} />, value: "48+", label: "Google Reviews" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="flex items-center gap-4">
-                      <div className="w-9 h-9 rounded flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(245,158,11,0.12)", color: "#F5A623" }}>
-                        {stat.icon}
-                      </div>
-                      <div>
-                        <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "#F5A623", lineHeight: 1 }}>{stat.value}</div>
-                        <div style={{ color: "#909090", fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif" }}>{stat.label}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Contact CTA */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
-                <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#FFFFFF", marginBottom: "0.75rem" }}>
-                  VISIT US IN SARASOTA
-                </h3>
-                <p style={{ color: "#C0C0C0", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif", marginBottom: "1rem" }}>
-                  552 Catarzi Way<br />Sarasota, FL 34232<br /><br />
-                  Mon–Fri: 7:30am – 5:00pm
-                </p>
-                <a href="tel:+19413774673" className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold transition-all hover:scale-105" style={{ backgroundColor: "#F5A623", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
-                  <Phone size={16} /> 941-377-4673
-                </a>
-                <Link href="/contact" className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold mt-3 transition-all hover:bg-zinc-700" style={{ border: "1px solid rgba(255,255,255,0.15)", color: "#E4E4E7", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
-                  Get a Quote
-                </Link>
-              </div>
+              ))}
+            </div>
+          </div>
+          <div style={{ backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", borderRadius: "0.625rem", padding: "2.5rem" }}>
+            <h3 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#F1F5F9", marginBottom: "1.5rem" }}>What We Do</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0.75rem" }}>
+              {["Hydraulic hose fabrication & repair", "Pressure washer sales & service", "Airless sprayer service (warranty)", "Pest control sprayer service & builds", "Hose reels — Titan & Summit", "Surface cleaners — WhisperWash & more", "Pressure washer pumps — General, Cat, AR", "Paver sealers & deco products", "Dump trailer hydraulic service", "Hydraulic cylinder repair", "Parker & Bridgestone hose products", "Custom spray rig builds"].map(item => (
+                <span key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", color: "#94A3B8", fontSize: "0.85rem" }}>
+                  <CheckCircle2 size={13} style={{ color: "#F59E0B", flexShrink: 0, marginTop: "0.15rem" }} /> {item}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", marginTop: "2rem" }}>
+            <div style={{ backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1.75rem" }}>
+              <MapPin size={22} style={{ color: "#F59E0B", marginBottom: "0.75rem" }} />
+              <h4 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1rem", color: "#F1F5F9", marginBottom: "0.5rem" }}>Location</h4>
+              <p style={{ color: "#64748B", fontSize: "0.875rem", lineHeight: 1.6, margin: 0 }}>552 Cattaraugus Way<br />Sarasota, FL 34232<br /><a href="https://maps.google.com/?q=552+Cattaraugus+Way+Sarasota+FL" target="_blank" rel="noopener noreferrer" style={{ color: "#F59E0B", textDecoration: "none", fontSize: "0.8rem" }}>Get Directions →</a></p>
+            </div>
+            <div style={{ backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1.75rem" }}>
+              <Clock size={22} style={{ color: "#F59E0B", marginBottom: "0.75rem" }} />
+              <h4 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1rem", color: "#F1F5F9", marginBottom: "0.5rem" }}>Hours</h4>
+              <p style={{ color: "#64748B", fontSize: "0.875rem", lineHeight: 1.6, margin: 0 }}>Monday – Friday: 8:00 AM – 5:00 PM<br />Saturday: By appointment<br />Sunday: Closed</p>
+            </div>
+            <div style={{ backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1.75rem" }}>
+              <Phone size={22} style={{ color: "#F59E0B", marginBottom: "0.75rem" }} />
+              <h4 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1rem", color: "#F1F5F9", marginBottom: "0.5rem" }}>Contact</h4>
+              <p style={{ color: "#64748B", fontSize: "0.875rem", lineHeight: 1.6, margin: 0 }}><a href="tel:9413774673" style={{ color: "#F59E0B", textDecoration: "none" }}>(941) 377-4673</a><br /><a href="mailto:info@mhss-inc.com" style={{ color: "#64748B", textDecoration: "none" }}>info@mhss-inc.com</a></p>
             </div>
           </div>
         </div>

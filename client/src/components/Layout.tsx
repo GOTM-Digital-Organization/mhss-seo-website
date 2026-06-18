@@ -1,12 +1,26 @@
-/* =============================================================================
-   MHSS Layout — Medium Grey + Amber + Red
-   BG: #404040  |  Surface: #4A4A4A  |  Raised: #525252
-   Amber: #F5A623  |  Red: #E03030  |  Text: #F5F5F5  |  Muted: #C0C0C0
-   ============================================================================= */
-
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Phone, Menu, X, ChevronDown, Truck } from "lucide-react";
+import { Phone, Menu, X, ChevronDown, MapPin, Clock } from "lucide-react";
+
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-transparent-Bv8bqEb4gVLqHFYVJMxQhV.png";
+const OG_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-og-breadtruck-97hgXTcgDLPnRRQHdFuAze.png";
+
+const NAV_ITEMS = [
+  { label: "Equipment", children: [
+    { label: "Pressure Washers", href: "/pressure-washers" },
+    { label: "Pumps & Parts", href: "/pumps-parts" },
+    { label: "Surface Cleaners", href: "/surface-cleaners" },
+    { label: "Hose Reels", href: "/hose-reels" },
+    { label: "Airless Sprayers", href: "/airless-sprayers" },
+  ]},
+  { label: "Services", children: [
+    { label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" },
+    { label: "Pest Control Sprayers", href: "/pest-control-sprayers" },
+    { label: "Deco Products", href: "/deco-products" },
+  ]},
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -16,321 +30,185 @@ interface LayoutProps {
   ogImage?: string;
 }
 
-const NAV_LINKS = [
-  {
-    label: "Services", href: "#", children: [
-      { label: "Hydraulic Hose Repair",        href: "/hydraulic-hose-repair-sarasota" },
-      { label: "Pressure Washer Repair & Sales", href: "/pressure-washer-repair-sarasota" },
-      { label: "Pressure Washing Supply Store", href: "/pressure-washing-supply-store" },
-      { label: "Custom Rig Builds",             href: "/pressure-washing-rig-builds" },
-    ]
-  },
-  { label: "Emergency Service", href: "/emergency-mobile-hose-repair", emergency: true },
-  { label: "About",   href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
-
-const OG_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-og-breadtruck-97hgXTcgDLPnRRQHdFuAze.png";
-
-// ── colour constants ──────────────────────────────────────────────────────────
-const C = {
-  bg:      "#404040",
-  surface: "#4A4A4A",
-  raised:  "#525252",
-  hover:   "#5A5A5A",
-  border:  "rgba(255,255,255,0.12)",
-  text:    "#F5F5F5",
-  muted:   "#C0C0C0",
-  dim:     "#909090",
-  amber:   "#F5A623",
-  red:     "#E03030",
-  redBg:   "rgba(224,48,48,0.15)",
-  redBdr:  "rgba(224,48,48,0.35)",
-};
-
 export default function Layout({ children, title, description, canonical, ogImage }: LayoutProps) {
-  const [mobileOpen, setMobileOpen]   = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [scrolled, setScrolled]       = useState(false);
-  const [location]                    = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [location] = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const h = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", h, { passive: true });
+    return () => window.removeEventListener("scroll", h);
   }, []);
 
-  useEffect(() => { setMobileOpen(false); setServicesOpen(false); }, [location]);
+  useEffect(() => { setMobileOpen(false); setOpenDropdown(null); }, [location]);
 
   useEffect(() => {
     if (title) document.title = title;
-    const setMeta = (name: string, content: string, prop = false) => {
-      const attr = prop ? "property" : "name";
-      let el = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, name); document.head.appendChild(el); }
-      el.setAttribute("content", content);
+    const setMeta = (sel: string, content: string) => {
+      const el = document.querySelector(sel);
+      if (el) el.setAttribute("content", content);
     };
-    if (description) { setMeta("description", description); setMeta("og:description", description, true); setMeta("twitter:description", description); }
-    if (title)       { setMeta("og:title", title, true); setMeta("twitter:title", title); }
+    if (description) { setMeta('meta[name="description"]', description); setMeta('meta[property="og:description"]', description); }
+    if (title) { setMeta('meta[property="og:title"]', title); }
     const img = ogImage || OG_IMG;
-    setMeta("og:image", img, true); setMeta("twitter:image", img);
+    setMeta('meta[property="og:image"]', img); setMeta('meta[name="twitter:image"]', img);
     if (canonical) {
-      setMeta("og:url", canonical, true);
-      let link = document.querySelector('link[rel="canonical"]');
-      if (!link) { link = document.createElement("link"); link.setAttribute("rel", "canonical"); document.head.appendChild(link); }
-      link.setAttribute("href", canonical);
+      setMeta('meta[property="og:url"]', canonical);
+      const link = document.querySelector('link[rel="canonical"]');
+      if (link) link.setAttribute("href", canonical);
     }
   }, [title, description, canonical, ogImage]);
 
   return (
-    <div style={{ backgroundColor: C.bg, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", backgroundColor: "#0F1923", color: "#F1F5F9", fontFamily: "Inter, sans-serif" }}>
+      {/* Top info bar */}
+      <div style={{ backgroundColor: "#080f17", borderBottom: "1px solid #1E3A5F", padding: "0.35rem 0" }}>
+        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+          <div style={{ display: "flex", gap: "1.5rem", alignItems: "center", flexWrap: "wrap" }}>
+            <a href="tel:9413774673" style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#F59E0B", fontSize: "0.82rem", fontFamily: "Oswald, sans-serif", fontWeight: 600, textDecoration: "none", letterSpacing: "0.04em" }}>
+              <Phone size={12} /> (941) 377-4673
+            </a>
+            <span style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "#64748B", fontSize: "0.78rem" }}>
+              <MapPin size={11} /> 552 Cattaraugus Way, Sarasota, FL 34232
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "#64748B", fontSize: "0.78rem" }}>
+              <Clock size={11} /> Mon–Fri 8am–5pm
+            </span>
+          </div>
+          <span style={{ color: "#475569", fontSize: "0.75rem" }}>Serving Sarasota &amp; Manatee County Since 1990</span>
+        </div>
+      </div>
 
-      {/* ── STICKY NAV ── */}
-      <header
-        className="sticky top-0 z-50 transition-all duration-300"
-        style={{
-          backgroundColor: scrolled ? "rgba(58,58,58,0.97)" : C.surface,
-          backdropFilter: scrolled ? "blur(10px)" : "none",
-          borderBottom: `1px solid ${C.border}`,
-          boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.3)" : "none",
-        }}
-      >
-        <div className="container">
-          <div className="flex items-center justify-between py-3">
+      {/* Sticky nav */}
+      <nav style={{ position: "sticky", top: 0, zIndex: 50, background: scrolled ? "rgba(8,15,23,0.97)" : "rgba(15,25,35,0.92)", backdropFilter: "blur(12px)", borderBottom: "1px solid #1E3A5F", transition: "background 0.3s" }}>
+        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "66px" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+            <img src={LOGO_URL} alt="MHSS Inc." style={{ height: "50px", width: "auto" }} />
+          </Link>
 
-            {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-transparent-7WwXPhsKfWWddLDQdcJ49x.png"
-                alt="MHSS Inc. — Mobile Hose & Spray Systems, Inc."
-                style={{ height: "68px", width: "auto", display: "block" }}
-              />
-            </Link>
-
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {NAV_LINKS.map((link) =>
-                link.children ? (
-                  <div key={link.label} className="relative group">
-                    <button
-                      className="flex items-center gap-1 px-4 py-2 rounded transition-colors"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.88rem", color: C.muted, letterSpacing: "0.06em", textTransform: "uppercase", backgroundColor: "transparent" }}
-                      onMouseEnter={e => (e.currentTarget.style.backgroundColor = C.hover)}
-                      onMouseLeave={e => (e.currentTarget.style.backgroundColor = "transparent")}
-                    >
-                      {link.label} <ChevronDown size={13} />
-                    </button>
-                    <div
-                      className="absolute top-full left-0 mt-1 rounded-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
-                      style={{ backgroundColor: C.raised, border: `1px solid ${C.border}`, minWidth: "230px", boxShadow: "0 8px 24px rgba(0,0,0,0.35)" }}
-                    >
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-3 transition-colors"
-                          style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: C.muted, borderBottom: `1px solid ${C.border}` }}
-                          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = C.hover; (e.currentTarget as HTMLElement).style.color = C.text; }}
-                          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; (e.currentTarget as HTMLElement).style.color = C.muted; }}
-                        >
+          {/* Desktop */}
+          <div style={{ display: "flex", alignItems: "center", gap: "0.125rem" }} className="nav-desktop">
+            {NAV_ITEMS.map((item) =>
+              item.children ? (
+                <div key={item.label} style={{ position: "relative" }}
+                  onMouseEnter={() => setOpenDropdown(item.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}>
+                  <button style={{ display: "flex", alignItems: "center", gap: "0.25rem", padding: "0.5rem 0.875rem", color: openDropdown === item.label ? "#F59E0B" : "#94A3B8", fontFamily: "Oswald, sans-serif", fontWeight: 500, fontSize: "0.875rem", letterSpacing: "0.05em", textTransform: "uppercase", background: "none", border: "none", cursor: "pointer", transition: "color 0.15s" }}>
+                    {item.label} <ChevronDown size={13} style={{ transition: "transform 0.2s", transform: openDropdown === item.label ? "rotate(180deg)" : "none" }} />
+                  </button>
+                  {openDropdown === item.label && (
+                    <div style={{ position: "absolute", top: "100%", left: 0, minWidth: "230px", backgroundColor: "#0a1520", border: "1px solid #1E3A5F", borderRadius: "0.5rem", boxShadow: "0 16px 40px rgba(0,0,0,0.6)", padding: "0.5rem 0", zIndex: 100 }}>
+                      {item.children.map((child) => (
+                        <Link key={child.href} href={child.href} style={{ display: "block", padding: "0.6rem 1.25rem", color: "#94A3B8", fontFamily: "Inter, sans-serif", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s, background 0.15s" }}
+                          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#F59E0B"; (e.currentTarget as HTMLElement).style.backgroundColor = "#162030"; }}
+                          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "#94A3B8"; (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}>
                           {child.label}
                         </Link>
                       ))}
                     </div>
-                  </div>
-                ) : link.emergency ? (
-                  <Link
-                    key={link.href}
-                    href={link.href!}
-                    className="flex items-center gap-1.5 px-4 py-2 rounded transition-all"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.88rem", color: C.red, letterSpacing: "0.06em", textTransform: "uppercase", border: `1px solid ${C.redBdr}`, backgroundColor: C.redBg }}
-                  >
-                    <Truck size={13} /> {link.label}
-                  </Link>
-                ) : (
-                  <Link
-                    key={link.href}
-                    href={link.href!}
-                    className="px-4 py-2 rounded transition-colors"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.88rem", color: C.muted, letterSpacing: "0.06em", textTransform: "uppercase" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = C.hover; (e.currentTarget as HTMLElement).style.color = C.text; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; (e.currentTarget as HTMLElement).style.color = C.muted; }}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              )}
-            </nav>
-
-            {/* CTA + Mobile Toggle */}
-            <div className="flex items-center gap-3">
-              <a
-                href="tel:+19413774673"
-                className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded font-bold transition-all hover:scale-105 active:scale-95"
-                style={{ backgroundColor: C.amber, color: "#1A1A1A", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.88rem", letterSpacing: "0.06em", textTransform: "uppercase" }}
-              >
-                <Phone size={14} /> 941-377-4673
-              </a>
-              <button
-                className="lg:hidden p-2 rounded transition-colors"
-                onClick={() => setMobileOpen(!mobileOpen)}
-                aria-label="Toggle menu"
-                style={{ color: C.muted, backgroundColor: "transparent" }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = C.hover)}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = "transparent")}
-              >
-                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-              </button>
-            </div>
+                  )}
+                </div>
+              ) : (
+                <Link key={item.href} href={item.href!} style={{ padding: "0.5rem 0.875rem", color: location === item.href ? "#F59E0B" : "#94A3B8", fontFamily: "Oswald, sans-serif", fontWeight: 500, fontSize: "0.875rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none", transition: "color 0.15s" }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F59E0B")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = location === item.href ? "#F59E0B" : "#94A3B8")}>
+                  {item.label}
+                </Link>
+              )
+            )}
+            <a href="tel:9413774673" style={{ marginLeft: "0.75rem", backgroundColor: "#F59E0B", color: "#0a0f14", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.875rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.6rem 1.25rem", borderRadius: "0.375rem", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.4rem", transition: "background 0.15s" }}
+              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = "#D97706")}
+              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = "#F59E0B")}>
+              <Phone size={13} /> Call Now
+            </a>
           </div>
+
+          {/* Mobile toggle */}
+          <button onClick={() => setMobileOpen(!mobileOpen)} style={{ color: "#94A3B8", background: "none", border: "none", padding: "0.5rem" }} className="nav-mobile-btn" aria-label="Menu">
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu */}
         {mobileOpen && (
-          <div style={{ backgroundColor: C.raised, borderTop: `1px solid ${C.border}` }}>
-            <div className="container py-4 space-y-1">
-              <div>
-                <button
-                  className="flex items-center justify-between w-full px-4 py-3 rounded"
-                  onClick={() => setServicesOpen(!servicesOpen)}
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", color: C.text, letterSpacing: "0.06em", textTransform: "uppercase", backgroundColor: "transparent" }}
-                >
-                  Services <ChevronDown size={16} style={{ transform: servicesOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
-                </button>
-                {servicesOpen && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    {NAV_LINKS[0].children?.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-2.5 rounded"
-                        style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: C.muted, backgroundColor: "transparent" }}
-                      >
-                        {child.label}
-                      </Link>
+          <div style={{ backgroundColor: "#080f17", borderTop: "1px solid #1E3A5F", padding: "1rem 0" }}>
+            <div className="container">
+              {NAV_ITEMS.map((item) =>
+                item.children ? (
+                  <div key={item.label}>
+                    <button onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                      style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "0.65rem 0", color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.1em", textTransform: "uppercase", background: "none", border: "none", cursor: "pointer" }}>
+                      {item.label} <ChevronDown size={14} style={{ transform: mobileExpanded === item.label ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+                    </button>
+                    {mobileExpanded === item.label && item.children.map((child) => (
+                      <Link key={child.href} href={child.href} style={{ display: "block", padding: "0.5rem 1rem", color: "#94A3B8", fontFamily: "Inter, sans-serif", fontSize: "0.875rem", textDecoration: "none" }}>{child.label}</Link>
                     ))}
                   </div>
-                )}
-              </div>
-              <Link href="/emergency-mobile-hose-repair" className="flex items-center gap-2 px-4 py-3 rounded" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", color: C.red, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                <Truck size={16} /> Emergency Service
-              </Link>
-              <Link href="/about"   className="block px-4 py-3 rounded" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", color: C.text, letterSpacing: "0.06em", textTransform: "uppercase" }}>About</Link>
-              <Link href="/contact" className="block px-4 py-3 rounded" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", color: C.text, letterSpacing: "0.06em", textTransform: "uppercase" }}>Contact</Link>
-              <div className="pt-3" style={{ borderTop: `1px solid ${C.border}` }}>
-                <a
-                  href="tel:+19413774673"
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded font-bold"
-                  style={{ backgroundColor: C.amber, color: "#1A1A1A", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}
-                >
-                  <Phone size={16} /> Call 941-377-4673
-                </a>
-              </div>
+                ) : (
+                  <Link key={item.href} href={item.href!} style={{ display: "block", padding: "0.65rem 0", color: "#CBD5E1", fontFamily: "Oswald, sans-serif", fontWeight: 500, fontSize: "0.95rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>{item.label}</Link>
+                )
+              )}
+              <a href="tel:9413774673" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", marginTop: "1rem", backgroundColor: "#F59E0B", color: "#0a0f14", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.75rem 1.25rem", borderRadius: "0.375rem", textDecoration: "none" }}>
+                <Phone size={15} /> (941) 377-4673
+              </a>
             </div>
           </div>
         )}
-      </header>
+      </nav>
 
-      {/* ── PAGE CONTENT ── */}
-      <main style={{ flex: 1 }}>{children}</main>
+      <main>{children}</main>
 
-      {/* ── FOOTER ── */}
-      <footer style={{ backgroundColor: "#363636", borderTop: `1px solid ${C.border}` }}>
-        <div className="container py-14">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-            {/* Brand */}
+      {/* Footer */}
+      <footer style={{ backgroundColor: "#080f17", borderTop: "1px solid #1E3A5F", paddingTop: "3.5rem", paddingBottom: "2rem" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2.5rem", marginBottom: "2.5rem" }}>
             <div>
-              <div className="mb-4">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-logo-transparent-7WwXPhsKfWWddLDQdcJ49x.png"
-                  alt="MHSS Inc. — Mobile Hose & Spray Systems, Inc."
-                  style={{ height: "72px", width: "auto", display: "block" }}
-                />
-              </div>
-              <p style={{ color: C.muted, fontSize: "0.82rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
-                Sarasota's trusted hydraulic hose repair, pressure washer sales &amp; service, and emergency mobile repair since 1990. Family-owned.
-              </p>
-              <a href="tel:+19413774673" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.2rem", color: C.amber, display: "block", marginTop: "0.75rem" }}>
-                941-377-4673
-              </a>
+              <img src={LOGO_URL} alt="MHSS Inc." style={{ height: "54px", width: "auto", marginBottom: "1rem" }} />
+              <p style={{ color: "#64748B", fontSize: "0.85rem", lineHeight: 1.7, marginBottom: "1rem" }}>Sarasota's industrial equipment specialists since 1990. Pressure washers, hydraulic hose, airless sprayers, pumps, parts &amp; more.</p>
+              <a href="tel:9413774673" style={{ color: "#F59E0B", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1.05rem", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.4rem" }}><Phone size={14} /> (941) 377-4673</a>
+              <p style={{ color: "#64748B", fontSize: "0.8rem", marginTop: "0.4rem" }}>552 Cattaraugus Way, Sarasota, FL 34232</p>
+              <p style={{ color: "#64748B", fontSize: "0.8rem" }}>Mon–Fri 8:00am–5:00pm</p>
             </div>
-
-            {/* Services */}
             <div>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.amber, marginBottom: "1rem" }}>Services</div>
-              <ul className="space-y-2">
-                {[
-                  { label: "Hydraulic Hose Repair",        href: "/hydraulic-hose-repair-sarasota" },
-                  { label: "Pressure Washer Repair",       href: "/pressure-washer-repair-sarasota" },
-                  { label: "Pressure Washing Supply",      href: "/pressure-washing-supply-store" },
-                  { label: "Custom Rig Builds",            href: "/pressure-washing-rig-builds" },
-                  { label: "Emergency Mobile Service",     href: "/emergency-mobile-hose-repair" },
-                ].map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} style={{ color: C.muted, fontSize: "0.85rem", fontFamily: "'DM Sans', sans-serif" }}
-                      onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = C.amber)}
-                      onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = C.muted)}
-                    >{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
+              <h4 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#F59E0B", marginBottom: "1rem" }}>Equipment</h4>
+              {[{ label: "Pressure Washers", href: "/pressure-washers" }, { label: "Pumps & Parts", href: "/pumps-parts" }, { label: "Surface Cleaners", href: "/surface-cleaners" }, { label: "Hose Reels", href: "/hose-reels" }, { label: "Airless Sprayers", href: "/airless-sprayers" }].map(l => (
+                <Link key={l.href} href={l.href} style={{ display: "block", color: "#64748B", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F59E0B")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#64748B")}>{l.label}</Link>
+              ))}
             </div>
-
-            {/* Locations */}
             <div>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.amber, marginBottom: "1rem" }}>Locations</div>
-              <div className="space-y-4">
-                <div>
-                  <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: C.text, fontSize: "0.85rem" }}>Sarasota</div>
-                  <p style={{ color: C.muted, fontSize: "0.8rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>552 Catarzi Way<br />Sarasota, FL 34232</p>
-                </div>
-                <div>
-                  <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: C.text, fontSize: "0.85rem" }}>Bradenton</div>
-                  <p style={{ color: C.muted, fontSize: "0.8rem", lineHeight: 1.6, fontFamily: "'DM Sans', sans-serif" }}>Bradenton, FL<br />Manatee County</p>
-                </div>
-              </div>
+              <h4 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#F59E0B", marginBottom: "1rem" }}>Services</h4>
+              {[{ label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" }, { label: "Pest Control Sprayers", href: "/pest-control-sprayers" }, { label: "Deco Products", href: "/deco-products" }, { label: "About MHSS", href: "/about" }, { label: "Contact Us", href: "/contact" }].map(l => (
+                <Link key={l.href} href={l.href} style={{ display: "block", color: "#64748B", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#F59E0B")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#64748B")}>{l.label}</Link>
+              ))}
             </div>
-
-            {/* Hours */}
             <div>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", color: C.amber, marginBottom: "1rem" }}>Hours</div>
-              <p style={{ color: C.muted, fontSize: "0.82rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif", marginBottom: "1rem" }}>
-                Mon–Fri: 7:30am – 5:00pm<br />Sat–Sun: Closed
-              </p>
-              <div className="p-3 rounded" style={{ backgroundColor: C.redBg, border: `1px solid ${C.redBdr}` }}>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: C.red, fontSize: "0.72rem", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.25rem" }}>Emergency Service</div>
-                <p style={{ color: C.muted, fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif" }}>The Hose Doctor — we come to you.</p>
-                <a href="tel:+19413774673" style={{ color: C.red, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem" }}>941-377-4673</a>
-              </div>
+              <h4 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#F59E0B", marginBottom: "1rem" }}>Brands We Carry</h4>
+              {["Honda", "BE Power Equipment", "Mi-T-M", "Pressure Pro", "General Pump", "Cat Pumps", "AR Pumps", "Comet Pumps", "UDOR", "Titan Hose Reels", "Summit Hose Reels", "Graco", "Titan/SpeeFlo", "Tritech", "Parker", "Bridgestone", "WhisperWash", "Whirlaway", "Hammerhead", "Rotoeze"].map(b => (
+                <span key={b} style={{ display: "block", color: "#475569", fontSize: "0.78rem", marginBottom: "0.3rem" }}>{b}</span>
+              ))}
             </div>
           </div>
-
-          {/* Bottom Bar */}
-          <div className="mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: `1px solid ${C.border}` }}>
-            <p style={{ color: C.dim, fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif" }}>
-              © {new Date().getFullYear()} MHSS Inc. — Mobile Hose &amp; Spray Systems. All rights reserved. Sarasota, FL.
-            </p>
-            <div className="flex gap-4">
-              <Link href="/contact" key="privacy" style={{ color: C.dim, fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif" }}>Privacy Policy</Link>
-              <Link href="/contact" key="sitemap" style={{ color: C.dim, fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif" }}>Sitemap</Link>
+          <div style={{ borderTop: "1px solid #1E3A5F", paddingTop: "1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem" }}>
+            <p style={{ color: "#334155", fontSize: "0.78rem" }}>© {new Date().getFullYear()} Mobile Hose &amp; Spray Systems, Inc. All rights reserved. Serving Sarasota &amp; Manatee County, FL.</p>
+            <div style={{ display: "flex", gap: "1.5rem" }}>
+              <Link href="/contact" style={{ color: "#334155", fontSize: "0.78rem", textDecoration: "none" }}>Contact</Link>
+              <Link href="/about" style={{ color: "#334155", fontSize: "0.78rem", textDecoration: "none" }}>About</Link>
             </div>
           </div>
         </div>
-
-        {/* Schema.org JSON-LD */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "MHSS Inc. — Mobile Hose & Spray Systems",
-          "image": OG_IMG,
-          "url": "https://www.mhss-inc.com",
-          "telephone": "+19413774673",
-          "address": { "@type": "PostalAddress", "streetAddress": "552 Catarzi Way", "addressLocality": "Sarasota", "addressRegion": "FL", "postalCode": "34232", "addressCountry": "US" },
-          "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:30", "closes": "17:00" }],
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "48" }
-        })}} />
       </footer>
+
+      <style>{`
+        @media (max-width: 900px) { .nav-desktop { display: none !important; } .nav-mobile-btn { display: flex !important; } }
+        @media (min-width: 901px) { .nav-desktop { display: flex !important; } .nav-mobile-btn { display: none !important; } }
+      `}</style>
     </div>
   );
 }

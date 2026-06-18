@@ -1,257 +1,122 @@
 import Layout from "@/components/Layout";
+import { Link } from "wouter";
+import { Phone, MapPin, Clock, Mail } from "lucide-react";
 import { useState } from "react";
-import { Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitted(true);
-  };
+  }
 
   return (
     <Layout
-      title="Contact MHSS Inc. | Sarasota Hose Repair & Pressure Washing | 941-377-4673"
-      description="Contact Mobile Hose & Spray Systems in Sarasota, FL. Two locations, emergency mobile service, and a free quote form. Call 941-377-4673 or visit 552 Catarzi Way, Sarasota."
+      title="Contact MHSS Inc. | Sarasota, FL — (941) 377-4673"
+      description="Contact MHSS Inc. in Sarasota, FL. 552 Cattaraugus Way. Call (941) 377-4673. Hydraulic hose, pressure washers, airless sprayers, and more. Monday–Friday 8AM–5PM."
       canonical="https://www.mhss-inc.com/contact"
     >
-      <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#404040" }}>
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #4A4A4A 0%, #404040 100%)" }} />
-        <div className="container relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623" }} />
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#F5A623" }}>
-              Get in Touch
-            </span>
-          </div>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: "#FFFFFF", lineHeight: 1.0, marginBottom: "1.25rem" }}>
-            CONTACT <span style={{ color: "#F5A623" }}>MHSS INC.</span>
+      <section style={{ backgroundColor: "#0a1520", borderBottom: "1px solid #1E3A5F", paddingTop: "4rem", paddingBottom: "4rem" }}>
+        <div className="container">
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#64748B" }}>
+            <Link href="/" style={{ color: "#64748B", textDecoration: "none" }}>Home</Link><span>/</span>
+            <span style={{ color: "#F59E0B" }}>Contact</span>
+          </nav>
+          <h1 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#F1F5F9", lineHeight: 1.1, marginBottom: "1rem" }}>
+            Contact <span style={{ color: "#F59E0B" }}>MHSS Inc.</span>
           </h1>
-          <p style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "600px", fontFamily: "'DM Sans', sans-serif" }}>
-            Call us, stop by our Sarasota shop, or fill out the form below for a free quote. We respond fast.
+          <p style={{ color: "#94A3B8", fontSize: "1rem", lineHeight: 1.7, maxWidth: "520px" }}>
+            Located in Sarasota, FL. Call us, stop by, or fill out the form below and we'll get back to you promptly.
           </p>
         </div>
       </section>
-
-      <section style={{ backgroundColor: "#404040" }} className="py-20">
+      <section style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-
-            {/* Contact Info */}
-            <div className="space-y-6">
-              {/* Phone */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", borderTopWidth: "1px", borderTopStyle: "solid", borderTopColor: "rgba(255,255,255,0.06)", borderRightWidth: "1px", borderRightStyle: "solid", borderRightColor: "rgba(255,255,255,0.06)", borderBottomWidth: "1px", borderBottomStyle: "solid", borderBottomColor: "rgba(255,255,255,0.06)", borderLeftWidth: "4px", borderLeftStyle: "solid", borderLeftColor: "#F5A623" }}>
-                <div className="flex items-center gap-3 mb-3">
-                  <Phone size={20} style={{ color: "#F5A623" }} />
-                  <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFFFFF", fontSize: "1.1rem" }}>Call Us</span>
-                </div>
-                <a href="tel:+19413774673" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.75rem", color: "#F5A623", letterSpacing: "0.02em" }}>
-                  941-377-4673
-                </a>
-                <p style={{ color: "#909090", fontSize: "0.8rem", marginTop: "0.5rem", fontFamily: "'DM Sans', sans-serif" }}>
-                  For emergency hose repair, call immediately — we dispatch fast.
-                </p>
-              </div>
-
-              {/* Sarasota Location */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div className="flex items-center gap-3 mb-3">
-                  <MapPin size={20} style={{ color: "#F5A623" }} />
-                  <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFFFFF", fontSize: "1.1rem" }}>Sarasota Shop</span>
-                </div>
-                <p style={{ color: "#C0C0C0", fontSize: "0.9rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
-                  552 Catarzi Way<br />Sarasota, FL 34232
-                </p>
-                <a
-                  href="https://maps.google.com/?q=552+Catarzi+Way+Sarasota+FL+34232"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 mt-2 text-sm font-semibold"
-                  style={{ color: "#F5A623", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.05em", textTransform: "uppercase" }}
-                >
-                  Get Directions →
-                </a>
-              </div>
-
-              {/* Bradenton Location */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div className="flex items-center gap-3 mb-3">
-                  <MapPin size={20} style={{ color: "#F5A623" }} />
-                  <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFFFFF", fontSize: "1.1rem" }}>Bradenton Shop</span>
-                </div>
-                <p style={{ color: "#C0C0C0", fontSize: "0.9rem", lineHeight: 1.7, fontFamily: "'DM Sans', sans-serif" }}>
-                  Bradenton, FL<br />Serving Manatee County
-                </p>
-                <a
-                  href="https://maps.google.com/?q=Bradenton+FL+Mobile+Hose+Spray+Systems"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 mt-2 text-sm font-semibold"
-                  style={{ color: "#F5A623", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.05em", textTransform: "uppercase" }}
-                >
-                  Get Directions →
-                </a>
-              </div>
-
-              {/* Hours */}
-              <div className="p-6 rounded-lg" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div className="flex items-center gap-3 mb-3">
-                  <Clock size={20} style={{ color: "#F5A623" }} />
-                  <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, color: "#FFFFFF", fontSize: "1.1rem" }}>Hours</span>
-                </div>
-                <table style={{ width: "100%", fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem" }}>
-                  <tbody>
-                    {[
-                      ["Monday – Friday", "7:30am – 5:00pm"],
-                      ["Saturday", "Closed"],
-                      ["Sunday", "Closed"],
-                    ].map(([day, hours]) => (
-                      <tr key={day}>
-                        <td style={{ color: "#C0C0C0", paddingBottom: "0.4rem", paddingRight: "1rem" }}>{day}</td>
-                        <td style={{ color: hours === "Closed" ? "#909090" : "#F5A623", fontWeight: 600 }}>{hours}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <div className="mt-3 p-3 rounded" style={{ backgroundColor: "rgba(220,38,38,0.1)", border: "1px solid rgba(220,38,38,0.2)" }}>
-                  <p style={{ color: "#E03030", fontSize: "0.8rem", fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}>
-                    Emergency mobile service available — call 941-377-4673
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Quote Form */}
-            <div className="lg:col-span-2">
-              <div className="p-8 rounded-lg" style={{ backgroundColor: "#4A4A4A", border: "1px solid rgba(255,255,255,0.06)" }}>
-                {submitted ? (
-                  <div className="text-center py-12">
-                    <CheckCircle size={56} style={{ color: "#F5A623", margin: "0 auto 1.5rem" }} />
-                    <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "2rem", color: "#FFFFFF", marginBottom: "0.75rem" }}>
-                      THANKS! WE'LL BE IN TOUCH SOON.
-                    </h3>
-                    <p style={{ color: "#C0C0C0", fontFamily: "'DM Sans', sans-serif" }}>
-                      We typically respond within a few hours during business hours. For urgent needs, call us directly at <a href="tel:+19413774673" style={{ color: "#F5A623" }}>941-377-4673</a>.
-                    </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "3rem", alignItems: "start" }}>
+            <div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "2rem" }}>
+                {[
+                  { icon: <Phone size={20} />, title: "Phone", content: <a href="tel:9413774673" style={{ color: "#F59E0B", textDecoration: "none", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1.1rem" }}>(941) 377-4673</a> },
+                  { icon: <MapPin size={20} />, title: "Address", content: <span style={{ color: "#94A3B8", fontSize: "0.9rem", lineHeight: 1.6 }}>552 Cattaraugus Way<br />Sarasota, FL 34232<br /><a href="https://maps.google.com/?q=552+Cattaraugus+Way+Sarasota+FL" target="_blank" rel="noopener noreferrer" style={{ color: "#F59E0B", textDecoration: "none", fontSize: "0.8rem" }}>Get Directions →</a></span> },
+                  { icon: <Clock size={20} />, title: "Hours", content: <span style={{ color: "#94A3B8", fontSize: "0.9rem", lineHeight: 1.6 }}>Monday – Friday: 8:00 AM – 5:00 PM<br />Saturday: By appointment<br />Sunday: Closed</span> },
+                  { icon: <Mail size={20} />, title: "Email", content: <a href="mailto:info@mhss-inc.com" style={{ color: "#F59E0B", textDecoration: "none", fontSize: "0.9rem" }}>info@mhss-inc.com</a> },
+                ].map(item => (
+                  <div key={item.title} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", borderRadius: "0.5rem", padding: "1.25rem" }}>
+                    <span style={{ color: "#F59E0B", flexShrink: 0, marginTop: "0.1rem" }}>{item.icon}</span>
+                    <div>
+                      <div style={{ fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#64748B", marginBottom: "0.35rem" }}>{item.title}</div>
+                      {item.content}
+                    </div>
                   </div>
-                ) : (
-                  <>
-                    <div style={{ width: "2.5rem", height: "3px", backgroundColor: "#F5A623", marginBottom: "1rem" }} />
-                    <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.75rem", color: "#FFFFFF", marginBottom: "0.5rem" }}>
-                      REQUEST A FREE QUOTE
-                    </h2>
-                    <p style={{ color: "#909090", fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif", marginBottom: "2rem" }}>
-                      Fill out the form below and we'll get back to you quickly. For emergencies, call us directly.
-                    </p>
-                    <form onSubmit={handleSubmit} className="space-y-5">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div>
-                          <label style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#C0C0C0", display: "block", marginBottom: "0.5rem" }}>
-                            Your Name *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            value={form.name}
-                            onChange={e => setForm({ ...form, name: e.target.value })}
-                            className="w-full px-4 py-3 rounded outline-none transition-colors"
-                            style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.1)", color: "#E4E4E7", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}
-                            placeholder="John Smith"
-                          />
-                        </div>
-                        <div>
-                          <label style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#C0C0C0", display: "block", marginBottom: "0.5rem" }}>
-                            Phone Number *
-                          </label>
-                          <input
-                            type="tel"
-                            required
-                            value={form.phone}
-                            onChange={e => setForm({ ...form, phone: e.target.value })}
-                            className="w-full px-4 py-3 rounded outline-none transition-colors"
-                            style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.1)", color: "#E4E4E7", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}
-                            placeholder="941-555-0000"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <label style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#C0C0C0", display: "block", marginBottom: "0.5rem" }}>
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          value={form.email}
-                          onChange={e => setForm({ ...form, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded outline-none transition-colors"
-                          style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.1)", color: "#E4E4E7", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}
-                          placeholder="john@yourcompany.com"
-                        />
-                      </div>
-                      <div>
-                        <label style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#C0C0C0", display: "block", marginBottom: "0.5rem" }}>
-                          Service Needed *
-                        </label>
-                        <select
-                          required
-                          value={form.service}
-                          onChange={e => setForm({ ...form, service: e.target.value })}
-                          className="w-full px-4 py-3 rounded outline-none transition-colors"
-                          style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.1)", color: form.service ? "#E4E4E7" : "#909090", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}
-                        >
-                          <option value="" disabled>Select a service...</option>
-                          <option value="hydraulic-hose">Hydraulic Hose Repair / Assembly</option>
-                          <option value="pressure-washer-repair">Pressure Washer Repair</option>
-                          <option value="pressure-washer-sales">Pressure Washer Sales (Honda)</option>
-                          <option value="supply-store">Supply Store / Parts</option>
-                          <option value="rig-build">Custom Rig Build</option>
-                          <option value="emergency">Emergency Mobile Service</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#C0C0C0", display: "block", marginBottom: "0.5rem" }}>
-                          Tell Us More
-                        </label>
-                        <textarea
-                          rows={5}
-                          value={form.message}
-                          onChange={e => setForm({ ...form, message: e.target.value })}
-                          className="w-full px-4 py-3 rounded outline-none transition-colors resize-none"
-                          style={{ backgroundColor: "#404040", border: "1px solid rgba(255,255,255,0.1)", color: "#E4E4E7", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}
-                          placeholder="Describe what you need — hose size, equipment type, urgency, etc."
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        className="flex items-center justify-center gap-2 w-full py-4 rounded font-bold text-lg transition-all hover:scale-[1.02] active:scale-95"
-                        style={{ backgroundColor: "#F5A623", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}
-                      >
-                        <Send size={18} /> Send Request
-                      </button>
-                      <p style={{ color: "#909090", fontSize: "0.75rem", textAlign: "center", fontFamily: "'DM Sans', sans-serif" }}>
-                        For emergencies, call directly: <a href="tel:+19413774673" style={{ color: "#F5A623" }}>941-377-4673</a>
-                      </p>
-                    </form>
-                  </>
-                )}
+                ))}
+              </div>
+              <div style={{ backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", borderRadius: "0.5rem", overflow: "hidden", height: "220px" }}>
+                <iframe
+                  title="MHSS Inc. Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.1!2d-82.4774!3d27.3364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDIwJzExLjAiTiA4MsKwMjgnMzguNiJX!5e0!3m2!1sen!2sus!4v1234567890"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                />
               </div>
             </div>
-          </div>
-
-          {/* Map */}
-          <div className="mt-12 rounded-lg overflow-hidden" style={{ height: "400px", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3545.3!2d-82.4774!3d27.3364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDIwJzExLjAiTiA4MsKwMjgnMzguNiJX!5e0!3m2!1sen!2sus!4v1"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="MHSS Sarasota Location"
-            />
+            <div style={{ backgroundColor: "#0d1b2a", border: "1px solid #1E3A5F", borderRadius: "0.625rem", padding: "2.5rem" }}>
+              {submitted ? (
+                <div style={{ textAlign: "center", padding: "2rem 0" }}>
+                  <div style={{ width: "60px", height: "60px", borderRadius: "50%", backgroundColor: "rgba(245,158,11,0.15)", border: "2px solid #F59E0B", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.25rem" }}>
+                    <Phone size={24} style={{ color: "#F59E0B" }} />
+                  </div>
+                  <h3 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#F1F5F9", marginBottom: "0.5rem" }}>Message Received</h3>
+                  <p style={{ color: "#64748B", fontSize: "0.9rem", marginBottom: "1.5rem" }}>We'll get back to you shortly. For urgent needs, call us directly at (941) 377-4673.</p>
+                  <a href="tel:9413774673" style={{ backgroundColor: "#F59E0B", color: "#0a0f14", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.875rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.75rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                    <Phone size={14} /> Call Now
+                  </a>
+                </div>
+              ) : (
+                <>
+                  <h2 style={{ fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "1.35rem", color: "#F1F5F9", marginBottom: "0.5rem" }}>Request a Quote</h2>
+                  <p style={{ color: "#64748B", fontSize: "0.875rem", marginBottom: "1.75rem" }}>Tell us what you need and we'll respond promptly.</p>
+                  <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                    {[
+                      { id: "name", label: "Name *", type: "text", placeholder: "Your name", required: true },
+                      { id: "phone", label: "Phone *", type: "tel", placeholder: "(941) 000-0000", required: true },
+                      { id: "email", label: "Email", type: "email", placeholder: "your@email.com", required: false },
+                    ].map(field => (
+                      <div key={field.id}>
+                        <label htmlFor={field.id} style={{ display: "block", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#64748B", marginBottom: "0.4rem" }}>{field.label}</label>
+                        <input id={field.id} type={field.type} placeholder={field.placeholder} required={field.required} value={form[field.id as keyof typeof form]} onChange={e => setForm(f => ({ ...f, [field.id]: e.target.value }))} style={{ width: "100%", backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.375rem", padding: "0.7rem 0.875rem", color: "#F1F5F9", fontSize: "0.875rem", outline: "none", boxSizing: "border-box" }} />
+                      </div>
+                    ))}
+                    <div>
+                      <label htmlFor="service" style={{ display: "block", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#64748B", marginBottom: "0.4rem" }}>Service Needed</label>
+                      <select id="service" value={form.service} onChange={e => setForm(f => ({ ...f, service: e.target.value }))} style={{ width: "100%", backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.375rem", padding: "0.7rem 0.875rem", color: form.service ? "#F1F5F9" : "#64748B", fontSize: "0.875rem", outline: "none", boxSizing: "border-box" }}>
+                        <option value="">Select a service...</option>
+                        <option value="hydraulic-hose">Hydraulic Hose Fabrication / Repair</option>
+                        <option value="pressure-washer">Pressure Washer Sales / Service</option>
+                        <option value="airless-sprayer">Airless Sprayer Service</option>
+                        <option value="pumps-parts">Pumps & Parts</option>
+                        <option value="hose-reels">Hose Reels</option>
+                        <option value="surface-cleaners">Surface Cleaners</option>
+                        <option value="pest-control">Pest Control Sprayer</option>
+                        <option value="deco-products">Deco Products / Sealers</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="message" style={{ display: "block", fontFamily: "Oswald, sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#64748B", marginBottom: "0.4rem" }}>Message</label>
+                      <textarea id="message" rows={4} placeholder="Describe what you need..." value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} style={{ width: "100%", backgroundColor: "#0F1923", border: "1px solid #1E3A5F", borderRadius: "0.375rem", padding: "0.7rem 0.875rem", color: "#F1F5F9", fontSize: "0.875rem", outline: "none", resize: "vertical", boxSizing: "border-box" }} />
+                    </div>
+                    <button type="submit" style={{ backgroundColor: "#F59E0B", color: "#0a0f14", fontFamily: "Oswald, sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.5rem", borderRadius: "0.375rem", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+                      <Phone size={15} /> Send Message
+                    </button>
+                  </form>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </section>
