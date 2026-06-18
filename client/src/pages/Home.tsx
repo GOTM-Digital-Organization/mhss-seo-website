@@ -189,7 +189,7 @@ export default function Home() {
               <span style={{ color: "#FFD100" }}>SALES, SERVICE</span><br />
               &amp; REPAIR
             </h1>
-            <p style={{ color: "#D1D5DB", fontSize: "1.05rem", lineHeight: 1.6, marginBottom: "2rem", fontFamily: "'Inter', sans-serif", maxWidth: "520px" }}>
+            <p style={{ color: "#E8E8E8", fontSize: "1.05rem", lineHeight: 1.6, marginBottom: "2rem", fontFamily: "'Inter', sans-serif", maxWidth: "520px" }}>
               Pressure washers, pumps, airless sprayers, hydraulic hose, surface cleaners, hose reels, and more — at our Sarasota facility. Authorized warranty service center.
             </p>
             <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
@@ -206,7 +206,7 @@ export default function Home() {
                 { icon: <MapPin size={14} />, text: "552 Catarzi Way, Sarasota" },
                 { icon: <ShieldCheck size={14} />, text: "Warranty Service Center" },
               ].map((item, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#9CA3AF", fontSize: "0.85rem", fontFamily: "'Inter', sans-serif" }}>
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#CCCCCC", fontSize: "0.85rem", fontFamily: "'Inter', sans-serif" }}>
                   <span style={{ color: "#FFD100" }}>{item.icon}</span>
                   {item.text}
                 </div>
@@ -245,7 +245,7 @@ export default function Home() {
                 <div className="category-tile">
                   <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>{cat.icon}</div>
                   <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", color: "#1C1C1C", lineHeight: 1.2, marginBottom: "0.3rem" }}>{cat.label}</div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", color: "#6B7280", lineHeight: 1.4 }}>{cat.desc}</div>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.72rem", color: "#2D2D2D", lineHeight: 1.4 }}>{cat.desc}</div>
                 </div>
               </Link>
             ))}
@@ -258,7 +258,7 @@ export default function Home() {
         <div className="container">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "1.75rem", flexWrap: "wrap", gap: "0.75rem" }}>
             <h2 className="section-heading">Featured Products</h2>
-            <p style={{ color: "#6B7280", fontSize: "0.875rem", fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: "#2D2D2D", fontSize: "0.875rem", fontFamily: "'Inter', sans-serif" }}>
               All pricing by phone — call <a href="tel:9413774673" style={{ color: "#CC2020", fontWeight: 600, textDecoration: "none" }}>(941) 377-4673</a>
             </p>
           </div>
@@ -281,12 +281,12 @@ export default function Home() {
                   <div style={{ padding: "1.25rem", flex: 1, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                     <div>
                       <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.15rem", color: "#1C1C1C", lineHeight: 1.2 }}>{p.model}</div>
-                      <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "#4B5563", marginTop: "0.15rem" }}>{p.name}</div>
+                      <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", color: "#1A1A1A", marginTop: "0.15rem" }}>{p.name}</div>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
                       {p.specs.map((s, si) => <span key={si} className="spec-pill">{s}</span>)}
                     </div>
-                    <p style={{ color: "#6B7280", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", flex: 1 }}>{p.desc}</p>
+                    <p style={{ color: "#2D2D2D", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", flex: 1 }}>{p.desc}</p>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #E5E0D8", paddingTop: "0.75rem" }}>
                       <span className="price-tag">Call for Pricing</span>
                       <span style={{ display: "flex", alignItems: "center", gap: "0.3rem", color: "#1C1C1C", fontSize: "0.8rem", fontWeight: 600, fontFamily: "'Barlow', sans-serif" }}>
@@ -314,7 +314,7 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.625rem" }}>
             {brands.map((brand, i) => (
-              <span key={i} style={{ background: "#2A2A2A", border: "1px solid #333", color: "#D1D5DB", fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: "0.85rem", padding: "0.4rem 0.875rem", borderRadius: "0.2rem", transition: "all 150ms ease", cursor: "default" }}
+              <span key={i} style={{ background: "#2A2A2A", border: "1px solid #333", color: "#E8E8E8", fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: "0.85rem", padding: "0.4rem 0.875rem", borderRadius: "0.2rem", transition: "all 150ms ease", cursor: "default" }}
                 onMouseEnter={e => { (e.target as HTMLElement).style.background = "#FFD100"; (e.target as HTMLElement).style.color = "#1C1C1C"; (e.target as HTMLElement).style.borderColor = "#FFD100"; }}
                 onMouseLeave={e => { (e.target as HTMLElement).style.background = "#2A2A2A"; (e.target as HTMLElement).style.color = "#D1D5DB"; (e.target as HTMLElement).style.borderColor = "#333"; }}
               >
@@ -330,7 +330,7 @@ export default function Home() {
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: "2rem" }}>
             <h2 className="section-heading" style={{ display: "block" }}>What We Do</h2>
-            <p style={{ color: "#6B7280", marginTop: "0.75rem", fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: "#2D2D2D", marginTop: "0.75rem", fontFamily: "'Inter', sans-serif" }}>
               Sales, service, and warranty repair — all at our Sarasota facility at 552 Catarzi Way
             </p>
           </div>
@@ -343,7 +343,7 @@ export default function Home() {
                 >
                   <div style={{ marginBottom: "1rem" }}>{s.icon}</div>
                   <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.2rem", color: "#1C1C1C", marginBottom: "0.6rem" }}>{s.title}</h3>
-                  <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'Inter', sans-serif" }}>{s.desc}</p>
+                  <p style={{ color: "#2D2D2D", fontSize: "0.875rem", lineHeight: 1.6, fontFamily: "'Inter', sans-serif" }}>{s.desc}</p>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", color: "#CC2020", fontFamily: "'Barlow', sans-serif", fontWeight: 600, fontSize: "0.85rem", marginTop: "1rem" }}>
                     Learn More <ArrowRight size={13} />
                   </div>
@@ -363,7 +363,7 @@ export default function Home() {
                 Sarasota &amp; Manatee County
               </div>
               <h2 className="section-heading">Why Contractors &amp; Businesses Choose MHSS</h2>
-              <p style={{ color: "#4B5563", marginTop: "1.25rem", lineHeight: 1.7, fontFamily: "'Inter', sans-serif" }}>
+              <p style={{ color: "#1A1A1A", marginTop: "1.25rem", lineHeight: 1.7, fontFamily: "'Inter', sans-serif" }}>
                 Since 1990, MHSS has been the go-to source for industrial equipment, parts, and service in Sarasota and Manatee County. We started with a bread truck and a crimping machine — today we're an authorized service center for the industry's top brands.
               </p>
               <ul style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>

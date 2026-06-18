@@ -120,15 +120,15 @@ export default function Pumps() {
       <section style={{ background: "#1C1C1C", padding: "3rem 0 2.5rem" }}>
         <div className="container">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
-            <Link href="/" style={{ color: "#6B7280", fontSize: "0.85rem", textDecoration: "none" }}>Home</Link>
-            <span style={{ color: "#6B7280" }}>/</span>
+            <Link href="/" style={{ color: "#2D2D2D", fontSize: "0.85rem", textDecoration: "none" }}>Home</Link>
+            <span style={{ color: "#2D2D2D" }}>/</span>
             <span style={{ color: "#FFD100", fontSize: "0.85rem" }}>Pumps</span>
           </div>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#FFFFFF", lineHeight: 1.05, marginBottom: "1rem" }}>
             PRESSURE WASHER<br />
             <span style={{ color: "#FFD100" }}>PUMPS &amp; PUMP KITS</span>
           </h1>
-          <p style={{ color: "#D1D5DB", fontSize: "1.05rem", maxWidth: "600px", marginBottom: "1.5rem", fontFamily: "'Inter', sans-serif" }}>
+          <p style={{ color: "#3D3D3D", fontSize: "1.05rem", maxWidth: "600px", marginBottom: "1.5rem", fontFamily: "'Inter', sans-serif" }}>
             General Pump, CAT Pumps, AR, Comet, and UDOR — sales, service, and authorized repair at our Sarasota facility. Pump kits and rebuild parts in stock.
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
@@ -147,7 +147,7 @@ export default function Pumps() {
         <div className="container">
           <div style={{ marginBottom: "2rem" }}>
             <h2 className="section-heading">Pumps In Stock &amp; Available to Order</h2>
-            <p style={{ color: "#6B7280", marginTop: "1rem", fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: "#2D2D2D", marginTop: "1rem", fontFamily: "'Inter', sans-serif" }}>
               We stock and service the industry's most trusted pump brands. All pumps available with rebuild kits and replacement parts. Call for current pricing and availability.
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function Pumps() {
                     <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#FFFFFF", lineHeight: 1.1 }}>
                       {pump.model}
                     </div>
-                    <div style={{ color: "#9CA3AF", fontSize: "0.8rem", fontFamily: "'Inter', sans-serif" }}>{pump.series}</div>
+                    <div style={{ color: "#3D3D3D", fontSize: "0.8rem", fontFamily: "'Inter', sans-serif" }}>{pump.series}</div>
                   </div>
                   {pump.badge && <span className="service-badge">{pump.badge}</span>}
                 </div>
@@ -174,7 +174,7 @@ export default function Pumps() {
                     <span className="spec-pill">{pump.type}</span>
                     <span className="spec-pill">{pump.drive}</span>
                   </div>
-                  <p style={{ color: "#4B5563", fontSize: "0.875rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", flex: 1 }}>
+                  <p style={{ color: "#1A1A1A", fontSize: "0.875rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", flex: 1 }}>
                     {pump.desc}
                   </p>
                   <div style={{ borderTop: "1px solid #E5E0D8", paddingTop: "0.75rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -199,7 +199,7 @@ export default function Pumps() {
                 <span className="service-badge">AUTHORIZED SERVICE CENTER</span>
               </div>
               <h2 className="section-heading">Pump Repair &amp; Rebuild Service</h2>
-              <p style={{ color: "#4B5563", marginTop: "1.25rem", lineHeight: 1.7, fontFamily: "'Inter', sans-serif" }}>
+              <p style={{ color: "#1A1A1A", marginTop: "1.25rem", lineHeight: 1.7, fontFamily: "'Inter', sans-serif" }}>
                 Our technicians have been servicing commercial pressure washer pumps for over 35 years. We carry rebuild kits, seal kits, valve kits, and replacement parts for all major brands — most repairs completed same-day or next-day.
               </p>
               <ul style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
@@ -245,7 +245,7 @@ export default function Pumps() {
             <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.6rem", color: "#FFFFFF" }}>
               NEED A PUMP? HAVE A PUMP PROBLEM?
             </div>
-            <div style={{ color: "#9CA3AF", fontFamily: "'Inter', sans-serif" }}>
+            <div style={{ color: "#3D3D3D", fontFamily: "'Inter', sans-serif" }}>
               552 Catarzi Way, Sarasota FL — Mon–Fri 8am–5pm
             </div>
           </div>

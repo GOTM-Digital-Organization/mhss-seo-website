@@ -39,17 +39,17 @@ export default function AirlessSprayers() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
         </div>
         <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#6B7280" }}>
-            <Link href="/" style={{ color: "#6B7280", textDecoration: "none" }}>Home</Link><span>/</span>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#2D2D2D" }}>
+            <Link href="/" style={{ color: "#2D2D2D", textDecoration: "none" }}>Home</Link><span>/</span>
             <span style={{ color: "#FFD100" }}>Airless Sprayers</span>
           </nav>
           <span style={{ display: "inline-block", backgroundColor: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
             Authorized Service Center — Graco · Titan/SpeeFlo · Tritech
           </span>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#1C1C1C", lineHeight: 1.1, marginBottom: "1rem" }}>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             Airless Sprayer Service &<br /><span style={{ color: "#FFD100" }}>Sales — Sarasota, FL</span>
           </h1>
-          <p style={{ color: "#4B5563", fontSize: "1rem", lineHeight: 1.7, maxWidth: "540px", marginBottom: "1.75rem" }}>
+          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "540px", marginBottom: "1.75rem" }}>
             MHSS is an authorized service center for Graco, Titan/SpeeFlo, and Tritech airless sprayers. Warranty repairs, out-of-warranty service, repair kits, tips, filters, and accessories all in stock.
           </p>
           <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
@@ -61,7 +61,7 @@ export default function AirlessSprayers() {
         <div className="container">
           <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap", justifyContent: "center" }}>
             {[{ icon: <Shield size={16} />, text: "Authorized Warranty Service" }, { icon: <Wrench size={16} />, text: "Factory-Trained Technicians" }, { icon: <CheckCircle2 size={16} />, text: "Repair Kits In Stock" }, { icon: <CheckCircle2 size={16} />, text: "Tips, Filters & Accessories" }, { icon: <CheckCircle2 size={16} />, text: "Same-Day Service Available" }].map(f => (
-              <span key={f.text} style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#4B5563", fontSize: "0.875rem" }}>
+              <span key={f.text} style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#1A1A1A", fontSize: "0.875rem" }}>
                 <span style={{ color: "#FFD100" }}>{f.icon}</span> {f.text}
               </span>
             ))}
@@ -75,14 +75,14 @@ export default function AirlessSprayers() {
               <div key={brand.name} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.625rem", overflow: "hidden" }}>
                 <div style={{ padding: "1.5rem 1.75rem 1rem", borderBottom: "1px solid #E5E0D8" }}>
                   <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#FFD100", marginBottom: "0.4rem" }}>{brand.name}</h3>
-                  <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>{brand.desc}</p>
+                  <p style={{ color: "#2D2D2D", fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>{brand.desc}</p>
                 </div>
                 <div style={{ padding: "1.25rem 1.75rem" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "0.875rem" }}>
                     {brand.models.map(m => (
                       <div key={m.model} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.5rem", padding: "1rem" }}>
                         <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1C1C1C", marginBottom: "0.35rem" }}>{m.model}</div>
-                        <p style={{ color: "#6B7280", fontSize: "0.78rem", margin: "0 0 0.6rem" }}>{m.specs}</p>
+                        <p style={{ color: "#2D2D2D", fontSize: "0.78rem", margin: "0 0 0.6rem" }}>{m.specs}</p>
                         <a href="tel:9413774673" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>
                           <Phone size={11} /> Call for Pricing
                         </a>

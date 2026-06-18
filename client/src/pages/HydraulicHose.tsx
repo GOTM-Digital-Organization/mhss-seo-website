@@ -17,17 +17,17 @@ export default function HydraulicHose() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
         </div>
         <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#6B7280" }}>
-            <Link href="/" style={{ color: "#6B7280", textDecoration: "none" }}>Home</Link><span>/</span>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#2D2D2D" }}>
+            <Link href="/" style={{ color: "#2D2D2D", textDecoration: "none" }}>Home</Link><span>/</span>
             <span style={{ color: "#FFD100" }}>Hydraulic Hose</span>
           </nav>
           <span style={{ display: "inline-block", backgroundColor: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
             Parker · Bridgestone · Usually While-You-Wait
           </span>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#1C1C1C", lineHeight: 1.1, marginBottom: "1rem" }}>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             Hydraulic Hose Repair &<br /><span style={{ color: "#FFD100" }}>Fabrication — Sarasota, FL</span>
           </h1>
-          <p style={{ color: "#4B5563", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px", marginBottom: "1.75rem" }}>
+          <p style={{ color: "#1A1A1A", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px", marginBottom: "1.75rem" }}>
             MHSS has been fabricating hydraulic hoses for over 35 years. We stock Parker and Bridgestone hydraulic hose in 2-wire and 4-wire configurations. Most hoses are made while you wait. We also service dump trailers, small dump trucks, and repair hydraulic cylinders.
           </p>
           <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
@@ -39,7 +39,7 @@ export default function HydraulicHose() {
         <div className="container">
           <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap", justifyContent: "center" }}>
             {[{ icon: <Clock size={16} />, text: "Usually While-You-Wait" }, { icon: <CheckCircle2 size={16} />, text: "Parker Products" }, { icon: <CheckCircle2 size={16} />, text: "Bridgestone Products" }, { icon: <CheckCircle2 size={16} />, text: "2-Wire & 4-Wire" }, { icon: <Wrench size={16} />, text: "Cylinder Repair" }].map(f => (
-              <span key={f.text} style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#4B5563", fontSize: "0.875rem" }}>
+              <span key={f.text} style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#1A1A1A", fontSize: "0.875rem" }}>
                 <span style={{ color: "#FFD100" }}>{f.icon}</span> {f.text}
               </span>
             ))}
@@ -58,7 +58,7 @@ export default function HydraulicHose() {
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#1C1C1C", marginBottom: "1rem" }}>{cat.title}</h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {cat.items.map(item => (
-                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", color: "#4B5563", fontSize: "0.85rem", marginBottom: "0.45rem" }}>
+                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", color: "#1A1A1A", fontSize: "0.85rem", marginBottom: "0.45rem" }}>
                       <CheckCircle2 size={13} style={{ color: cat.color, flexShrink: 0, marginTop: "0.1rem" }} /> {item}
                     </li>
                   ))}
@@ -68,7 +68,7 @@ export default function HydraulicHose() {
           </div>
           <div style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.625rem", padding: "2.5rem", textAlign: "center" }}>
             <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1C1C1C", marginBottom: "0.5rem" }}>Bring Your Equipment In — Most Hoses Made While You Wait</h3>
-            <p style={{ color: "#6B7280", fontSize: "0.9rem", marginBottom: "1.5rem", maxWidth: "500px", margin: "0 auto 1.5rem" }}>Located at 552 Catarzi Way, Sarasota, FL. Open Monday–Friday. Call ahead for large jobs or cylinder repairs.</p>
+            <p style={{ color: "#2D2D2D", fontSize: "0.9rem", marginBottom: "1.5rem", maxWidth: "500px", margin: "0 auto 1.5rem" }}>Located at 552 Catarzi Way, Sarasota, FL. Open Monday–Friday. Call ahead for large jobs or cylinder repairs.</p>
             <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.75rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
               <Phone size={15} /> (941) 377-4673
             </a>

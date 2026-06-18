@@ -82,15 +82,15 @@ export default function PressureWasherParts() {
       <section style={{ background: "#1C1C1C", padding: "3rem 0 2.5rem" }}>
         <div className="container">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
-            <Link href="/" style={{ color: "#6B7280", fontSize: "0.85rem", textDecoration: "none" }}>Home</Link>
-            <span style={{ color: "#6B7280" }}>/</span>
+            <Link href="/" style={{ color: "#2D2D2D", fontSize: "0.85rem", textDecoration: "none" }}>Home</Link>
+            <span style={{ color: "#2D2D2D" }}>/</span>
             <span style={{ color: "#FFD100", fontSize: "0.85rem" }}>Parts & Accessories</span>
           </div>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#FFFFFF", lineHeight: 1.05, marginBottom: "1rem" }}>
             PRESSURE WASHER<br />
             <span style={{ color: "#FFD100" }}>PARTS &amp; ACCESSORIES</span>
           </h1>
-          <p style={{ color: "#D1D5DB", fontSize: "1.05rem", maxWidth: "600px", marginBottom: "1.5rem", fontFamily: "'Inter', sans-serif" }}>
+          <p style={{ color: "#3D3D3D", fontSize: "1.05rem", maxWidth: "600px", marginBottom: "1.5rem", fontFamily: "'Inter', sans-serif" }}>
             Guns, wands, tips, quick connects, chemical injectors, unloaders, thermal valves, hoses, and more — in stock at our Sarasota facility.
           </p>
           <a href="tel:9413774673" className="btn-yellow">
@@ -114,7 +114,7 @@ export default function PressureWasherParts() {
                   {cat.items.map((item, ii) => (
                     <div key={ii} className="product-card" style={{ padding: "1.25rem" }}>
                       <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1C1C1C", marginBottom: "0.4rem" }}>{item.name}</div>
-                      <p style={{ color: "#6B7280", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", marginBottom: "0.75rem" }}>{item.desc}</p>
+                      <p style={{ color: "#2D2D2D", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", marginBottom: "0.75rem" }}>{item.desc}</p>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <span className="price-tag">Call for Pricing</span>
                         <a href="tel:9413774673" style={{ color: "#1C1C1C", fontSize: "0.8rem", fontWeight: 600, textDecoration: "none", fontFamily: "'Barlow', sans-serif" }}>
@@ -139,7 +139,7 @@ export default function PressureWasherParts() {
             {hoses.map((hose, i) => (
               <div key={i} className="product-card" style={{ padding: "1.25rem" }}>
                 <div style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1C1C1C", marginBottom: "0.4rem" }}>{hose.name}</div>
-                <p style={{ color: "#6B7280", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", marginBottom: "0.75rem" }}>{hose.desc}</p>
+                <p style={{ color: "#2D2D2D", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif", marginBottom: "0.75rem" }}>{hose.desc}</p>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span className="price-tag">Call for Pricing</span>
                   <a href="tel:9413774673" style={{ color: "#1C1C1C", fontSize: "0.8rem", fontWeight: 600, textDecoration: "none" }}>

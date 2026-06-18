@@ -11,14 +11,14 @@ export default function DecoProducts() {
     >
       <section style={{ backgroundColor: "#F2EFE9", borderBottom: "1px solid #E5E0D8", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="container">
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#6B7280" }}>
-            <Link href="/" style={{ color: "#6B7280", textDecoration: "none" }}>Home</Link><span>/</span>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#2D2D2D" }}>
+            <Link href="/" style={{ color: "#2D2D2D", textDecoration: "none" }}>Home</Link><span>/</span>
             <span style={{ color: "#FFD100" }}>Deco Products</span>
           </nav>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#1C1C1C", lineHeight: 1.1, marginBottom: "1rem" }}>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             Paver Sealers &<br /><span style={{ color: "#FFD100" }}>Deco Products</span>
           </h1>
-          <p style={{ color: "#4B5563", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
+          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
             MHSS stocks a complete line of decorative concrete and paver products — sealers, strippers, waterproofing compounds, and more. Water-based, single-part formulas for professional and contractor use.
           </p>
           <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
@@ -39,7 +39,7 @@ export default function DecoProducts() {
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#1C1C1C", marginBottom: "1rem" }}>{cat.title}</h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {cat.items.map(item => (
-                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", color: "#6B7280", fontSize: "0.85rem", marginBottom: "0.45rem" }}>
+                    <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem", color: "#2D2D2D", fontSize: "0.85rem", marginBottom: "0.45rem" }}>
                       <CheckCircle2 size={13} style={{ color: "#FFD100", flexShrink: 0, marginTop: "0.1rem" }} /> {item}
                     </li>
                   ))}
