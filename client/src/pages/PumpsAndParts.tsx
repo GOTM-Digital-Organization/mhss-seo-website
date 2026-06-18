@@ -2,6 +2,8 @@ import Layout from "@/components/Layout";
 import { Link } from "wouter";
 import { Phone, CheckCircle2, ArrowRight } from "lucide-react";
 
+const HERO_IMG = "/manus-storage/mhss3-pumps_b88feb86.jpg";
+
 const PUMPS = [
   { brand: "General Pump", desc: "General Pump is one of the most trusted names in pressure washer pumps. MHSS stocks complete pump kits, repair kits, and individual components for the full General Pump lineup.", models: [
     { model: "TS1511", specs: "1500 PSI / 1.1 GPM, 3/4\" shaft, direct drive" },
@@ -51,13 +53,17 @@ export default function PumpsAndParts() {
       description="Pressure washer pumps and parts in Sarasota, FL. General Pump, Cat Pumps, AR, Comet, UDOR pump kits. Guns, wands, tips, injectors, unloaders, thermal valves. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/pumps-parts"
     >
-      {/* Hero */}
-      <section style={{ backgroundColor: "#F2EFE9", borderBottom: "1px solid #E5E0D8", paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="container">
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#2D2D2D" }}>
-            <Link href="/" style={{ color: "#2D2D2D", textDecoration: "none" }}>Home</Link>
-            <span>/</span>
-            <span style={{ color: "#FFD100" }}>Pumps & Parts</span>
+      {/* Hero with image */}
+      <section style={{ position: "relative", minHeight: "45vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0 }}>
+          <img src={HERO_IMG} alt="Pressure washer pumps and parts Sarasota FL" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
+        </div>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem" }}>
+            <Link href="/" style={{ color: "#CCCCCC", textDecoration: "none" }}>Home</Link>
+            <span style={{ color: "#CCCCCC" }}>/</span>
+            <span style={{ color: "#FFD100" }}>Pumps &amp; Parts</span>
           </nav>
           <span style={{ display: "inline-block", backgroundColor: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
             General · Cat · AR · Comet · UDOR

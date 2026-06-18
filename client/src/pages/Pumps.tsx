@@ -120,15 +120,15 @@ export default function Pumps() {
       <section style={{ background: "#1C1C1C", padding: "3rem 0 2.5rem" }}>
         <div className="container">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
-            <Link href="/" style={{ color: "#2D2D2D", fontSize: "0.85rem", textDecoration: "none" }}>Home</Link>
-            <span style={{ color: "#2D2D2D" }}>/</span>
+            <Link href="/" style={{ color: "#CCCCCC", fontSize: "0.85rem", textDecoration: "none" }}>Home</Link>
+            <span style={{ color: "#CCCCCC" }}>/</span>
             <span style={{ color: "#FFD100", fontSize: "0.85rem" }}>Pumps</span>
           </div>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#FFFFFF", lineHeight: 1.05, marginBottom: "1rem" }}>
             PRESSURE WASHER<br />
             <span style={{ color: "#FFD100" }}>PUMPS &amp; PUMP KITS</span>
           </h1>
-          <p style={{ color: "#3D3D3D", fontSize: "1.05rem", maxWidth: "600px", marginBottom: "1.5rem", fontFamily: "'Inter', sans-serif" }}>
+          <p style={{ color: "#E0E0E0", fontSize: "1.05rem", maxWidth: "600px", marginBottom: "1.5rem", fontFamily: "'Inter', sans-serif" }}>
             General Pump, CAT Pumps, AR, Comet, and UDOR — sales, service, and authorized repair at our Sarasota facility. Pump kits and rebuild parts in stock.
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
@@ -163,7 +163,7 @@ export default function Pumps() {
                     <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#FFFFFF", lineHeight: 1.1 }}>
                       {pump.model}
                     </div>
-                    <div style={{ color: "#3D3D3D", fontSize: "0.8rem", fontFamily: "'Inter', sans-serif" }}>{pump.series}</div>
+                    <div style={{ color: "#9CA3AF", fontSize: "0.8rem", fontFamily: "'Inter', sans-serif" }}>{pump.series}</div>
                   </div>
                   {pump.badge && <span className="service-badge">{pump.badge}</span>}
                 </div>
@@ -245,7 +245,7 @@ export default function Pumps() {
             <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "1.6rem", color: "#FFFFFF" }}>
               NEED A PUMP? HAVE A PUMP PROBLEM?
             </div>
-            <div style={{ color: "#3D3D3D", fontFamily: "'Inter', sans-serif" }}>
+            <div style={{ color: "#AAAAAA", fontFamily: "'Inter', sans-serif" }}>
               552 Catarzi Way, Sarasota FL — Mon–Fri 8am–5pm
             </div>
           </div>

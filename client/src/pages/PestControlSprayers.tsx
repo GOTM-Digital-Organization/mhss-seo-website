@@ -2,6 +2,8 @@ import Layout from "@/components/Layout";
 import { Link } from "wouter";
 import { Phone, CheckCircle2, Wrench } from "lucide-react";
 
+const HERO_IMG = "/manus-storage/mhss3-pest-control_cc2fb89b.jpg";
+
 export default function PestControlSprayers() {
   return (
     <Layout
@@ -9,16 +11,25 @@ export default function PestControlSprayers() {
       description="Pest control sprayer service, repair, and custom builds in Sarasota, FL. Lawn spraying equipment, all makes and models serviced. Custom spray rigs built to spec. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/pest-control-sprayers"
     >
-      <section style={{ backgroundColor: "#F2EFE9", borderBottom: "1px solid #E5E0D8", paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="container">
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#2D2D2D" }}>
-            <Link href="/" style={{ color: "#2D2D2D", textDecoration: "none" }}>Home</Link><span>/</span>
+      {/* Hero with image */}
+      <section style={{ position: "relative", minHeight: "45vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0 }}>
+          <img src={HERO_IMG} alt="Pest control sprayer service and custom builds Sarasota FL" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
+        </div>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem" }}>
+            <Link href="/" style={{ color: "#CCCCCC", textDecoration: "none" }}>Home</Link>
+            <span style={{ color: "#CCCCCC" }}>/</span>
             <span style={{ color: "#FFD100" }}>Pest Control Sprayers</span>
           </nav>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#1C1C1C", lineHeight: 1.1, marginBottom: "1rem" }}>
-            Pest Control Sprayer<br /><span style={{ color: "#FFD100" }}>Service & Custom Builds</span>
+          <span style={{ display: "inline-block", backgroundColor: "rgba(255,209,0,0.15)", border: "1px solid rgba(255,209,0,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
+            Service · Repair · Custom Builds
+          </span>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
+            Pest Control Sprayer<br /><span style={{ color: "#FFD100" }}>Service &amp; Custom Builds</span>
           </h1>
-          <p style={{ color: "#1A1A1A", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
+          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
             MHSS services all makes and models of commercial pest control sprayers and lawn spraying equipment. We also build custom spray rigs to your exact specifications — from small truck-bed units to full trailer-mounted systems.
           </p>
           <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
@@ -26,12 +37,13 @@ export default function PestControlSprayers() {
           </a>
         </div>
       </section>
+
       <section style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
             <div style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.625rem", padding: "2rem", borderTopWidth: "3px", borderTopStyle: "solid", borderTopColor: "#FFD100" }}>
               <Wrench size={28} style={{ color: "#FFD100", marginBottom: "1rem" }} />
-              <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1C1C1C", marginBottom: "0.75rem" }}>Sprayer Service & Repair</h2>
+              <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1C1C1C", marginBottom: "0.75rem" }}>Sprayer Service &amp; Repair</h2>
               <p style={{ color: "#2D2D2D", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "1rem" }}>We service all makes and models of commercial pest control and lawn care spray equipment. From pump rebuilds to complete system overhauls.</p>
               <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                 {["Pump rebuilds and replacements", "Hose and fitting replacement", "Tank cleaning and repair", "Nozzle and boom service", "Agitator service", "Pressure regulator calibration", "Electric and gas pump service", "Diaphragm pump rebuilds"].map(i => (

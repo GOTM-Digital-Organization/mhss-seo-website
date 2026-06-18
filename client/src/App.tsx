@@ -17,6 +17,7 @@ import PestControlSprayers from "./pages/PestControlSprayers";
 import DecoProducts from "./pages/DecoProducts";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import PumpsAndParts from "./pages/PumpsAndParts";
 
 function Router() {
   return (
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/pressure-washers" component={PressureWashers} />
       <Route path="/pumps" component={Pumps} />
+      <Route path="/pumps-parts" component={PumpsAndParts} />
       <Route path="/pressure-washer-parts" component={PressureWasherParts} />
       <Route path="/surface-cleaners" component={SurfaceCleaners} />
       <Route path="/airless-sprayers" component={AirlessSprayers} />

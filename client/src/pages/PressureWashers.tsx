@@ -122,7 +122,13 @@ export default function PressureWashers() {
                 <div style={{ padding: "1.25rem 1.75rem" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem" }}>
                     {brand.models.map(m => (
-                      <div key={m.model} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.5rem", padding: "1.25rem" }}>
+                      <div key={m.model} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.5rem", overflow: "hidden" }}>
+                        {/* Photo placeholder — product image will populate here */}
+                        <div style={{ backgroundColor: "#E8E8E8", height: "150px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.5rem", borderBottom: "1px solid #E5E0D8" }}>
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          <span style={{ color: "#9CA3AF", fontSize: "0.7rem", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.08em", textTransform: "uppercase" }}>Product Photo</span>
+                        </div>
+                        <div style={{ padding: "1.25rem" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.5rem" }}>
                           <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", color: "#1C1C1C" }}>{m.model}</span>
                           <span style={{ backgroundColor: m.type === "Hot Water" ? "rgba(239,68,68,0.15)" : "rgba(59,130,246,0.15)", color: m.type === "Hot Water" ? "#EF4444" : "#60A5FA", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.65rem", letterSpacing: "0.08em", textTransform: "uppercase", padding: "0.2rem 0.6rem", borderRadius: "9999px" }}>
@@ -133,6 +139,7 @@ export default function PressureWashers() {
                         <a href="tel:9413774673" style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>
                           <Phone size={12} /> Call for Pricing
                         </a>
+                        </div>
                       </div>
                     ))}
                   </div>

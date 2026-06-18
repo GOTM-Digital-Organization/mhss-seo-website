@@ -2,6 +2,8 @@ import Layout from "@/components/Layout";
 import { Link } from "wouter";
 import { Phone, CheckCircle2, MapPin, Clock } from "lucide-react";
 
+const HERO_IMG = "/manus-storage/mhss3-hero_275e7d18.jpg";
+
 export default function About() {
   return (
     <Layout
@@ -9,16 +11,21 @@ export default function About() {
       description="MHSS Inc. has been serving Sarasota and Manatee County since 1988. Family-owned industrial equipment dealer and service center at 552 Catarzi Way, Sarasota, FL. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/about"
     >
-      <section style={{ backgroundColor: "#F2EFE9", borderBottom: "1px solid #E5E0D8", paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="container">
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#2D2D2D" }}>
-            <Link href="/" style={{ color: "#2D2D2D", textDecoration: "none" }}>Home</Link><span>/</span>
+      {/* Hero with image */}
+      <section style={{ position: "relative", minHeight: "40vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0 }}>
+          <img src={HERO_IMG} alt="MHSS Inc. Sarasota FL — About us" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
+        </div>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem" }}>
+            <Link href="/" style={{ color: "#CCCCCC", textDecoration: "none" }}>Home</Link><span style={{ color: "#CCCCCC" }}>/</span>
             <span style={{ color: "#FFD100" }}>About</span>
           </nav>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             About MHSS Inc. —<br /><span style={{ color: "#FFD100" }}>Sarasota's Equipment Experts</span>
           </h1>
-          <p style={{ color: "#1A1A1A", fontSize: "1rem", lineHeight: 1.7, maxWidth: "600px" }}>
+          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "600px" }}>
             For over 35 years, MHSS Inc. has been the go-to source for industrial hose fabrication, pressure washing equipment, airless sprayer service, and specialty spray systems in Sarasota and Manatee County.
           </p>
         </div>

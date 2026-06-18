@@ -2,6 +2,8 @@ import Layout from "@/components/Layout";
 import { Link } from "wouter";
 import { Phone, CheckCircle2 } from "lucide-react";
 
+const HERO_IMG = "/manus-storage/mhss3-surface-cleaners_afe987c3.jpg";
+
 const BRANDS = [
   { name: "WhisperWash", desc: "WhisperWash surface cleaners are among the most popular professional-grade flat surface cleaners available. Known for quiet operation and consistent cleaning results on concrete, driveways, and sidewalks.", models: [
     { model: "Classic 16\"", specs: "16\" cleaning path, 3000–4000 PSI, 3–5 GPM, dual nozzle bar" },
@@ -32,12 +34,21 @@ export default function SurfaceCleaners() {
       description="Professional surface cleaners for pressure washing in Sarasota, FL. WhisperWash, Whirlaway, Hammerhead, Rotoeze. Parts and service available. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/surface-cleaners"
     >
-      <section style={{ backgroundColor: "#F2EFE9", borderBottom: "1px solid #E5E0D8", paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="container">
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#2D2D2D" }}>
-            <Link href="/" style={{ color: "#2D2D2D", textDecoration: "none" }}>Home</Link><span>/</span>
+      {/* Hero with image */}
+      <section style={{ position: "relative", minHeight: "45vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0 }}>
+          <img src={HERO_IMG} alt="Surface cleaners Sarasota FL — WhisperWash, Whirlaway, Hammerhead" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
+        </div>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem" }}>
+            <Link href="/" style={{ color: "#CCCCCC", textDecoration: "none" }}>Home</Link>
+            <span style={{ color: "#CCCCCC" }}>/</span>
             <span style={{ color: "#FFD100" }}>Surface Cleaners</span>
           </nav>
+          <span style={{ display: "inline-block", backgroundColor: "rgba(255,209,0,0.15)", border: "1px solid rgba(255,209,0,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
+            WhisperWash · Whirlaway · Hammerhead · Rotoeze
+          </span>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             Surface Cleaners —<br /><span style={{ color: "#FFD100" }}>Sarasota, FL</span>
           </h1>
@@ -49,6 +60,7 @@ export default function SurfaceCleaners() {
           </a>
         </div>
       </section>
+
       <section style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
         <div className="container">
           <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
@@ -61,12 +73,19 @@ export default function SurfaceCleaners() {
                 <div style={{ padding: "1.25rem 1.75rem" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "0.875rem" }}>
                     {brand.models.map(m => (
-                      <div key={m.model} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.5rem", padding: "1rem" }}>
-                        <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1C1C1C", marginBottom: "0.35rem" }}>{m.model}</div>
-                        <p style={{ color: "#2D2D2D", fontSize: "0.78rem", margin: "0 0 0.6rem" }}>{m.specs}</p>
-                        <a href="tel:9413774673" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>
-                          <Phone size={11} /> Call for Pricing
-                        </a>
+                      <div key={m.model} style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.5rem", overflow: "hidden" }}>
+                        {/* Photo placeholder — Shopify product image will populate here */}
+                        <div style={{ backgroundColor: "#E8E8E8", height: "160px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.5rem", borderBottom: "1px solid #E5E0D8" }}>
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          <span style={{ color: "#9CA3AF", fontSize: "0.7rem", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.08em", textTransform: "uppercase" }}>Product Photo</span>
+                        </div>
+                        <div style={{ padding: "1rem" }}>
+                          <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1C1C1C", marginBottom: "0.35rem" }}>{m.model}</div>
+                          <p style={{ color: "#2D2D2D", fontSize: "0.78rem", margin: "0 0 0.6rem" }}>{m.specs}</p>
+                          <a href="tel:9413774673" style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.05em", textTransform: "uppercase", textDecoration: "none" }}>
+                            <Phone size={11} /> Call for Pricing
+                          </a>
+                        </div>
                       </div>
                     ))}
                   </div>

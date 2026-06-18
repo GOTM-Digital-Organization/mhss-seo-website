@@ -71,14 +71,14 @@ export default function Layout({ children, title, description, canonical, ogImag
             <a href="tel:9413774673" style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#FFD100", fontSize: "0.82rem", fontFamily: "Barlow Condensed, sans-serif", fontWeight: 600, textDecoration: "none", letterSpacing: "0.04em" }}>
               <Phone size={12} /> (941) 377-4673
             </a>
-            <span style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "#3D3D3D", fontSize: "0.78rem" }}>
-              <MapPin size={11} /> 552 Catarzi Way, Sarasota, FL 34232
-            </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "#3D3D3D", fontSize: "0.78rem" }}>
-              <Clock size={11} /> Mon–Fri 8am–5pm
-            </span>
+              <span style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "#9CA3AF", fontSize: "0.78rem" }}>
+                <MapPin size={11} /> 552 Catarzi Way, Sarasota, FL 34232
+              </span>
+              <span style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "#9CA3AF", fontSize: "0.78rem" }}>
+                <Clock size={11} /> Mon–Fri 8am–5pm
+              </span>
           </div>
-          <span style={{ color: "#2D2D2D", fontSize: "0.75rem" }}>Serving Sarasota &amp; Manatee County Since 1990</span>
+          <span style={{ color: "#9CA3AF", fontSize: "0.75rem" }}>Serving Sarasota &amp; Manatee County Since 1990</span>
         </div>
       </div>
 
@@ -167,15 +167,15 @@ export default function Layout({ children, title, description, canonical, ogImag
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2.5rem", marginBottom: "2.5rem" }}>
             <div>
               <img src={LOGO_URL} alt="MHSS Inc." style={{ height: "54px", width: "auto", marginBottom: "1rem" }} />
-              <p style={{ color: "#3D3D3D", fontSize: "0.85rem", lineHeight: 1.7, marginBottom: "1rem" }}>Sarasota's industrial equipment specialists since 1990. Pressure washers, hydraulic hose, airless sprayers, pumps, parts &amp; more.</p>
+              <p style={{ color: "#9CA3AF", fontSize: "0.85rem", lineHeight: 1.7, marginBottom: "1rem" }}>Sarasota's industrial equipment specialists since 1990. Pressure washers, hydraulic hose, airless sprayers, pumps, parts &amp; more.</p>
               <a href="tel:9413774673" style={{ color: "#FFD100", fontFamily: "Barlow Condensed, sans-serif", fontWeight: 700, fontSize: "1.05rem", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.4rem" }}><Phone size={14} /> (941) 377-4673</a>
-              <p style={{ color: "#3D3D3D", fontSize: "0.8rem", marginTop: "0.4rem" }}>552 Catarzi Way, Sarasota, FL 34232</p>
-              <p style={{ color: "#3D3D3D", fontSize: "0.8rem" }}>Mon–Fri 8:00am–5:00pm</p>
+              <p style={{ color: "#9CA3AF", fontSize: "0.8rem", marginTop: "0.4rem" }}>552 Catarzi Way, Sarasota, FL 34232</p>
+              <p style={{ color: "#9CA3AF", fontSize: "0.8rem" }}>Mon–Fri 8:00am–5:00pm</p>
             </div>
             <div>
               <h4 style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#FFD100", marginBottom: "1rem" }}>Equipment</h4>
               {[{ label: "Pressure Washers", href: "/pressure-washers" }, { label: "Pumps & Parts", href: "/pumps-parts" }, { label: "Surface Cleaners", href: "/surface-cleaners" }, { label: "Hose Reels", href: "/hose-reels" }, { label: "Airless Sprayers", href: "/airless-sprayers" }].map(l => (
-                <Link key={l.href} href={l.href} style={{ display: "block", color: "#3D3D3D", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
+                <Link key={l.href} href={l.href} style={{ display: "block", color: "#9CA3AF", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#FFD100")}
                   onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#9CA3AF")}>{l.label}</Link>
               ))}
@@ -183,7 +183,7 @@ export default function Layout({ children, title, description, canonical, ogImag
             <div>
               <h4 style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#FFD100", marginBottom: "1rem" }}>Services</h4>
               {[{ label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" }, { label: "Pest Control Sprayers", href: "/pest-control-sprayers" }, { label: "Deco Products", href: "/deco-products" }, { label: "About MHSS", href: "/about" }, { label: "Contact Us", href: "/contact" }].map(l => (
-                <Link key={l.href} href={l.href} style={{ display: "block", color: "#3D3D3D", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
+                <Link key={l.href} href={l.href} style={{ display: "block", color: "#9CA3AF", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#FFD100")}
                   onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#9CA3AF")}>{l.label}</Link>
               ))}
@@ -191,15 +191,15 @@ export default function Layout({ children, title, description, canonical, ogImag
             <div>
               <h4 style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#FFD100", marginBottom: "1rem" }}>Brands We Carry</h4>
               {["Honda", "BE Power Equipment", "Mi-T-M", "Pressure Pro", "General Pump", "Cat Pumps", "AR Pumps", "Comet Pumps", "UDOR", "Titan Hose Reels", "Summit Hose Reels", "Graco", "Titan/SpeeFlo", "Tritech", "Parker", "Bridgestone", "WhisperWash", "Whirlaway", "Hammerhead", "Rotoeze"].map(b => (
-                <span key={b} style={{ display: "block", color: "#2D2D2D", fontSize: "0.78rem", marginBottom: "0.3rem" }}>{b}</span>
+                <span key={b} style={{ display: "block", color: "#9CA3AF", fontSize: "0.78rem", marginBottom: "0.3rem" }}>{b}</span>
               ))}
             </div>
           </div>
           <div style={{ borderTop: "1px solid #333333", paddingTop: "1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem" }}>
-            <p style={{ color: "#2D2D2D", fontSize: "0.78rem" }}>© {new Date().getFullYear()} Mobile Hose &amp; Spray Systems, Inc. All rights reserved. Serving Sarasota &amp; Manatee County, FL.</p>
+            <p style={{ color: "#6B7280", fontSize: "0.78rem" }}>© {new Date().getFullYear()} Mobile Hose &amp; Spray Systems, Inc. All rights reserved. Serving Sarasota &amp; Manatee County, FL.</p>
             <div style={{ display: "flex", gap: "1.5rem" }}>
-              <Link href="/contact" style={{ color: "#2D2D2D", fontSize: "0.78rem", textDecoration: "none" }}>Contact</Link>
-              <Link href="/about" style={{ color: "#2D2D2D", fontSize: "0.78rem", textDecoration: "none" }}>About</Link>
+              <Link href="/contact" style={{ color: "#9CA3AF", fontSize: "0.78rem", textDecoration: "none" }}>Contact</Link>
+              <Link href="/about" style={{ color: "#9CA3AF", fontSize: "0.78rem", textDecoration: "none" }}>About</Link>
             </div>
           </div>
         </div>

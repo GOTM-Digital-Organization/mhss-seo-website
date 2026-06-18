@@ -3,13 +3,44 @@ import { Link } from "wouter";
 import { Phone, MapPin, Clock, Mail } from "lucide-react";
 import { useState } from "react";
 
+const HERO_IMG = "/manus-storage/mhss3-hydraulic_fa9ed4b2.jpg";
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    try {
+      // Fire Google Ads conversion tracking if available
+      if (typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "conversion", { send_to: "AW-CONVERSION_ID/CONVERSION_LABEL" });
+      }
+      // Submit to Formspree (routes to jonathansmart4@gmail.com)
+      const res = await fetch("https://formspree.io/f/xpwzgkqn", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          service: form.service,
+          message: form.message,
+          _subject: `MHSS Quote Request from ${form.name}`,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        alert("There was a problem sending your message. Please call us at (941) 377-4673.");
+      }
+    } catch {
+      alert("There was a problem sending your message. Please call us at (941) 377-4673.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -18,16 +49,21 @@ export default function Contact() {
       description="Contact MHSS Inc. in Sarasota, FL. 552 Catarzi Way. Call (941) 377-4673. Hydraulic hose, pressure washers, airless sprayers, and more. Monday–Friday 8AM–5PM."
       canonical="https://www.mhss-inc.com/contact"
     >
-      <section style={{ backgroundColor: "#F2EFE9", borderBottom: "1px solid #E5E0D8", paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="container">
-          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#2D2D2D" }}>
-            <Link href="/" style={{ color: "#2D2D2D", textDecoration: "none" }}>Home</Link><span>/</span>
+      {/* Hero with image */}
+      <section style={{ position: "relative", minHeight: "38vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0 }}>
+          <img src={HERO_IMG} alt="Contact MHSS Inc. Sarasota FL" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(28,28,28,0.93) 0%, rgba(28,28,28,0.7) 60%, rgba(28,28,28,0.3) 100%)" }} />
+        </div>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: "4rem", paddingBottom: "4rem" }}>
+          <nav style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginBottom: "1.5rem", fontSize: "0.8rem" }}>
+            <Link href="/" style={{ color: "#CCCCCC", textDecoration: "none" }}>Home</Link><span style={{ color: "#CCCCCC" }}>/</span>
             <span style={{ color: "#FFD100" }}>Contact</span>
           </nav>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             Contact <span style={{ color: "#FFD100" }}>MHSS Inc.</span>
           </h1>
-          <p style={{ color: "#1A1A1A", fontSize: "1rem", lineHeight: 1.7, maxWidth: "520px" }}>
+          <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "520px" }}>
             Located in Sarasota, FL. Call us, stop by, or fill out the form below and we'll get back to you promptly.
           </p>
         </div>
@@ -110,8 +146,8 @@ export default function Contact() {
                       <label htmlFor="message" style={{ display: "block", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.75rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "#2D2D2D", marginBottom: "0.4rem" }}>Message</label>
                       <textarea id="message" rows={4} placeholder="Describe what you need..." value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} style={{ width: "100%", backgroundColor: "#FFFFFF", border: "1px solid #E5E0D8", borderRadius: "0.375rem", padding: "0.7rem 0.875rem", color: "#1C1C1C", fontSize: "0.875rem", outline: "none", resize: "vertical", boxSizing: "border-box" }} />
                     </div>
-                    <button type="submit" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.5rem", borderRadius: "0.375rem", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
-                      <Phone size={15} /> Send Message
+                    <button type="submit" disabled={submitting} style={{ backgroundColor: submitting ? "#E6C200" : "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.875rem 1.5rem", borderRadius: "0.375rem", border: "none", cursor: submitting ? "not-allowed" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", opacity: submitting ? 0.8 : 1 }}>
+                      <Phone size={15} /> {submitting ? "Sending..." : "Send Message"}
                     </button>
                   </form>
                 </>
