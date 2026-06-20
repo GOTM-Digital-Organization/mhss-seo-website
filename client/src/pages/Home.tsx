@@ -166,8 +166,8 @@ export default function Home() {
 
   return (
     <Layout
-      title="MHSS — Pressure Washer Sales & Service | Pumps, Parts & Hydraulic Hose | Sarasota FL"
-      description="Sarasota's industrial equipment specialists since 1990. Pressure washer sales, service & warranty repair. Pumps, parts, hydraulic hose made to order. Airless sprayer service center. 552 Catarzi Way, Sarasota FL — (941) 377-4673."
+      title="MHSS Inc. | Pressure Washers, Pumps & Hydraulic Hose | Sarasota FL"
+      description="Sarasota's industrial equipment specialists since 1990. Pressure washers, pumps, hydraulic hose, airless sprayer repair. Call (941) 377-4673."
     >
       {/* ── HERO ── */}
       <section style={{ position: "relative", background: "#1C1C1C", overflow: "hidden", minHeight: "520px", display: "flex", alignItems: "center" }}>
