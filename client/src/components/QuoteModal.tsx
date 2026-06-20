@@ -2,17 +2,15 @@
  * QuoteModal — shared quote request modal for all product pages
  * Design: MHSS dark industrial theme — charcoal, yellow (#FFD100), white
  *
- * TO CONFIGURE EMAIL: Replace QUOTE_EMAIL_ENDPOINT below with the
- * actual Formspree endpoint once the client's email is confirmed.
- * e.g. "https://formspree.io/f/YOUR_FORM_ID"
+ * Form submissions go to office@mhss-inc.com via Web3Forms.
  */
 
 import { useState, useEffect } from "react";
 import { X, Phone, Send, CheckCircle2 } from "lucide-react";
 
-// ─── SWAP THIS when client email is confirmed ───────────────────────────────
-const QUOTE_EMAIL_ENDPOINT = "PLACEHOLDER_FORMSPREE_ENDPOINT";
-// ────────────────────────────────────────────────────────────────────────────
+// Web3Forms endpoint — submissions go to office@mhss-inc.com
+const QUOTE_EMAIL_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY = "204d2eb1-632c-4606-9d57-abb9281b40e4";
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -63,30 +61,27 @@ export default function QuoteModal({ isOpen, onClose, productName, productModel 
         (window as any).gtag("event", "conversion", { send_to: "AW-CONVERSION_ID/CONVERSION_LABEL" });
       }
 
-      if (QUOTE_EMAIL_ENDPOINT === "PLACEHOLDER_FORMSPREE_ENDPOINT") {
-        // Dev mode: simulate success
-        await new Promise(r => setTimeout(r, 800));
-        setSubmitted(true);
-      } else {
-        const res = await fetch(QUOTE_EMAIL_ENDPOINT, {
+      const res = await fetch(QUOTE_EMAIL_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `MHSS Quote Request — ${form.product || "General Inquiry"} from ${form.name}`,
+            from_name: "MHSS Inc. Website",
             name: form.name,
             phone: form.phone,
-            email: form.email,
+            email: form.email || "noreply@mhss-inc.com",
             product: form.product,
             quantity: form.quantity,
             message: form.message,
-            _subject: `MHSS Quote Request — ${form.product || "General Inquiry"} from ${form.name}`,
           }),
         });
-        if (res.ok) {
+        const data = await res.json();
+        if (data.success) {
           setSubmitted(true);
         } else {
           alert("There was a problem sending your request. Please call us at (941) 377-4673.");
         }
-      }
     } catch {
       alert("There was a problem sending your request. Please call us at (941) 377-4673.");
     } finally {

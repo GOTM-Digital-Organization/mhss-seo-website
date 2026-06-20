@@ -18,20 +18,23 @@ export default function Contact() {
       if (typeof (window as any).gtag === "function") {
         (window as any).gtag("event", "conversion", { send_to: "AW-CONVERSION_ID/CONVERSION_LABEL" });
       }
-      // Submit to Formspree (routes to jonathansmart4@gmail.com)
-      const res = await fetch("https://formspree.io/f/xpwzgkqn", {
+      // Submit to Web3Forms — routes to office@mhss-inc.com
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
+          access_key: "204d2eb1-632c-4606-9d57-abb9281b40e4",
+          subject: `MHSS Contact Form — ${form.service || "General Inquiry"} from ${form.name}`,
+          from_name: "MHSS Inc. Website",
           name: form.name,
           phone: form.phone,
-          email: form.email,
+          email: form.email || "noreply@mhss-inc.com",
           service: form.service,
           message: form.message,
-          _subject: `MHSS Quote Request from ${form.name}`,
         }),
       });
-      if (res.ok) {
+      const data = await res.json();
+      if (data.success) {
         setSubmitted(true);
       } else {
         alert("There was a problem sending your message. Please call us at (941) 377-4673.");
