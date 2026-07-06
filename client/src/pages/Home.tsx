@@ -10,6 +10,7 @@ import { Phone, MapPin, Clock, ChevronRight, Star, Wrench, ShieldCheck, Truck, A
 import Layout from "@/components/Layout";
 
 const HERO_IMG = "/manus-storage/mhss3-hero_275e7d18.jpg";
+const SKID_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-8gpm-honda-angle1-6DqXcFEqqrwJgQF9QKZ7mx.webp";
 const PUMPS_IMG = "/manus-storage/mhss3-pumps_b88feb86.jpg";
 const HYDRAULIC_IMG = "/manus-storage/mhss3-hydraulic_fa9ed4b2.jpg";
 const SPRAYERS_IMG = "/manus-storage/mhss3-sprayers_e8eac13a.jpg";
@@ -29,14 +30,14 @@ const categories = [
 
 const featuredProducts = [
   {
-    brand: "BE Power Equipment",
-    model: "BE275HA",
-    name: "2700 PSI Hot Water Pressure Washer",
-    specs: ["2700 PSI", "3.0 GPM", "Honda GX200", "Hot Water"],
-    desc: "Professional hot water pressure washer with Honda GX200 engine. Ideal for grease, oil, and heavy commercial cleaning.",
-    badge: "WARRANTY SERVICE",
+    brand: "Honda / General Pump",
+    model: "GX690 Belt Drive Skid",
+    name: "8 GPM @ 3500 PSI Belt Drive Skid",
+    specs: ["3500 PSI", "8 GPM", "Honda GX690", "Belt Drive"],
+    desc: "Heavy-duty commercial belt drive skid unit powered by a Honda GX690 V-twin engine with a General triplex pump. Built for professional contractors who need all-day reliability and high flow output.",
+    badge: "IN STOCK",
     href: "/pressure-washers",
-    img: HERO_IMG,
+    img: SKID_IMG,
   },
   {
     brand: "General Pump",
