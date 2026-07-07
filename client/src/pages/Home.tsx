@@ -10,7 +10,11 @@ import { Phone, MapPin, Clock, ChevronRight, Star, Wrench, ShieldCheck, Truck, A
 import Layout from "@/components/Layout";
 
 const HERO_IMG = "/manus-storage/mhss3-hero_275e7d18.jpg";
-const SKID_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028316757/f5LotiXXfaNaenzonCtfkX/mhss-8gpm-honda-angle1-6DqXcFEqqrwJgQF9QKZ7mx.webp";
+const SKID_IMG = "/manus-storage/product-8gpm-skid_44ff1033.png";
+const POLY_TANK_IMG = "/manus-storage/product-poly-tank_7caa9dd5.png";
+const TITAN_REEL_IMG = "/manus-storage/product-titan-reel_15952034.png";
+const F9_IMG = "/manus-storage/product-f9_16dc3302.png";
+const AG_HOSE_IMG = "/manus-storage/product-ag-hose_323a2554.png";
 const PUMPS_IMG = "/manus-storage/mhss3-pumps_b88feb86.jpg";
 const HYDRAULIC_IMG = "/manus-storage/mhss3-hydraulic_fa9ed4b2.jpg";
 const SPRAYERS_IMG = "/manus-storage/mhss3-sprayers_e8eac13a.jpg";
@@ -38,7 +42,7 @@ const featuredProducts = [
     desc: "Poly tanks in a full range of sizes from 15 to 525 gallons. Ideal for soft wash rigs, pest control trucks, lawn spray, and chemical storage. Durable UV-resistant polyethylene construction.",
     badge: "IN STOCK",
     href: "/pest-control-sprayers",
-    img: PUMPS_IMG,
+    img: POLY_TANK_IMG,
   },
   {
     // Item 3: Titan Hose Reels
@@ -49,7 +53,7 @@ const featuredProducts = [
     desc: "Titan hose reels in 12\" , 18\" , and 22\" sizes — available in hand crank and electric retract models. Built for professional pressure washing rigs, pest control trucks, and service vehicles.",
     badge: "IN STOCK",
     href: "/hose-reels",
-    img: SURFACE_IMG,
+    img: TITAN_REEL_IMG,
   },
   {
     // Item 5: BE Whirlaway Surface Cleaners
@@ -71,7 +75,7 @@ const featuredProducts = [
     desc: "F-9 BARC, Efflorescence Remover, and Groundskeeper — the professional-grade concrete and masonry cleaning products trusted by contractors nationwide. In stock at MHSS Sarasota.",
     badge: "IN STOCK",
     href: "/deco-products",
-    img: HYDRAULIC_IMG,
+    img: F9_IMG,
   },
   {
     // Item 16: 8 GPM Belt Drive Pressure Washer
@@ -93,7 +97,7 @@ const featuredProducts = [
     desc: "Yellow agricultural spray hose in 300' and 400' spools. Available in 3/8\" and 1/2\" inside diameter, rated to 600 PSI. Ideal for pest control rigs, lawn spray trucks, and chemical application.",
     badge: "IN STOCK",
     href: "/pest-control-sprayers",
-    img: PUMPS_IMG,
+    img: AG_HOSE_IMG,
   },
 ];
 
