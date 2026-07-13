@@ -9,7 +9,7 @@ export default function PressureWasherRepair() {
     <Layout
       title="Pressure Washer Repair Sarasota FL | Honda Sales & Service | MHSS Inc."
       description="Expert pressure washer repair and sales in Sarasota, FL. Honda pressure washers, AR and General pumps, unloaders, burners, and full machine rebuilds. Call MHSS: 941-377-4673."
-      canonical="https://www.mhss-inc.com/pressure-washer-repair-sarasota"
+      canonical="https://www.mhss-inc.com/pressure-washer-repair"
     >
       <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#404040" }}>
         <div className="absolute inset-0 bg-cover bg-center opacity-65" style={{ backgroundImage: `url(${HERO_IMG})` }} />
@@ -126,9 +126,9 @@ export default function PressureWasherRepair() {
                 </div>
                 <div className="space-y-2">
                   {[
-                    { label: "Pressure Washing Supply Store", href: "/pressure-washing-supply-store" },
-                    { label: "Custom Rig Builds", href: "/pressure-washing-rig-builds" },
-                    { label: "Hydraulic Hose Repair", href: "/hydraulic-hose-repair-sarasota" },
+                    { label: "Pressure Washing Rig Builds", href: "/pressure-washing-rigs" },
+                    { label: "Pressure Washer Parts", href: "/pressure-washer-parts" },
+                    { label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" },
                   ].map((link) => (
                     <Link key={link.href} href={link.href} className="flex items-center gap-2 text-sm transition-colors hover:text-yellow-400" style={{ color: "#C0C0C0", fontFamily: "'DM Sans', sans-serif" }}>
                       <ArrowRight size={12} style={{ color: "#FFD100" }} /> {link.label}
