@@ -74,13 +74,13 @@ export default function PressureWashers() {
             <span style={{ color: "#FFD100" }}>Pressure Washers</span>
           </nav>
           <span style={{ display: "inline-block", backgroundColor: "rgba(255,209,0,0.15)", border: "1px solid rgba(255,209,0,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
-            Honda · BE Power Equipment · Mi-T-M · Pressure Pro
+            Factory Direct Sales · Honda · BE Power Equipment · Mi-T-M · Pressure Pro · Certified Warranty Repair
           </span>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             Pressure Washers —<br /><span style={{ color: "#FFD100" }}>Sales, Service & Repair</span>
           </h1>
           <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
-            Cold and hot water pressure washers from the industry's most trusted brands. Authorized warranty service center for Honda, BE Power Equipment, Mi-T-M, and Pressure Pro. In stock at our Sarasota facility.
+            Factory direct sales and certified warranty repair for commercial pressure washing equipment. Cold and hot water machines from Honda, BE Power Equipment, Mi-T-M, and Pressure Pro. Authorized dealer — no middleman pricing. In stock and special order at our Sarasota facility.
           </p>
           <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
             <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>

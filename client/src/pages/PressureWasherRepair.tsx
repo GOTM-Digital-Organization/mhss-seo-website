@@ -25,7 +25,7 @@ export default function PressureWasherRepair() {
             PRESSURE WASHER REPAIR<br /><span style={{ color: "#FFD100" }}>&amp; SALES — SARASOTA</span>
           </h1>
           <p style={{ color: "#C0C0C0", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "600px", marginBottom: "2rem", fontFamily: "'DM Sans', sans-serif" }}>
-            Factory-trained service on Honda, AR, General Pump, and other commercial pressure washers. Pumps, unloaders, burners, carburetors, and complete machine rebuilds — all in our Sarasota shop.
+            Certified warranty repair center for BE Power, Mi-T-M, Pressure Pro, and more. Factory-trained service on Honda, AR, General Pump, and all major brands. Pumps, unloaders, burners, carburetors, and complete machine rebuilds — all in our Sarasota shop. Factory direct sales — no middleman.
           </p>
           <a href="tel:+19413774673" className="inline-flex items-center gap-2 px-7 py-4 rounded font-bold text-lg transition-all hover:scale-105 active:scale-95" style={{ backgroundColor: "#FFD100", color: "#404040", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>
             <Phone size={18} /> Call 941-377-4673
@@ -43,10 +43,10 @@ export default function PressureWasherRepair() {
                   COMMERCIAL PRESSURE WASHER REPAIR IN SARASOTA
                 </h2>
                 <p style={{ color: "#C0C0C0", lineHeight: 1.8, fontFamily: "'DM Sans', sans-serif", marginBottom: "1rem" }}>
-                  MHSS has been servicing commercial and industrial pressure washers in the Sarasota area for over 35 years. We work on gas-engine machines from Honda, Simpson, and other leading brands, as well as electric-motor units used in commercial and industrial settings.
+                  MHSS is a certified warranty repair center and factory direct dealer for pressure washing equipment in Sarasota. We've been servicing commercial and industrial pressure washers for over 35 years. We work on gas-engine machines from Honda, Simpson, BE Power, Mi-T-M, and other leading brands, as well as electric-motor units used in commercial and industrial settings.
                 </p>
                 <p style={{ color: "#C0C0C0", lineHeight: 1.8, fontFamily: "'DM Sans', sans-serif" }}>
-                  Our technicians are experienced with all major pump brands including AR (Annovi Reverberi), General Pump, Comet, and Cat Pumps. Whether your machine needs a simple unloader valve replacement or a complete pump rebuild, we have the parts and expertise to get it running right.
+                  Our factory-trained technicians are experienced with all major pump brands including AR (Annovi Reverberi), General Pump, Comet, and Cat Pumps. Whether your machine needs a simple unloader valve replacement or a complete pump rebuild, we have the parts and expertise to get it running right — most repairs completed same-day or next-day.
                 </p>
               </div>
 

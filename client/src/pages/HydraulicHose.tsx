@@ -57,13 +57,13 @@ export default function HydraulicHose() {
             <span style={{ color: "#FFD100" }}>Hydraulic Hose</span>
           </nav>
           <span style={{ display: "inline-block", backgroundColor: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
-            Parker · Bridgestone · Usually While-You-Wait
+            Custom Fabrication While You Wait · Parker · Bridgestone · 2-Wire & 4-Wire
           </span>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             Hydraulic Hose Repair &amp;<br /><span style={{ color: "#FFD100" }}>Fabrication — Sarasota, FL</span>
           </h1>
           <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px", marginBottom: "1.75rem" }}>
-            MHSS has been fabricating hydraulic hoses for over 35 years. We stock Parker and Bridgestone hydraulic hose in 2-wire and 4-wire configurations. Most hoses are made while you wait. We also service dump trailers, small dump trucks, and repair hydraulic cylinders.
+            MHSS has been fabricating custom hydraulic hoses while you wait for over 35 years. Drive in with a broken hose — drive out with a new one. We stock Parker and Bridgestone hydraulic hose in 2-wire and 4-wire configurations, cut and crimped to any length on-site. We also service dump trailers, small dump trucks, and repair hydraulic cylinders.
           </p>
           <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
             <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>

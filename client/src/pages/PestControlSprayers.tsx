@@ -43,8 +43,8 @@ export default function PestControlSprayers() {
 
   return (
     <Layout
-      title="Pest Control Sprayer Service & Custom Builds Sarasota FL | MHSS Inc."
-      description="Pest control sprayer service, repair, and custom builds in Sarasota, FL. UDOR, Hypro pumps. Spray tanks, guns, hoses, nozzles. Custom spray rigs built to spec. Call (941) 377-4673."
+      title="Ag & Pest Control Spray Systems Sarasota FL | Custom Fabrication — MHSS Inc."
+      description="Agricultural and pest control spray system fabrication, sales, and repair in Sarasota, FL. Custom rig builds, UDOR & Hypro pumps, poly tanks, hose reels, ag hose, spray guns. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/pest-control-sprayers"
     >
       <QuoteModal
@@ -67,13 +67,13 @@ export default function PestControlSprayers() {
             <span style={{ color: "#FFD100" }}>Pest Control Sprayers</span>
           </nav>
           <span style={{ display: "inline-block", backgroundColor: "rgba(255,209,0,0.15)", border: "1px solid rgba(255,209,0,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
-            UDOR · Hypro · Norwesco · Custom Spray Rigs
+            Custom Fabrication · Ag & Pest Control · UDOR · Hypro · Poly Tanks · Hose Reels
           </span>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
-            Pest Control Sprayers —<br /><span style={{ color: "#FFD100" }}>Service, Parts &amp; Custom Builds</span>
+            Ag & Pest Control<br /><span style={{ color: "#FFD100" }}>Spray Systems — Sarasota, FL</span>
           </h1>
           <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.7, maxWidth: "580px", marginBottom: "1.75rem" }}>
-            MHSS services and builds pest control and lawn spray equipment for Sarasota-area pest control companies and landscapers. UDOR and Hypro pumps, Norwesco tanks, spray guns, hoses, and nozzles in stock.
+            MHSS fabricates, sells, and repairs agricultural and pest control spray systems for Sarasota-area contractors, landscapers, and farmers. Custom rig builds designed for your application — poly tanks, hose reels, UDOR and Hypro pumps, ag hose, spray guns, and complete system assemblies in stock.
           </p>
           <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
             <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>

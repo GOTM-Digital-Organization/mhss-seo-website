@@ -110,28 +110,40 @@ const brands = [
 
 const services = [
   {
-    icon: <Wrench size={28} color="#FFD100" />,
-    title: "Warranty Service Center",
-    desc: "Authorized warranty service for BE Power, Mi-T-M, Pressure Pro, Graco, Titan/SpeeFlo, and Tritech. Factory-trained technicians.",
-    href: "/pressure-washers",
-  },
-  {
     icon: <ShieldCheck size={28} color="#FFD100" />,
     title: "Hydraulic Hose — While You Wait",
-    desc: "Custom hydraulic hose fabricated on-site while you wait. Parker and Bridgestone products. 2-wire and 4-wire capability.",
+    desc: "Custom hydraulic hose fabricated on-site while you wait. Any length, any fitting, any pressure rating. Parker and Bridgestone products. 2-wire and 4-wire capability. No waiting days — drive in, drive out.",
     href: "/hydraulic-hose",
   },
   {
-    icon: <Truck size={28} color="#FFD100" />,
-    title: "Pump Repair & Rebuild",
-    desc: "Same-day or next-day pump repair for all major brands. Rebuild kits, seal kits, and valve kits in stock.",
-    href: "/pumps",
+    icon: <Wrench size={28} color="#FFD100" />,
+    title: "Pressure Washing Equipment & Repair",
+    desc: "Sales, service, and repair of commercial pressure washers, pumps, hoses, guns, wands, and surface cleaners. All major brands. Most repairs completed same-day or next-day.",
+    href: "/pressure-washer-repair",
   },
   {
     icon: <Star size={28} color="#FFD100" />,
-    title: "Airless Sprayer Service",
-    desc: "Authorized service center for Graco, Titan/SpeeFlo, and Tritech airless paint sprayers. Parts and kits available.",
+    title: "Airless Sprayer Service & Repair",
+    desc: "Authorized service and repair center for Graco, Titan/SpeeFlo, and Tritech airless paint sprayers. Parts, kits, and accessories in stock. Factory-trained technicians on-site.",
     href: "/airless-sprayers",
+  },
+  {
+    icon: <Truck size={28} color="#FFD100" />,
+    title: "Ag & Pest Control Spray Systems",
+    desc: "Custom fabrication, sales, and repair of agricultural and pest control spray systems. Poly tanks, hose reels, pumps, spray guns, ag hose, and complete rig builds — designed for your application.",
+    href: "/pest-control-sprayers",
+  },
+  {
+    icon: <ArrowRight size={28} color="#FFD100" />,
+    title: "Factory Direct Sales",
+    desc: "Buy direct from an authorized dealer. BE Power Equipment, Mi-T-M, Honda, General Pump, CAT Pumps, Graco, Titan, F-9, and more — at competitive prices with no middleman markup.",
+    href: "/pressure-washers",
+  },
+  {
+    icon: <CheckCircle size={28} color="#FFD100" />,
+    title: "Certified Warranty Repair Center",
+    desc: "Authorized warranty service center for BE Power, Mi-T-M, Pressure Pro, Graco, Titan/SpeeFlo, and Tritech. Factory-trained technicians. Warranty work handled on-site — no shipping your equipment away.",
+    href: "/pressure-washer-repair",
   },
 ];
 
@@ -201,7 +213,7 @@ export default function Home() {
               &amp; REPAIR
             </h1>
             <p style={{ color: "#E8E8E8", fontSize: "1.05rem", lineHeight: 1.6, marginBottom: "2rem", fontFamily: "'Inter', sans-serif", maxWidth: "520px" }}>
-              Pressure washers, pumps, airless sprayers, hydraulic hose, surface cleaners, hose reels, and more — at our Sarasota facility. Authorized warranty service center.
+              Custom hydraulic hose while you wait. Pressure washing equipment sales & repair. Airless sprayer service. Ag & pest control spray systems. Factory direct. Certified warranty repair center.
             </p>
             <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
               <a href="tel:9413774673" className="btn-yellow" style={{ fontSize: "1.05rem", padding: "0.875rem 2rem" }}>
@@ -215,7 +227,7 @@ export default function Home() {
               {[
                 { icon: <Clock size={14} />, text: "Mon–Fri 8am–5pm" },
                 { icon: <MapPin size={14} />, text: "552 Catarzi Way, Sarasota" },
-                { icon: <ShieldCheck size={14} />, text: "Warranty Service Center" },
+                { icon: <ShieldCheck size={14} />, text: "Certified Warranty Repair Center" },
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "#CCCCCC", fontSize: "0.85rem", fontFamily: "'Inter', sans-serif" }}>
                   <span style={{ color: "#FFD100" }}>{item.icon}</span>
@@ -342,7 +354,7 @@ export default function Home() {
           <div style={{ textAlign: "center", marginBottom: "2rem" }}>
             <h2 className="section-heading" style={{ display: "block" }}>What We Do</h2>
             <p style={{ color: "#2D2D2D", marginTop: "0.75rem", fontFamily: "'Inter', sans-serif" }}>
-              Sales, service, and warranty repair — all at our Sarasota facility at 552 Catarzi Way
+              Six core specialties — all under one roof at 552 Catarzi Way, Sarasota
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.25rem" }}>
@@ -375,16 +387,16 @@ export default function Home() {
               </div>
               <h2 className="section-heading">Why Contractors &amp; Businesses Choose MHSS</h2>
               <p style={{ color: "#1A1A1A", marginTop: "1.25rem", lineHeight: 1.7, fontFamily: "'Inter', sans-serif" }}>
-                Since 1990, MHSS has been the go-to source for industrial equipment, parts, and service in Sarasota and Manatee County. We started with a bread truck and a crimping machine — today we're an authorized service center for the industry's top brands.
+                Since 1990, MHSS has been Sarasota's go-to source for hydraulic hose fabrication, pressure washing equipment, airless sprayer repair, and agricultural spray systems. We started with a bread truck and a crimping machine — today we're a certified warranty repair center and factory direct dealer for the industry's top brands.
               </p>
               <ul style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                 {[
-                  "Authorized warranty service for BE Power, Mi-T-M, Graco, Titan, and more",
-                  "Hydraulic hose fabricated on-site while you wait",
-                  "Most pump repairs completed same-day or next-day",
-                  "Extensive parts inventory — no waiting weeks for shipping",
-                  "Expert advice from technicians with 35+ years of experience",
-                  "Serving Sarasota, Bradenton, Venice, and all of Manatee County",
+                  "Custom hydraulic hose fabricated on-site while you wait — any length, any fitting",
+                  "Pressure washing equipment sales, service & repair — all major brands",
+                  "Authorized airless sprayer service center — Graco, Titan/SpeeFlo, Tritech",
+                  "Agricultural & pest control spray system fabrication, sales & repair",
+                  "Factory direct sales — no middleman, competitive pricing",
+                  "Certified warranty repair center — no shipping your equipment away",
                 ].map((item, i) => (
                   <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", color: "#1C1C1C", fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 1.5 }}>
                     <CheckCircle size={16} color="#FFD100" style={{ flexShrink: 0, marginTop: "0.15rem" }} />

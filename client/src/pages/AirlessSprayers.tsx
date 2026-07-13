@@ -66,13 +66,13 @@ export default function AirlessSprayers() {
             <span style={{ color: "#FFD100" }}>Airless Sprayer Repair</span>
           </nav>
           <span style={{ display: "inline-block", backgroundColor: "rgba(255,209,0,0.15)", border: "1px solid rgba(255,209,0,0.4)", color: "#FFD100", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", padding: "0.35rem 0.875rem", borderRadius: "9999px", marginBottom: "1rem" }}>
-            Authorized Service Center — Graco · Titan/SpeeFlo · Tritech
+            Certified Warranty Repair Center · Graco · Titan/SpeeFlo · Tritech · Parts & Accessories In Stock
           </span>
           <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.2rem)", color: "#FFFFFF", lineHeight: 1.1, marginBottom: "1rem" }}>
             Airless Sprayer Repair &amp;<br /><span style={{ color: "#FFD100" }}>Warranty Service — Sarasota, FL</span>
           </h1>
           <p style={{ color: "#F0F0F0", fontSize: "1rem", lineHeight: 1.75, maxWidth: "600px", marginBottom: "1.75rem" }}>
-            MHSS is a factory-authorized service center for Graco, Titan/SpeeFlo, and Tritech airless sprayers. We perform warranty repairs, full rebuilds, and routine maintenance — with most jobs completed same day or next day.
+            MHSS is a certified warranty repair center for Graco, Titan/SpeeFlo, and Tritech airless paint sprayers. We perform warranty repairs, full rebuilds, and routine maintenance — with most jobs completed same day or next day. Parts, kits, tips, guns, and hoses in stock. Factory direct pricing.
           </p>
           <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
             <a href="tel:9413774673" style={{ backgroundColor: "#FFD100", color: "#1C1C1C", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "0.9rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.8rem 1.5rem", borderRadius: "0.375rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
