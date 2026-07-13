@@ -15,7 +15,10 @@ const NAV_ITEMS = [
   ]},
   { label: "Services", children: [
     { label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" },
-    { label: "Pest Control Sprayers", href: "/pest-control-sprayers" },
+    { label: "Pressure Washer Repair", href: "/pressure-washer-repair" },
+    { label: "Airless Sprayer Repair", href: "/airless-sprayers" },
+    { label: "Pressure Washing Rig Builds", href: "/pressure-washing-rigs" },
+    { label: "Ag & Pest Control Spray Systems", href: "/pest-control-sprayers" },
     { label: "Deco Products", href: "/deco-products" },
   ]},
   { label: "About", href: "/about" },
@@ -182,7 +185,7 @@ export default function Layout({ children, title, description, canonical, ogImag
             </div>
             <div>
               <h4 style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#FFD100", marginBottom: "1rem" }}>Services</h4>
-              {[{ label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" }, { label: "Pest Control Sprayers", href: "/pest-control-sprayers" }, { label: "Deco Products", href: "/deco-products" }, { label: "About MHSS", href: "/about" }, { label: "Contact Us", href: "/contact" }].map(l => (
+              {[{ label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" }, { label: "Pressure Washer Repair", href: "/pressure-washer-repair" }, { label: "Airless Sprayer Repair", href: "/airless-sprayers" }, { label: "Pressure Washing Rig Builds", href: "/pressure-washing-rigs" }, { label: "Ag & Pest Control Spray Systems", href: "/pest-control-sprayers" }, { label: "Deco Products", href: "/deco-products" }, { label: "About MHSS", href: "/about" }, { label: "Contact Us", href: "/contact" }].map(l => (
                 <Link key={l.href} href={l.href} style={{ display: "block", color: "#9CA3AF", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#FFD100")}
                   onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#9CA3AF")}>{l.label}</Link>
