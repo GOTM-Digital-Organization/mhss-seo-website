@@ -20,6 +20,7 @@ import Contact from "./pages/Contact";
 import PumpsAndParts from "./pages/PumpsAndParts";
 import PressureWashingRigs from "./pages/PressureWashingRigs";
 import PressureWasherRepair from "./pages/PressureWasherRepair";
+import Products from "./pages/Products";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/pressure-washers" component={PressureWashers} />
       <Route path="/pumps" component={Pumps} />
       <Route path="/pumps-parts" component={PumpsAndParts} />
+      <Route path="/products" component={Products} />
       <Route path="/pressure-washing-rigs" component={PressureWashingRigs} />
       <Route path="/pressure-washer-repair" component={PressureWasherRepair} />
       <Route path="/pressure-washer-parts" component={PressureWasherParts} />

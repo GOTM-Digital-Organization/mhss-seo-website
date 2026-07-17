@@ -6,20 +6,24 @@ const LOGO_URL = "/manus-storage/mhss-logo-transparent_e4c54822.png";
 const OG_IMG = "/manus-storage/mhss-og-breadtruck_ebafbd14.png";
 
 const NAV_ITEMS = [
-  { label: "Equipment", children: [
-    { label: "Pressure Washers", href: "/pressure-washers" },
-    { label: "Pumps & Parts", href: "/pumps-parts" },
-    { label: "Surface Cleaners", href: "/surface-cleaners" },
-    { label: "Hose Reels", href: "/hose-reels" },
-    { label: "Airless Sprayers", href: "/airless-sprayers" },
+  { label: "Products", children: [
+    { label: "All Products", href: "/products" },
+    { label: "Cleaners & Chemicals", href: "/products?cat=Cleaners+%26+Chemicals" },
+    { label: "Deco Sealers", href: "/products?cat=Deco+Sealers" },
+    { label: "Lubricants & Oils", href: "/products?cat=Lubricants+%26+Oils" },
+    { label: "Fittings & Valves", href: "/products?cat=Fittings+%26+Valves" },
+    { label: "Hose & Reels", href: "/products?cat=Hose+%26+Reels" },
+    { label: "Pressure Washer Parts", href: "/products?cat=Pressure+Washer+Parts" },
+    { label: "Engines", href: "/products?cat=Engines" },
+    { label: "Filters & Strainers", href: "/products?cat=Filters+%26+Strainers" },
   ]},
   { label: "Services", children: [
-    { label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" },
+    { label: "Hydraulic Hose Fabrication & Repair", href: "/hydraulic-hose" },
     { label: "Pressure Washer Repair", href: "/pressure-washer-repair" },
-    { label: "Airless Sprayer Repair", href: "/airless-sprayers" },
+    { label: "Airless Sprayer Service & Repair", href: "/airless-sprayers" },
     { label: "Pressure Washing Rig Builds", href: "/pressure-washing-rigs" },
     { label: "Ag & Pest Control Spray Systems", href: "/pest-control-sprayers" },
-    { label: "Deco Products", href: "/deco-products" },
+    { label: "Certified Warranty Repair", href: "/pressure-washer-repair" },
   ]},
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -176,8 +180,8 @@ export default function Layout({ children, title, description, canonical, ogImag
               <p style={{ color: "#9CA3AF", fontSize: "0.8rem" }}>Mon–Fri 8:00am–5:00pm</p>
             </div>
             <div>
-              <h4 style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#FFD100", marginBottom: "1rem" }}>Equipment</h4>
-              {[{ label: "Pressure Washers", href: "/pressure-washers" }, { label: "Pumps & Parts", href: "/pumps-parts" }, { label: "Surface Cleaners", href: "/surface-cleaners" }, { label: "Hose Reels", href: "/hose-reels" }, { label: "Airless Sprayers", href: "/airless-sprayers" }].map(l => (
+              <h4 style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#FFD100", marginBottom: "1rem" }}>Products</h4>
+              {[{ label: "All Products", href: "/products" }, { label: "Cleaners & Chemicals", href: "/products" }, { label: "Deco Sealers", href: "/products" }, { label: "Fittings & Valves", href: "/products" }, { label: "Hose & Reels", href: "/products" }, { label: "Engines", href: "/products" }].map(l => (
                 <Link key={l.href} href={l.href} style={{ display: "block", color: "#9CA3AF", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#FFD100")}
                   onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#9CA3AF")}>{l.label}</Link>
@@ -185,7 +189,7 @@ export default function Layout({ children, title, description, canonical, ogImag
             </div>
             <div>
               <h4 style={{ fontFamily: "Barlow Condensed, sans-serif", fontWeight: 600, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#FFD100", marginBottom: "1rem" }}>Services</h4>
-              {[{ label: "Hydraulic Hose & Fittings", href: "/hydraulic-hose" }, { label: "Pressure Washer Repair", href: "/pressure-washer-repair" }, { label: "Airless Sprayer Repair", href: "/airless-sprayers" }, { label: "Pressure Washing Rig Builds", href: "/pressure-washing-rigs" }, { label: "Ag & Pest Control Spray Systems", href: "/pest-control-sprayers" }, { label: "Deco Products", href: "/deco-products" }, { label: "About MHSS", href: "/about" }, { label: "Contact Us", href: "/contact" }].map(l => (
+              {[{ label: "Hydraulic Hose Fabrication & Repair", href: "/hydraulic-hose" }, { label: "Pressure Washer Repair", href: "/pressure-washer-repair" }, { label: "Airless Sprayer Service & Repair", href: "/airless-sprayers" }, { label: "Pressure Washing Rig Builds", href: "/pressure-washing-rigs" }, { label: "Ag & Pest Control Spray Systems", href: "/pest-control-sprayers" }, { label: "Certified Warranty Repair", href: "/pressure-washer-repair" }].map(l => (
                 <Link key={l.href} href={l.href} style={{ display: "block", color: "#9CA3AF", fontSize: "0.85rem", textDecoration: "none", marginBottom: "0.45rem", transition: "color 0.15s" }}
                   onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#FFD100")}
                   onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "#9CA3AF")}>{l.label}</Link>
