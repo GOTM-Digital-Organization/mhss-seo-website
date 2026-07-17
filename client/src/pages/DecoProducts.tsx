@@ -45,6 +45,16 @@ export default function DecoProducts() {
       title="Paver Sealers & Deco Products Sarasota FL | MHSS Inc."
       description="Paver sealers, travertine sealers, waterproofing products, and paver sealer stripper in Sarasota, FL. Water-based and single-part formulas. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/deco-products"
+      schema={
+        {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://www.mhss-inc.com/deco-products#page",
+        "name": "Deco Sealers & Concrete Products — MHSS Inc. Sarasota FL",
+        "url": "https://www.mhss-inc.com/deco-products",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." }
+      }
+      }
     >
       <QuoteModal
         isOpen={modalOpen}

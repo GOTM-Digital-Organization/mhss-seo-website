@@ -35,9 +35,10 @@ interface LayoutProps {
   description?: string;
   canonical?: string;
   ogImage?: string;
+  schema?: object;
 }
 
-export default function Layout({ children, title, description, canonical, ogImage }: LayoutProps) {
+export default function Layout({ children, title, description, canonical, ogImage, schema }: LayoutProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -67,7 +68,17 @@ export default function Layout({ children, title, description, canonical, ogImag
       const link = document.querySelector('link[rel="canonical"]');
       if (link) link.setAttribute("href", canonical);
     }
-  }, [title, description, canonical, ogImage]);
+    // Inject per-page schema
+    const existingPageSchema = document.getElementById('page-schema');
+    if (existingPageSchema) existingPageSchema.remove();
+    if (schema) {
+      const s = document.createElement('script');
+      s.id = 'page-schema';
+      s.type = 'application/ld+json';
+      s.text = JSON.stringify(schema);
+      document.head.appendChild(s);
+    }
+  }, [title, description, canonical, ogImage, schema]);
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#F2EFE9", color: "#1C1C1C", fontFamily: "Inter, sans-serif" }}>

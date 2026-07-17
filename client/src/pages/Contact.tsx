@@ -51,6 +51,16 @@ export default function Contact() {
       title="Contact MHSS Inc. | Sarasota, FL — (941) 377-4673"
       description="Contact MHSS Inc. in Sarasota, FL. 552 Catarzi Way. Call (941) 377-4673. Hydraulic hose, pressure washers, airless sprayers, and more. Monday–Friday 8AM–5PM."
       canonical="https://www.mhss-inc.com/contact"
+      schema={
+        {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "@id": "https://www.mhss-inc.com/contact#page",
+        "name": "Contact MHSS Inc. — Sarasota, FL",
+        "url": "https://www.mhss-inc.com/contact",
+        "isPartOf": { "@id": "https://www.mhss-inc.com/#business" }
+      }
+      }
     >
       {/* Hero with image */}
       <section style={{ position: "relative", minHeight: "38vh", display: "flex", alignItems: "center", overflow: "hidden" }}>

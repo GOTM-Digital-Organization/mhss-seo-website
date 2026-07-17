@@ -83,6 +83,17 @@ export default function PressureWashingRigs() {
       title="Custom Pressure Washing Rig Builds Sarasota FL | Skid, Trailer & Truck Rigs — MHSS Inc."
       description="Custom pressure washing rig builds in Sarasota, FL. Skid mounts, trailer rigs, and truck bed rigs built to spec. Honda engines, General Pump, poly tanks, hose reels. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/pressure-washing-rigs"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.mhss-inc.com/pressure-washing-rigs#service",
+        "name": "Custom Pressure Washing Rig Builds",
+        "description": "Custom pressure washing rig builds in Sarasota, FL. Skid mounts, trailer rigs, and truck bed rigs built to spec with Honda engines, General Pump, poly tanks, and hose reels.",
+        "url": "https://www.mhss-inc.com/pressure-washing-rigs",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." },
+        "areaServed": { "@type": "City", "name": "Sarasota", "addressRegion": "FL" },
+        "serviceType": "Custom Pressure Washing Rig Fabrication"
+      }}
     >
       <QuoteModal
         isOpen={modalOpen}

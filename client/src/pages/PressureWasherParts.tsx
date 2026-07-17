@@ -53,6 +53,16 @@ export default function PressureWasherParts() {
       title="Pressure Washer Parts & Accessories Sarasota FL | Guns, Wands, Tips, Hose — MHSS Inc."
       description="Pressure washer parts and accessories in Sarasota, FL. Spray guns, wands, tips, hose, chemical injectors, unloaders, thermal valves, fittings, and detergents in stock. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/pressure-washer-parts"
+      schema={
+        {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://www.mhss-inc.com/pressure-washer-parts#page",
+        "name": "Pressure Washer Parts & Accessories Sarasota FL — MHSS Inc.",
+        "url": "https://www.mhss-inc.com/pressure-washer-parts",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." }
+      }
+      }
     >
       <QuoteModal
         isOpen={modalOpen}

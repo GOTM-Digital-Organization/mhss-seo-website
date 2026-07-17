@@ -46,6 +46,17 @@ export default function PestControlSprayers() {
       title="Ag & Pest Control Spray Systems Sarasota FL | Custom Fabrication — MHSS Inc."
       description="Agricultural and pest control spray system fabrication, sales, and repair in Sarasota, FL. Custom rig builds, UDOR & Hypro pumps, poly tanks, hose reels, ag hose, spray guns. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/pest-control-sprayers"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.mhss-inc.com/pest-control-sprayers#service",
+        "name": "Ag & Pest Control Spray System Fabrication & Repair",
+        "description": "Agricultural and pest control spray system fabrication, sales, and repair in Sarasota, FL. Custom rig builds, UDOR & Hypro pumps, poly tanks, hose reels, ag hose, spray guns.",
+        "url": "https://www.mhss-inc.com/pest-control-sprayers",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." },
+        "areaServed": { "@type": "City", "name": "Sarasota", "addressRegion": "FL" },
+        "serviceType": "Agricultural Spray System Fabrication and Repair"
+      }}
     >
       <QuoteModal
         isOpen={modalOpen}

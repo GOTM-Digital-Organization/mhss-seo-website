@@ -38,6 +38,16 @@ export default function HoseReels() {
       title="Hose Reels Sarasota FL | Titan & Summit Manual & Electric — MHSS Inc."
       description="Professional hose reels in Sarasota, FL. Titan and Summit manual and electric hose reels for pressure washing. 3/8 inch and 1/2 inch ID, up to 4000 PSI. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/hose-reels"
+      schema={
+        {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://www.mhss-inc.com/hose-reels#page",
+        "name": "Hose Reels Sarasota FL — Titan & Summit | MHSS Inc.",
+        "url": "https://www.mhss-inc.com/hose-reels",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." }
+      }
+      }
     >
       <QuoteModal
         isOpen={modalOpen}

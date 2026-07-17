@@ -275,6 +275,15 @@ export default function Products() {
       title="Industrial Supply Products | Sarasota FL | MHSS Inc."
       description="Shop industrial supply products at MHSS Inc. in Sarasota, FL. Cleaners, Deco sealers, hydraulic fittings, hose reels, engines, pressure washer parts, and more. Factory direct pricing."
       canonical="https://www.mhss-inc.com/products"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://www.mhss-inc.com/products#page",
+        "name": "Industrial Supply Products — MHSS Inc. Sarasota FL",
+        "description": "Industrial supply products at MHSS Inc. in Sarasota, FL. Cleaners, Deco sealers, hydraulic fittings, hose reels, engines, pressure washer parts, and more.",
+        "url": "https://www.mhss-inc.com/products",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." }
+      }}
     >
       {/* Hero */}
       <section className="py-16" style={{ backgroundColor: "#2A2A2A" }}>

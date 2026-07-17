@@ -10,6 +10,17 @@ export default function PressureWasherRepair() {
       title="Pressure Washer Repair Sarasota FL | Honda Sales & Service | MHSS Inc."
       description="Expert pressure washer repair and sales in Sarasota, FL. Honda pressure washers, AR and General pumps, unloaders, burners, and full machine rebuilds. Call MHSS: 941-377-4673."
       canonical="https://www.mhss-inc.com/pressure-washer-repair"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.mhss-inc.com/pressure-washer-repair#service",
+        "name": "Pressure Washer Repair & Sales",
+        "description": "Expert pressure washer repair and sales in Sarasota, FL. Honda pressure washers, AR and General pumps, unloaders, burners, and full machine rebuilds.",
+        "url": "https://www.mhss-inc.com/pressure-washer-repair",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." },
+        "areaServed": { "@type": "City", "name": "Sarasota", "addressRegion": "FL" },
+        "serviceType": "Pressure Washer Repair and Sales"
+      }}
     >
       <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#404040" }}>
         <div className="absolute inset-0 bg-cover bg-center opacity-65" style={{ backgroundImage: `url(${HERO_IMG})` }} />

@@ -191,6 +191,17 @@ export default function Home() {
     <Layout
       title="MHSS Inc. | Industrial Equipment & Service | Sarasota, FL"
       description="Sarasota's industrial equipment specialists since 1990. Pressure washers, pumps, hydraulic hose, airless sprayer repair. Call (941) 377-4673."
+      canonical="https://www.mhss-inc.com/"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.mhss-inc.com/#webpage",
+        "name": "MHSS Inc. — Industrial Equipment & Service | Sarasota, FL",
+        "description": "Sarasota's industrial equipment specialists since 1990. Pressure washers, pumps, hydraulic hose, airless sprayer repair.",
+        "url": "https://www.mhss-inc.com/",
+        "isPartOf": { "@id": "https://www.mhss-inc.com/#business" },
+        "breadcrumb": { "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mhss-inc.com/" }] }
+      }}
     >
       {/* ── HERO ── */}
       <section style={{ position: "relative", background: "#1C1C1C", overflow: "hidden", minHeight: "520px", display: "flex", alignItems: "center" }}>

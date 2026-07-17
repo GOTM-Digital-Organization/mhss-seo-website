@@ -53,6 +53,16 @@ export default function PressureWashers() {
       title="Pressure Washers Sarasota FL | Honda, BE, Mi-T-M, Pressure Pro — MHSS Inc."
       description="Cold and hot water pressure washers in Sarasota, FL. Honda, BE Power Equipment, Mi-T-M, Pressure Pro. Authorized warranty service center. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/pressure-washers"
+      schema={
+        {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://www.mhss-inc.com/pressure-washers#page",
+        "name": "Pressure Washers for Sale Sarasota FL — MHSS Inc.",
+        "url": "https://www.mhss-inc.com/pressure-washers",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." }
+      }
+      }
     >
       <QuoteModal
         isOpen={modalOpen}

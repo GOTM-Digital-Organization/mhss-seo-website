@@ -10,6 +10,16 @@ export default function About() {
       title="About MHSS Inc. | Mobile Hose & Spray Systems — Sarasota, FL Since 1988"
       description="MHSS Inc. has been serving Sarasota and Manatee County since 1988. Family-owned industrial equipment dealer and service center at 552 Catarzi Way, Sarasota, FL. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/about"
+      schema={
+        {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "@id": "https://www.mhss-inc.com/about#page",
+        "name": "About MHSS Inc. — Sarasota's Industrial Equipment Specialists Since 1990",
+        "url": "https://www.mhss-inc.com/about",
+        "isPartOf": { "@id": "https://www.mhss-inc.com/#business" }
+      }
+      }
     >
       {/* Hero with image */}
       <section style={{ position: "relative", minHeight: "40vh", display: "flex", alignItems: "center", overflow: "hidden" }}>

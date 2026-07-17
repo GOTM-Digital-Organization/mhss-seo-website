@@ -45,6 +45,17 @@ export default function AirlessSprayers() {
       title="Airless Sprayer Repair Sarasota FL | Graco, Titan, Tritech Authorized Service — MHSS Inc."
       description="Certified airless sprayer repair and warranty service in Sarasota, FL. Authorized service center for Graco, Titan/SpeeFlo, and Tritech. Same-day and next-day repairs. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/airless-sprayers"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.mhss-inc.com/airless-sprayers#service",
+        "name": "Airless Sprayer Repair & Warranty Service",
+        "description": "Certified airless sprayer repair and warranty service in Sarasota, FL. Authorized service center for Graco, Titan/SpeeFlo, and Tritech.",
+        "url": "https://www.mhss-inc.com/airless-sprayers",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." },
+        "areaServed": { "@type": "City", "name": "Sarasota", "addressRegion": "FL" },
+        "serviceType": "Airless Paint Sprayer Repair"
+      }}
     >
       <QuoteModal
         isOpen={modalOpen}

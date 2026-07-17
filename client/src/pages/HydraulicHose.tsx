@@ -36,6 +36,17 @@ export default function HydraulicHose() {
       title="Hydraulic Hose Repair Sarasota FL | Parker & Bridgestone — MHSS Inc."
       description="Hydraulic hose made to order in Sarasota, FL. Parker and Bridgestone products. 2-wire and 4-wire capability. Dump trailer and cylinder repair. Usually while-you-wait. Call (941) 377-4673."
       canonical="https://www.mhss-inc.com/hydraulic-hose"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.mhss-inc.com/hydraulic-hose#service",
+        "name": "Hydraulic Hose Fabrication & Repair",
+        "description": "Custom hydraulic hose assemblies made while you wait. Parker and Bridgestone products. 2-wire and 4-wire capability. Dump trailer and cylinder repair.",
+        "url": "https://www.mhss-inc.com/hydraulic-hose",
+        "provider": { "@type": "LocalBusiness", "@id": "https://www.mhss-inc.com/#business", "name": "Mobile Hose & Spray Systems, Inc." },
+        "areaServed": { "@type": "City", "name": "Sarasota", "addressRegion": "FL" },
+        "serviceType": "Hydraulic Hose Fabrication and Repair"
+      }}
     >
       <QuoteModal
         isOpen={modalOpen}
