@@ -23,7 +23,7 @@ const NAV_ITEMS = [
     { label: "Airless Sprayer Service & Repair", href: "/airless-sprayers" },
     { label: "Pressure Washing Rig Builds", href: "/pressure-washing-rigs" },
     { label: "Ag & Pest Control Spray Systems", href: "/pest-control-sprayers" },
-    { label: "Certified Warranty Repair", href: "/pressure-washer-repair" },
+    { label: "Certified Warranty Repair", href: "/pressure-washer-repair#warranty" },
   ]},
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -109,7 +109,7 @@ export default function Layout({ children, title, description, canonical, ogImag
                   {openDropdown === item.label && (
                     <div style={{ position: "absolute", top: "100%", left: 0, minWidth: "230px", backgroundColor: "#FFFFFF", border: "1px solid #333333", borderRadius: "0.5rem", boxShadow: "0 8px 24px rgba(0,0,0,0.15)", padding: "0.5rem 0", zIndex: 100 }}>
                       {item.children.map((child) => (
-                        <Link key={child.href} href={child.href} style={{ display: "block", padding: "0.6rem 1.25rem", color: "#1C1C1C", fontFamily: "Inter, sans-serif", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s, background 0.15s" }}
+                        <Link key={child.label} href={child.href} style={{ display: "block", padding: "0.6rem 1.25rem", color: "#1C1C1C", fontFamily: "Inter, sans-serif", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s, background 0.15s" }}
                           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#CC2020"; (e.currentTarget as HTMLElement).style.backgroundColor = "#FFF9E0"; }}
                           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "#1C1C1C"; (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}>
                           {child.label}
@@ -151,7 +151,7 @@ export default function Layout({ children, title, description, canonical, ogImag
                       {item.label} <ChevronDown size={14} style={{ transform: mobileExpanded === item.label ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
                     </button>
                     {mobileExpanded === item.label && item.children.map((child) => (
-                      <Link key={child.href} href={child.href} style={{ display: "block", padding: "0.5rem 1rem", color: "#FFFFFF", fontFamily: "Inter, sans-serif", fontSize: "0.875rem", textDecoration: "none" }}>{child.label}</Link>
+                      <Link key={child.label} href={child.href} style={{ display: "block", padding: "0.5rem 1rem", color: "#FFFFFF", fontFamily: "Inter, sans-serif", fontSize: "0.875rem", textDecoration: "none" }}>{child.label}</Link>
                     ))}
                   </div>
                 ) : (
